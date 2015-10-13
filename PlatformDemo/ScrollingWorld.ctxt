@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ScrollingWorld()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ ScrollingWorld.\r\n\ \r\n
+comment1.params=dx\ dy
+comment1.target=void\ scroll(int,\ int)
+comment1.text=\r\n\ Scrolls\ the\ backgroud\ if\ possible\r\n\ @param\ dx\ change\ in\ x\r\n\ @param\ dy\ change\ in\ y\r\n
+comment2.params=
+comment2.target=void\ renderBackground()
+comment2.text=\r\n\ Draws\ the\ background\ at\ coordinates\r\n
+comment3.params=
+comment3.target=void\ prepare()
+comment3.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\ That\ is\:\ create\ the\ initial\r\n\ objects\ and\ add\ them\ to\ the\ world.\r\n
+numComments=4
