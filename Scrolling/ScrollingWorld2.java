@@ -19,7 +19,7 @@ public class ScrollingWorld2 extends World
     public ScrollingWorld2()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(700, 600, 1); 
+        super(700, 600, 1,false); 
         scrollingImage2 = new GreenfootImage("ScrollWorld2.jpg");
         x2= 0;
         //y= getHeight() - scrollingImage.getHeight();
@@ -27,18 +27,27 @@ public class ScrollingWorld2 extends World
         renderBackground2();
         prepare();
     }
+    
     private void prepare()
     {
+
         Platform platform = new Platform();
-        addObject(platform,100,550);
-        Platform platform2 = new Platform();
-        addObject(platform2,200,500);
-        Platform platform3 = new Platform();
-        addObject(platform3,300,550);
-      
-        Frog2 frog2 = new Frog2();
-        addObject(frog2,70,500);
-    }
+        addObject(platform, 68, 475);
+        platform.setLocation(68, 443);
+        Enemy1 enemy1 = new Enemy1();
+        addObject(enemy1, 218, 152);
+        Enemy2 enemy2 = new Enemy2();
+        addObject(enemy2, 237, 234);
+        enemy2.setLocation(347, 235);
+        Player player = new Player();
+        addObject(player,100,100);
+
+        enemy1.setLocation(38, 160);
+        enemy2.setLocation(32, 232);
+        Enemy3 enemy3 = new Enemy3();
+        addObject(enemy3, 349, 517);
+    }
+
       /**
      * Scrolls the backgroud if possible
      * @param dx change in x
