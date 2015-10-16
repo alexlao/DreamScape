@@ -1,77 +1,40 @@
 import greenfoot.*;
-import java.awt.Color;
-import java.util.List;//
-import java.util.ArrayList;
-
-
-/**
- * Write a description of class ScrollingWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class ScrollingWorld extends World
+import java.util.List;
+public class ScrollingWorld extends World 
 {
-    private GreenfootImage scrollingImage;
-    private int x;
-    private int y;
-     
-   
-    
-    /**
-     * Constructor for objects of class ScrollingWorld.
-     * 
-     */
-    public ScrollingWorld()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(700,600 , 1); 
-        Builder builder = new Builder();
-        scrollingImage = new GreenfootImage(builder.getBackground());
-        x= 0;
-        //y= getHeight() - scrollingImage.getHeight();
-
-        renderBackground();
-
+    private int xOffset = 0;
+    private final static int SWIDTH = 600;
+    private final static int SHEIGHT = 600;
+    private final static int WWIDTH = 1000;
+    private GreenfootImage bimg;
+    public ScrollingWorld() 
+    {
+        super(SWIDTH, SHEIGHT, 1, false);
+        bimg = new GreenfootImage("pic.png");
+        shiftWorld(0);
         prepare();
-        
     }
-   
-    
-    /**
-     * Scrolls the backgroud if possible
-     * @param dx change in x
-     * @param dy change in y
-     */
-    public void scroll (int dx, int dy)
-    {
-        int newX = x - dx;
-        
-        //int newY = y - dy;
-        if (getWidth() - scrollingImage.getWidth() <= newX && newX <= 0)// new x must be less than 0, but not too big negative that it's off the screen
-        {
-            x = newX;
-            
-        }
-        //if (getHeight() - scrollingImage.getHeight() <= newY && newY <= 0)// new y must be less than 0, but not too big negative that it's off the screen
-        {
-           // y = newY;
-        }
-        
-        
+    public void shiftWorld(int dx) {
 
-        renderBackground(); ///the new x is in range set it
+        if( (xOffset + dx) <= 0 && (xOffset + dx) >= SWIDTH - WWIDTH) {
+            xOffset = xOffset + dx;
+            shiftWorldBackground(dx);
+            shiftWorldActors(dx);
+        }
+    }
+    private void shiftWorldBackground(int dx) {
+        GreenfootImage bkgd = new GreenfootImage(SWIDTH, SHEIGHT);
+        bkgd.drawImage(bimg, xOffset, 0);
+        setBackground(bkgd);
+    }
+    private void shiftWorldActors(int dx) {
+        List<ScrollingActor> saList =
+        getObjects(ScrollingActor.class);
+        for( ScrollingActor a : saList ) {
+            a.setAbsoluteLocation(dx);
+        }
     }
     
-
-    /**
-     * Draws the background at coordinates
-     */
-    public void renderBackground()
-    {
-        getBackground().drawImage(scrollingImage, x, y);
-    }
-
     /**
      * Prepare the world for the start of the program. That is: create the initial
      * objects and add them to the world.
@@ -123,5 +86,46 @@ public class ScrollingWorld extends World
         Platform platform10 = new Platform();
         addObject(platform10, 576, 466);
         coin6.setLocation(584, 429);
+        Platform platform11 = new Platform();
+        addObject(platform11, 651, 352);
+        Platform platform12 = new Platform();
+        addObject(platform12, 728, 458);
+        Platform platform13 = new Platform();
+        addObject(platform13, 570, 571);
+        Platform platform14 = new Platform();
+        addObject(platform14, 691, 550);
+        Platform platform15 = new Platform();
+        addObject(platform15, 758, 412);
+        platform15.setLocation(782, 392);
+        Platform platform16 = new Platform();
+        addObject(platform16, 822, 528);
+        platform16.setLocation(823, 504);
+        platform13.setLocation(539, 536);
+        platform14.setLocation(646, 582);
+        platform12.setLocation(726, 450);
+        platform15.setLocation(807, 391);
+        platform12.setLocation(730, 434);
+        platform15.setLocation(799, 377);
+        platform16.setLocation(813, 493);
+        Platform platform17 = new Platform();
+        addObject(platform17, 899, 578);
+        platform17.setLocation(902, 553);
+        platform17.setLocation(902, 551);
+        coin6.setLocation(926, 518);
+        coin4.setLocation(572, 506);
+        Platform platform18 = new Platform();
+        addObject(platform18, 999, 422);
+        platform12.setLocation(666, 416);
+        platform18.setLocation(895, 437);
+        coin5.setLocation(422, 275);
+        coin5.setLocation(443, 259);
+        platform8.setLocation(389, 319);
+        platform4.setLocation(292, 385);
+        platform8.setLocation(376, 335);
+        coin5.setLocation(400, 296);
+        platform9.setLocation(480, 274);
+        platform6.setLocation(375, 436);
+        platform3.setLocation(282, 494);
+        platform5.setLocation(398, 547);
     }
 }

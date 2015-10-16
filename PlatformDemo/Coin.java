@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Coin extends Actor
+public class Coin extends ScrollingActor
 {
     /**
      * Act - do whatever the Coin wants to do. This method is called whenever
