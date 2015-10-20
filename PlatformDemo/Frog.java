@@ -18,7 +18,7 @@ public class Frog extends Actor
     public int scrolled = 0;
     
     private int speedX = 1;
-    private static final int SPEED = 2;
+    private static final int SPEED = 5;
     private static final int BOUNDARY = 40;
     
     /**
@@ -149,7 +149,7 @@ public class Frog extends Actor
         if( speedX+getX() <= BOUNDARY ) 
         {
             setLocation(BOUNDARY, getY());
-            ((ScrollingWorld)getWorld()).shiftWorld(-4);
+            ((ScrollingWorld)getWorld()).shiftWorld(4);
         } 
         else if( speedX+getX() >= getWorld().getWidth()-BOUNDARY ) 
         {
