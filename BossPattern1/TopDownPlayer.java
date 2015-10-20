@@ -9,7 +9,7 @@ import java.lang.Math;
 public class TopDownPlayer extends Actor
 {
     public int playerSpeed = 5;
-    public int playerTurnSpeed = 3;
+    public int playerTurnSpeed = 2;
     public  int shotTimer = 0;
     private GreenfootImage shot= new GreenfootImage("Topdownshot.png");
     private GreenfootImage noShot= new GreenfootImage("topdown.png");
@@ -45,11 +45,11 @@ public class TopDownPlayer extends Actor
         {
             move((int)Math.round(-playerSpeed * .75));
         }
-        if(Greenfoot.isKeyDown("left"))
+        if(Greenfoot.isKeyDown("j"))
         {
             turn(-playerTurnSpeed);
         }
-        if(Greenfoot.isKeyDown("right"))
+        if(Greenfoot.isKeyDown("l"))
         {
             turn(playerTurnSpeed);
         }
@@ -73,7 +73,7 @@ public class TopDownPlayer extends Actor
         {
             shotTimer--;
         }
-        else if(Greenfoot.isKeyDown("space"))
+        else if(Greenfoot.isKeyDown("k"))
         {
             getWorld().addObject(new Shot(this), getX(), getY());
             shotTimer = 50;

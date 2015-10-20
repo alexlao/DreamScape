@@ -7,6 +7,7 @@ public class ScrollingWorld2 extends World
     private final static int SHEIGHT = 600;
     private final static int WWIDTH = 1100;
     private GreenfootImage bimg;
+    
     public ScrollingWorld2() 
     {
         super(SWIDTH, SHEIGHT, 1, false);
@@ -14,26 +15,33 @@ public class ScrollingWorld2 extends World
         shiftWorld(0);
         prepare();
     }
-    public void shiftWorld(int dx) {
-
-        if( (xOffset + dx) <= 0 && (xOffset + dx) >= SWIDTH - WWIDTH) {
+    
+    public void shiftWorld(int dx)
+    {
+        if( (xOffset + dx) <= 0 && (xOffset + dx) >= SWIDTH - WWIDTH)
+        {
             xOffset = xOffset + dx;
             shiftWorldBackground(dx);
             shiftWorldActors(dx);
         }
     }
-    private void shiftWorldBackground(int dx) {
+    
+    private void shiftWorldBackground(int dx)
+    {
         GreenfootImage bkgd = new GreenfootImage(SWIDTH, SHEIGHT);
         bkgd.drawImage(bimg, xOffset, 0);
         setBackground(bkgd);
     }
-    private void shiftWorldActors(int dx) {
-        List<ScrollingActor> saList =
-        getObjects(ScrollingActor.class);
-        for( ScrollingActor a : saList ) {
+    
+    private void shiftWorldActors(int dx)
+    {
+        List<ScrollingActor> saList = getObjects(ScrollingActor.class);
+        for( ScrollingActor a : saList )
+        {
             a.setAbsoluteLocation(dx);
         }
     }
+    
     private void prepare()
     {
         Platform platform = new Platform();
@@ -42,8 +50,12 @@ public class ScrollingWorld2 extends World
         addObject(platform2,200,500);
         Platform platform3 = new Platform();
         addObject(platform3,300,550);
-      
+
         Frog frog = new Frog();
         addObject(frog,70,500);
+        Platform platform19 = new Platform();
+        addObject(platform19, 557, 529);
+        Platform platform20 = new Platform();
+        addObject(platform20, 433, 524);
     }
 }
