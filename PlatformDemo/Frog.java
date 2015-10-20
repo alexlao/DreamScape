@@ -146,6 +146,8 @@ public class Frog extends Actor
         }
     }
     private void boundedMove() {
+        try{
+
         if( speedX+getX() <= BOUNDARY ) 
         {
             setLocation(BOUNDARY, getY());
@@ -162,7 +164,11 @@ public class Frog extends Actor
       
          speedX = 0;
         }
-       
+        catch(Exception E)
+        {
+        }
+    }
+
     public void edgeCheck()
     {
         if(getY()>600)
