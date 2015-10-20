@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Platform extends Actor
+public class Platform extends ScrollingActor
 {
     ScrollingWorld world;
     
@@ -24,19 +24,7 @@ public class Platform extends Actor
         
         
     }
-    public void act()
-    {
-        platMove();
-        
-    }
-    public void platMove()
-     {
-         Frog frog = new Frog();
-        if (frog.scrolled>=1)
-        {
-            move (-4);
-        }   
-    }
+  
         
     }
 

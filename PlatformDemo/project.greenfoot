@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Greenfoot project file
 class.Bee.image=bee.png
 class.Bee.superclass=greenfoot.Actor
@@ -9,6 +10,33 @@ class.Coin.image=Pillow\ (4).png
 class.Coin.superclass=greenfoot.Actor
 class.Frog.image=8bit-3.png
 class.Frog.superclass=greenfoot.Actor
+=======
+#Greenfoot properties
+#Fri Oct 16 15:53:17 PDT 2015
+target12.editor.height=700
+target10.editor.width=896
+target2.width=80
+target8.name=Frog
+target11.y=130
+target11.x=190
+target5.naviview.expanded=false
+dependency12.type=UsesDependency
+target1.type=ClassTarget
+target7.showInterface=false
+mainWindow.height=797
+target2.editor.y=-9
+target6.typeParameters=
+target2.editor.x=-9
+dependency9.to=Platform
+target1.height=50
+dependency16.type=UsesDependency
+target8.y=10
+class.Bullet.superclass=greenfoot.Actor
+target8.x=190
+dependency21.to=Frog2
+target2.editor.width=1548
+dependency2.type=UsesDependency
+>>>>>>> f34f7f3a57ea6529822a11ef8473ff7541670c96
 class.Frog2.image=8bit-3.png
 class.Frog2.superclass=greenfoot.Actor
 class.Platform.image=Platform.png
@@ -114,6 +142,7 @@ target10.editor.x=40
 target10.editor.y=20
 target10.height=50
 target10.name=ScrollingWorld2
+<<<<<<< HEAD
 target10.naviview.expanded=true
 target10.showInterface=false
 target10.type=ClassTarget
@@ -123,6 +152,23 @@ target10.x=120
 target10.y=190
 target11.editor.height=700
 target11.editor.width=900
+=======
+dependency13.type=UsesDependency
+target7.editor.width=900
+target2.type=ClassTarget
+target4.editor.y=20
+dependency1.to=Bullet
+dependency17.type=UsesDependency
+target4.editor.x=40
+dependency3.type=UsesDependency
+target2.height=50
+target2.typeParameters=
+target6.type=ClassTarget
+dependency11.to=ScrollingWorld2
+dependency11.from=Frog2
+target9.typeParameters=
+target11.editor.y=20
+>>>>>>> f34f7f3a57ea6529822a11ef8473ff7541670c96
 target11.editor.x=40
 target11.editor.y=20
 target11.height=50
@@ -147,6 +193,7 @@ target12.width=80
 target12.x=190
 target12.y=250
 target2.editor.height=876
+<<<<<<< HEAD
 target2.editor.width=1548
 target2.editor.x=-9
 target2.editor.y=-9
@@ -180,6 +227,66 @@ target4.height=50
 target4.name=PlatformMap
 target4.naviview.expanded=false
 target4.showInterface=false
+=======
+class.Platform.superclass=greenfoot.Actor
+dependency18.type=UsesDependency
+target11.typeParameters=
+target5.y=130
+target7.editor.y=20
+target5.x=10
+class.ScrollingWorld2.image=ScrollWorld2.jpg
+dependency4.type=UsesDependency
+target7.type=ClassTarget
+target7.editor.x=40
+target10.width=120
+class.ScrollingActor.superclass=greenfoot.Actor
+target3.y=250
+target3.x=10
+target11.width=80
+dependency7.to=Coin
+dependency12.from=Frog2
+target3.height=50
+class.Frog.image=8bit-3.png
+dependency8.type=UsesDependency
+target1.y=10
+target4.naviview.expanded=false
+target1.x=70
+class.Bullet.image=blue-draught.png
+target12.type=ClassTarget
+target5.typeParameters=
+class.ScrollingWorld2.superclass=greenfoot.World
+dependency17.to=ScrollingWorld
+dependency16.from=Platform
+target1.editor.width=900
+dependency2.from=Bee
+target8.editor.y=132
+target8.editor.x=749
+target11.editor.height=700
+dependency6.from=Frog
+target8.editor.width=583
+project.charset=UTF-8
+target3.showInterface=false
+target3.name=Frog2
+target6.showInterface=false
+target3.typeParameters=
+class.ScrollingWorld.superclass=greenfoot.World
+target9.showInterface=false
+dependency3.to=Splat
+target7.name=Splat
+target9.naviview.expanded=false
+target2.naviview.expanded=true
+dependency11.type=UsesDependency
+package.numDependencies=20
+target9.editor.y=20
+target9.editor.x=40
+dependency21.type=UsesDependency
+dependency13.to=Platform
+package.numTargets=12
+target6.editor.width=900
+target12.name=myWorld
+dependency15.type=UsesDependency
+dependency1.type=UsesDependency
+>>>>>>> f34f7f3a57ea6529822a11ef8473ff7541670c96
 target4.type=ClassTarget
 target4.typeParameters=
 target4.width=100
@@ -216,11 +323,25 @@ target7.editor.width=900
 target7.editor.x=40
 target7.editor.y=20
 target7.height=50
+<<<<<<< HEAD
 target7.name=Splat
 target7.naviview.expanded=false
 target7.showInterface=false
 target7.type=ClassTarget
 target7.typeParameters=
+=======
+dependency20.to=Platform
+dependency5.type=UsesDependency
+target8.type=ClassTarget
+class.Coin.superclass=greenfoot.Actor
+dependency18.to=Builder
+dependency13.from=Frog2
+dependency9.type=UsesDependency
+target3.editor.height=700
+target7.naviview.expanded=false
+target6.width=80
+target10.height=50
+>>>>>>> f34f7f3a57ea6529822a11ef8473ff7541670c96
 target7.width=80
 target7.x=160
 target7.y=70
@@ -234,6 +355,7 @@ target8.naviview.expanded=true
 target8.showInterface=false
 target8.type=ClassTarget
 target8.typeParameters=
+<<<<<<< HEAD
 target8.width=80
 target8.x=190
 target8.y=10
@@ -252,3 +374,16 @@ target9.x=100
 target9.y=250
 version=2.7.1
 world.lastInstantiated=ScrollingWorld
+=======
+dependency7.from=Frog
+target1.editor.y=20
+target1.editor.x=40
+target5.width=80
+dependency4.to=Splat
+target4.editor.width=899
+target4.name=PlatformMap
+target4.height=50
+target12.typeParameters=
+target1.width=110
+dependency14.to=Frog
+>>>>>>> f34f7f3a57ea6529822a11ef8473ff7541670c96

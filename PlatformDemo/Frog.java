@@ -8,8 +8,7 @@ import greenfoot.*;
  */
 public class Frog extends Actor
 {
-    ScrollingWorld world;
-    ScrollingWorld2 world2;
+    
     private int vSpeed = 0;//fall speed
     private int accel = 2; //gravity acceleration
     
@@ -18,23 +17,22 @@ public class Frog extends Actor
     private int coinEaten = 0;
     public int scrolled = 0;
     
-    /**
-     * When added, it is saved to scrolling world
-     */
-    protected void addedToWorld(World world)
-    {
-        this.world = (ScrollingWorld)world;
-       
-    }
+    private int speedX = 1;
+    private static final int SPEED = 2;
+    private static final int BOUNDARY = 40;
+    
     /**
      * Act - do whatever the Frog wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        Keypress(); 
+        KeyPress(); 
+        boundedMove();
         checkFall();
+        edgeCheck();
         eatCoin();
+        
         
     }
     public Frog()
@@ -47,37 +45,20 @@ public class Frog extends Actor
     
     }
    
-    public void Keypress()
+    private void KeyPress() 
     {
-      
-        if (Greenfoot.isKeyDown("left"))
-       {
-           world.scroll(-4,0);
-          
-           move(-4);
-        
-       }  
-       if (Greenfoot.isKeyDown("right"))
-       {
-          world.scroll(4,0);
-          scrolled++;
-          move(4);
-       }
-       if (Greenfoot.isKeyDown("up"))
-       {
-           jump();
-           
-        }
-       if (Greenfoot.isKeyDown("down"))
-       {
-           
-           setLocation(getX(),getY()+4);
-        }
-       if ("space".equals(Greenfoot.getKey()))//get space key once instead of multiple times//
+        handleArrowKey("left", -SPEED);
+        handleArrowKey("right", SPEED);
+        if(Greenfoot.isKeyDown("up"))
         {
-            fire();
+            jump();
         }
-       
+
+    }
+    private void handleArrowKey(String k, int sX) {
+        if( Greenfoot.isKeyDown(k) ) {
+            speedX = sX;
+        }
     }
     private void fire()
     {
@@ -164,5 +145,29 @@ public class Frog extends Actor
              
         }
     }
+    private void boundedMove() {
+        if( speedX+getX() <= BOUNDARY ) 
+        {
+            setLocation(BOUNDARY, getY());
+            ((ScrollingWorld)getWorld()).shiftWorld(-4);
+        } 
+        else if( speedX+getX() >= getWorld().getWidth()-BOUNDARY ) 
+        {
+            setLocation(getWorld().getWidth()-BOUNDARY, getY());
+            ((ScrollingWorld)getWorld()).shiftWorld(-4);
+        }
+        else 
+        { setLocation(getX()+speedX, getY());
+            }
       
+         speedX = 0;
+        }
+       
+    public void edgeCheck()
+    {
+        if(getY()>600)
+        {
+           setLocation(100,30);
+        }
+    }
     }

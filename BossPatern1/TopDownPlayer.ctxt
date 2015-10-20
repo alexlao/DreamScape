@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment1.params=
+comment1.target=void\ moveAndTurn()
+comment1.text=\r\n\ Reads\ the\ keyboard's\ arrow\ keys\ to\ determine\ how\ to\ move\ and\ turn\ the\r\n\ player\r\n
+comment2.params=
+comment2.target=void\ shoot()
+numComments=3
