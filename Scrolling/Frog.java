@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class Frog extends Actor
 {
-    ScrollingWorld world;
+    //ScrollingWorld2 world;
     ScrollingWorld2 world2;
     private int vSpeed = 0;//fall speed
     private int accel = 2; //gravity acceleration

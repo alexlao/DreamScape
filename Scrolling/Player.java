@@ -79,7 +79,7 @@ public class Player extends Actor
     }
     private void fire()
     {
-        Bullet bullet = new Bullet();
+        Bullet2 bullet = new Bullet2();
         getWorld().addObject(bullet,getX(),getY());  
         Greenfoot.playSound("gun shot.wav");
     }
