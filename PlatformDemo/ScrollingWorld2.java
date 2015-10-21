@@ -7,13 +7,17 @@ public class ScrollingWorld2 extends World
     private final static int SHEIGHT = 600;
     private final static int WWIDTH = 1100;
     private GreenfootImage bimg;
+    Clock clock = new Clock(false, true, 0, "Time:");
     public ScrollingWorld2() 
     {
         super(SWIDTH, SHEIGHT, 1, false);
         bimg = new GreenfootImage("ScrollWorld2.jpg");
         shiftWorld(0);
         prepare();
+        
+       
     }
+    
     public void shiftWorld(int dx) {
 
         if( (xOffset + dx) <= 0 && (xOffset + dx) >= SWIDTH - WWIDTH) {

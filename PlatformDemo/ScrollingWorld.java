@@ -7,6 +7,7 @@ public class ScrollingWorld extends World
     private final static int SHEIGHT = 600;
     private final static int WWIDTH = 1000;
     private GreenfootImage bimg;
+    Clock c = new Clock(false, true, 0, "Time:");
     public ScrollingWorld() 
     {
         super(SWIDTH, SHEIGHT, 1, false);
@@ -127,5 +128,8 @@ public class ScrollingWorld extends World
         platform6.setLocation(375, 436);
         platform3.setLocation(282, 494);
         platform5.setLocation(398, 547);
+        addObject(new Clock(false, true, 0, "Time:"), 60, 40);
     }
+   
+
 }

@@ -139,8 +139,8 @@ public class Frog extends Actor
        }
         if (coinEaten == 4)
          {
-             ScrollingWorld2 world2 = new ScrollingWorld2();
-             Greenfoot.setWorld(world2);
+             ScrollingWorld2 w2 = new ScrollingWorld2();
+             Greenfoot.setWorld(w2);
 
              
         }

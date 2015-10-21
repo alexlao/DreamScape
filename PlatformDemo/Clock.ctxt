@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=countDown\ displayTime\ startingTime\ text
+comment0.target=Clock(boolean,\ boolean,\ int,\ java.lang.String)
+comment0.text=\r\n\ Create\ a\ new\ Clock\ with\ your\ own\ text\ or\ other\ values.\r\n\ \r\n\ @param\ countDown\r\n\ \ \ \ \ \ Set\ the\ kind\ of\ the\ clock.\ If\ true\ the\ clock\ will\ cound\ down\ from\ the\ given\ starting\ time.\ Otherwise\ it'll\ count\ up\ from\ 0.\r\n\ \r\n\ @param\ displayTime\r\n\ \ \ \ \ \ Set\ the\ clock's\ visibility.\ If\ true\ the\ clock\ is\ visible.\r\n\ \r\n\ @param\ startingTime\r\n\ \ \ \ \ \ The\ starting\ time\ for\ countdown\ clocks.\ If\ you\ restart\ the\ clock\ it'll\ start\ from\ this\ value.\r\n\ \r\n\ @param\ text\r\n\ \ \ \ \ \ The\ text\ above\ the\ clock.\ If\ text\ is\ null\ the\ clock\ will\ be\ centered\ and\ there\ is\ no\ text.\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Clock\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\nLet\ the\ clock\ count\ the\ time.\ Changes\ the\ image\ of\ the\ clock\ as\ it\ counts.\r\n
+comment2.params=
+comment2.target=void\ drawTime()
+comment2.text=\r\n\ The\ drawing\ method\ of\ the\ clock.\r\n\ This\ method\ draws\ the\ current\ value\ of\ your\ clock\ onto\ the\ clock\ object.\r\n
+comment3.params=
+comment3.target=void\ startClock()
+comment3.text=\r\n\ Start\ the\ clock.\r\n
+numComments=4
