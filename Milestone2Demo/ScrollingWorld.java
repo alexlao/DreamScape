@@ -2,11 +2,13 @@ import greenfoot.*;
 import java.util.List;
 public class ScrollingWorld extends World 
 {
-    private int xOffset = 0;
-    private final static int SWIDTH = 600;
-    private final static int SHEIGHT = 600;
-    private final static int WWIDTH = 1000;
+    public int xOffset = 0;
+    public final static int SWIDTH = 600;
+    public final static int SHEIGHT = 600;
+    public final static int WWIDTH = 1000;
     private GreenfootImage bimg;
+    private Counter counter;
+    
     public ScrollingWorld() 
     {
         super(SWIDTH, SHEIGHT, 1, false);
@@ -22,6 +24,11 @@ public class ScrollingWorld extends World
             shiftWorldActors(dx);
         }
     }
+    public Counter getCounter()
+    {
+        //gets counter, similar to lab exercise
+        return counter;
+    }
     private void shiftWorldBackground(int dx) {
         GreenfootImage bkgd = new GreenfootImage(SWIDTH, SHEIGHT);
         bkgd.drawImage(bimg, xOffset, 0);
@@ -34,6 +41,14 @@ public class ScrollingWorld extends World
             a.setAbsoluteLocation(dx);
         }
     }
+    public void act()
+    {
+     if(getObjects(Coin.class).isEmpty() == true)
+     {
+         ScrollingWorld2 world2 = new ScrollingWorld2(counter, counter.returnValue());
+         Greenfoot.setWorld(world2);
+        }
+    }
     
     /**
      * Prepare the world for the start of the program. That is: create the initial
@@ -41,7 +56,8 @@ public class ScrollingWorld extends World
      */
     private void prepare()
     {
-        Frog frog = new Frog();
+        counter = new Counter(0);
+        Frog frog = new Frog(counter);
         addObject(frog, 85, 301);
 
         Platform platform = new Platform();
@@ -127,5 +143,6 @@ public class ScrollingWorld extends World
         platform6.setLocation(375, 436);
         platform3.setLocation(282, 494);
         platform5.setLocation(398, 547);
+        addObject(counter, 100,200);
     }
 }

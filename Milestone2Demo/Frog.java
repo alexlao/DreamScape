@@ -21,12 +21,15 @@ public class Frog extends Actor
     private static final int SPEED = 5;
     private static final int BOUNDARY = 40;
     
-    public Frog()
+    Counter counter;
+    
+    public Frog(Counter counter)
     {
         GreenfootImage myImage = getImage();
         int myNewHeight = (int)myImage.getHeight()/3;
         int myNewWidth = (int)myImage.getWidth()/3;
         myImage.scale(myNewWidth, myNewHeight);
+        this.counter = counter;
     }
     
     /**
@@ -120,10 +123,13 @@ public class Frog extends Actor
             fall();
         }
     }
+    
     public void eatCoin()
     {
         Actor coin;
         coin = getOneObjectAtOffset(0,0,Coin.class);
+//         ScrollingWorld scrollingWorld = (ScrollingWorld)getWorld();
+//         Counter counter = scrollingWorld.getCounter();
         if (coin!=null)
         {
             World world;
@@ -131,17 +137,11 @@ public class Frog extends Actor
             world.removeObject(coin);
             coinEaten++;
             Greenfoot.playSound("Beep.mp3");
-    
-        
+            counter.bumpCounter();
        }
-        if (coinEaten == 4)
-         {
-             ScrollingWorld2 world2 = new ScrollingWorld2();
-             Greenfoot.setWorld(world2);
 
-             
-        }
     }
+    
     private void boundedMove() {
         try
         {

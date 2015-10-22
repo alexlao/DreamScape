@@ -14,12 +14,11 @@ public class Shop extends World
     Weapon3 weapon3 = new Weapon3();
     Counter counter;
     int z;
-    public Shop(/*int totalCount */)
+    public Shop(int totalCount )
     {
         //takes in paramaters to continue the counter
         super(600, 400, 1); 
         prepare();
-        int totalCount = 3;
         counter = new Counter(totalCount);
         act();
         addObject(counter,100,200);
@@ -46,16 +45,16 @@ public class Shop extends World
     //code that runs in the shop to see which item to purchase and if sufficient credits to purchase
         if(Greenfoot.isKeyDown("a") && counter.returnValue()>=3 ){
         removeObject(weapon1);
-        counter.setCurrentValue(3);
+        counter.setCurrentValue(counter.returnValue()-3);
         
     }
     if(Greenfoot.isKeyDown("s") && counter.returnValue()>=1){
         removeObject(weapon2);
-        counter.setCurrentValue(1);
+        counter.setCurrentValue(counter.returnValue()-1);
     }
     if(Greenfoot.isKeyDown("d") && counter.returnValue()>=2){
         removeObject(weapon3);    
-        counter.setCurrentValue(2);
+        counter.setCurrentValue(counter.returnValue()-2);
     }  
     }
 
