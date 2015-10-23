@@ -2,15 +2,13 @@ import greenfoot.*;
 
 public class Shot extends Actor
 {
-    private TopDownPlayer player;
-    private Boss boss;
-    private int healthCount = 0;
+   private TopDownPlayer player;
+   private Boss boss;
+   private int healthCount = 0;
    private int bossTime = 0;
-   private GreenfootImage bossHit= new GreenfootImage("HitBoss.png");
-   private GreenfootImage n = new GreenfootImage(boss.getImage());
+   private GreenfootImage bossHit;
+   private GreenfootImage n;
   
-
-
     public Shot(TopDownPlayer player)
     {
         this.player = player;
@@ -20,7 +18,8 @@ public class Shot extends Actor
     public Shot(Boss boss)
     {
         this.boss = boss;
-        
+        n = new GreenfootImage(boss.getImage());
+        bossHit= new GreenfootImage("HitBoss.png");
     }
 
     public void health(int amount)
@@ -36,7 +35,6 @@ public class Shot extends Actor
         if(Boss != null)
         {
             health(10);
-
         }
         if(healthCount >= 1)
         {
@@ -60,9 +58,10 @@ public class Shot extends Actor
         {
             world.removeObject(this);
          }
-        juice();//animates the spider when hit; I added this code here because the shot class seems to be better at detecting the spider than the spider detecting the shot
+        //juice();//animates the spider when hit; I added this code here because the shot class seems to be better at detecting the spider than the spider detecting the shot
         
-   }    
+   }
+   
    public void juice()
    {
 
@@ -88,9 +87,7 @@ public class Shot extends Actor
             
             }
         bossTime++;
-        }
+    }
  
-   
-      
     }
 

@@ -17,15 +17,12 @@ public class Boss extends Actor
     private int shotTimer = 0;
     private int shotAmount = 0;
     private int shotAmount2 = 0;
-<<<<<<< HEAD
- 
 
-=======
     Counter counter;
     public Boss(Counter counter){
         this.counter = counter;
     }
->>>>>>> origin/milestone2
+
     public void act() 
     {
         intro();
