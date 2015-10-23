@@ -14,6 +14,9 @@ public class Shop extends World
     Weapon3 weapon3 = new Weapon3();
     Counter counter;
     int z;
+    int shopNumA;
+    int shopNumB;
+    int shopNumC;
     public Shop(int totalCount )
     {
         //takes in paramaters to continue the counter
@@ -37,24 +40,29 @@ public class Shop extends World
         showText("1 Point", 296, 270);
         addObject(weapon3, 483, 240);
         showText("2 Points", 483, 270);
+        shopNumA = 0;
+        shopNumB =0;
+        shopNumC = 0;
     }
     
    
     
     public void act(){
     //code that runs in the shop to see which item to purchase and if sufficient credits to purchase
-        if(Greenfoot.isKeyDown("a") && counter.returnValue()>=3 ){
+        if(Greenfoot.isKeyDown("a") && counter.returnValue()>=3 && shopNumA == 0){
         removeObject(weapon1);
-        counter.setCurrentValue(counter.returnValue()-3);
-        
+        counter.setCurrentValue(3);
+        shopNumA++;
     }
-    if(Greenfoot.isKeyDown("s") && counter.returnValue()>=1){
+    if(Greenfoot.isKeyDown("s") && counter.returnValue()>=1 && shopNumB == 0){
         removeObject(weapon2);
-        counter.setCurrentValue(counter.returnValue()-1);
+        counter.setCurrentValue(1);
+        shopNumB++;
     }
-    if(Greenfoot.isKeyDown("d") && counter.returnValue()>=2){
+    if(Greenfoot.isKeyDown("d") && counter.returnValue()>=2 && shopNumC == 0){
         removeObject(weapon3);    
-        counter.setCurrentValue(counter.returnValue()-2);
+        counter.setCurrentValue(2);
+        shopNumC++;
     }  
     }
 
