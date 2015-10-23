@@ -127,14 +127,14 @@ public class ScrollingWorld extends World
         addObject(platform17, 899, 578);
         platform17.setLocation(902, 553);
         platform17.setLocation(902, 551);
-        coin6.setLocation(926, 518);
+        coin6.setLocation(820, 450);
         coin4.setLocation(572, 506);
         Platform platform18 = new Platform();
         addObject(platform18, 999, 422);
         platform12.setLocation(666, 416);
         platform18.setLocation(895, 437);
         coin5.setLocation(422, 275);
-        coin5.setLocation(443, 259);
+        coin5.setLocation(421, 457);
         platform8.setLocation(389, 319);
         platform4.setLocation(292, 385);
         platform8.setLocation(376, 335);

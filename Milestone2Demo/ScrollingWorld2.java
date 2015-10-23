@@ -62,8 +62,8 @@ public class ScrollingWorld2 extends World
         Platform platform20 = new Platform();
         addObject(platform20, 433, 524);
         Portal portal = new Portal();
-        addObject(portal, 559, 490);
-        
+        addObject(portal, 460, 490);
+
         addObject(counter, 100, 200);
     }
 

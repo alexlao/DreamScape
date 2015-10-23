@@ -31,7 +31,7 @@ public class Boss extends Actor
 
     public void endGame()
     {
-        if(damageAmount > 20)
+        if(damageAmount > 21)
         {
             Stage stage = (Stage)getWorld();
             stage.goToShop();
@@ -133,7 +133,7 @@ public class Boss extends Actor
     //Goes side to side and shoots intermittently
     public void pattern1()
     {   
-        if(getY() >= 150 && damageAmount < 1 )
+        if(getY() >= 150 && damageAmount < 7 )
         {
             shoot();
             if(getY() >= 150 && getY() <= 160)
@@ -159,7 +159,7 @@ public class Boss extends Actor
     //He moves across the ceiling and drops down 4 times, on each edge, and twice in the middle all at the samee length and at ech peak he spins and shoots
     public void pattern2()
     {
-        if(damageAmount == 1)
+        if(damageAmount >= 7 && damageAmount <14 )
         {
             if(turnAmount == 0)
             {
@@ -398,22 +398,23 @@ public class Boss extends Actor
     //when he comes down on the sides he falls down farther than in the middle. he also spins and shoots at his peak when he drops down
     public void pattern3()
     {
-        for(int i = 0; i < 1; i++)
+        if (damageAmount == 14)
         {
             setRotation(0);
+            damageAmount++;
         }
-        if(damageAmount == 2)
+        if(damageAmount >= 14 && damageAmount <= 21)
         {
-            for(int i = 0; i < 1; i++)
-            {
-                 setRotation(0);
-            }
+            //             for(int i = 0; i < 1; i++)
+            //             {
+            //                  setRotation(0);
+            //             }
             /*
             if(damageAmount == 2)
             {
-                setRotation(0);  
+            setRotation(0);  
             }
-            */
+             */
             if(turnAmount2 == 0)
             {
 
