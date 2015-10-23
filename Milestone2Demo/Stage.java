@@ -30,7 +30,7 @@ public class Stage extends World
      */
     private void prepare()
     {
-        Boss boss = new Boss();
+        Boss boss = new Boss(counter);
         addObject(boss, 302, 31);
 
 

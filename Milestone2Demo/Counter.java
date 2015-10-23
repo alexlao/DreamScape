@@ -31,5 +31,7 @@ public class Counter extends Actor
         totalCount = totalCount - x;
         setImage(new GreenfootImage(""+totalCount, 20, Color.WHITE, Color.BLACK));
     }
-    
+    public void gainPoints(int z){
+        totalCount = totalCount + z;
+    }
 }
