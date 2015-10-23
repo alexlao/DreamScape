@@ -16,6 +16,7 @@ public class TopDownPlayer extends Actor
     public int shotTimer = 0;
     private GreenfootImage shot= new GreenfootImage("Topdownshot.png");
     private GreenfootImage noShot= new GreenfootImage("topdown.png");
+
     // private Playerhitbox phb;
     //  int stationaryX;
 
@@ -95,6 +96,7 @@ public class TopDownPlayer extends Actor
             getWorld().addObject(new Shot(this), getX(), getY());
             shotTimer = 50;
             setImage(shot);
+            
 
         }
 

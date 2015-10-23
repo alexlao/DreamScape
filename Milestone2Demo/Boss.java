@@ -17,6 +17,7 @@ public class Boss extends Actor
     private int shotTimer = 0;
     private int shotAmount = 0;
     private int shotAmount2 = 0;
+ 
 
     public void act() 
     {
@@ -26,6 +27,7 @@ public class Boss extends Actor
         pattern2();
         pattern3();
         endGame();
+       
         //death();
     }      
 
@@ -44,6 +46,7 @@ public class Boss extends Actor
         {
             removeTouching(Shot.class);
             healthCount(1);
+
         }
     }
 
@@ -576,12 +579,14 @@ public class Boss extends Actor
                     {
                         //shoot stuff method here
                         //asetLocation(getX() + 1, getY());
-                        setRotation(0);
+                        setRotation(0);;
                         turnCount2(-1);
                     }
                 }
             }
         }
     }
-
+   
+    
+    
 }
