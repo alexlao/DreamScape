@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=int\ returnValue()
 comment3.params=x
 comment3.target=void\ setCurrentValue(int)
-numComments=4
+comment4.params=z
+comment4.target=void\ gainPoints(int)
+numComments=5

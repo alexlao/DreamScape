@@ -19,7 +19,7 @@ public class Frog extends Actor
     
     private int speedX = 1;
     private static final int SPEED = 5;
-    private static final int BOUNDARY = 180;
+    private static final int BOUNDARY = 150;
     
     Counter counter;
     
