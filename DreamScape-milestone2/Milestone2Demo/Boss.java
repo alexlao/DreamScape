@@ -18,6 +18,11 @@ public class Boss extends Actor
     private int shotAmount = 0;
     private int shotAmount2 = 0;
 
+    Counter counter;
+    public Boss(Counter counter){
+        this.counter = counter;
+    }
+
     public void act() 
     {
         intro();
@@ -26,6 +31,7 @@ public class Boss extends Actor
         pattern2();
         pattern3();
         endGame();
+       
         //death();
     }      
 
@@ -33,8 +39,10 @@ public class Boss extends Actor
     {
         if(damageAmount > 21)
         {
+            counter.gainPoints(10);
             Stage stage = (Stage)getWorld();
             stage.goToShop();
+            counter.gainPoints(10);
         }
     }
 
@@ -44,6 +52,7 @@ public class Boss extends Actor
         {
             removeTouching(Shot.class);
             healthCount(1);
+
         }
     }
 
@@ -576,12 +585,14 @@ public class Boss extends Actor
                     {
                         //shoot stuff method here
                         //asetLocation(getX() + 1, getY());
-                        setRotation(0);
+                        setRotation(0);;
                         turnCount2(-1);
                     }
                 }
             }
         }
     }
-
+   
+    
+    
 }

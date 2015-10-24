@@ -16,14 +16,21 @@ public class TopDownPlayer extends Actor
     public int shotTimer = 0;
     private GreenfootImage shot= new GreenfootImage("Topdownshot.png");
     private GreenfootImage noShot= new GreenfootImage("topdown.png");
+
     // private Playerhitbox phb;
     //  int stationaryX;
 
     public void act()
     {
-        moveAndTurn();
-        shoot();
-
+        if(getY()>= 450)
+        {
+            moveAndTurn();
+            shoot();
+        }
+        else
+        {
+            setLocation(getX(),getY() + 1);
+        }
         //kill();
     }
     // 
@@ -64,21 +71,21 @@ public class TopDownPlayer extends Actor
         {
             double radians = Math.toRadians(getRotation());
             int dx = (int) Math.round(Math.cos(radians - 1.5708)
-                * playerStepSize * 0.75);
+                    * playerStepSize * 0.75);
             int dy = (int) Math.round(Math.sin(radians - 1.5708) 
-                * playerStepSize * 0.75);
+                    * playerStepSize * 0.75);
             setLocation(getX() + dx, getY()+ dy);
         }
         else if(Greenfoot.isKeyDown("d"))
         {
             double radians = Math.toRadians(getRotation());
             int dx = (int) Math.round(Math.cos(radians + 1.5708)
-                * playerStepSize * 0.75);
+                    * playerStepSize * 0.75);
             int dy = (int) Math.round(Math.sin(radians + 1.5708) 
-                * playerStepSize * 0.75);
+                    * playerStepSize * 0.75);
             setLocation(getX() + dx, getY() + dy);
         }
-        }
+    }
 
     public void shoot()
     { 
@@ -97,7 +104,6 @@ public class TopDownPlayer extends Actor
             setImage(shot);
 
         }
-
         if(isTouching(BossShot.class))
         {
             removeTouching(BossShot.class);

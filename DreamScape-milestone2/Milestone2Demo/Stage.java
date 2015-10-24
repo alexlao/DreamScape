@@ -9,16 +9,17 @@ import greenfoot.*;
 public class Stage extends World
 {
     //private Counter theCounter;
-
+    Counter counter;
+    int z;
     /**
      * Constructor for objects of class Stage.
      * 
      */
-    public Stage()
+    public Stage(Counter count, int totalCount)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
-
+        counter = new Counter(totalCount);
         prepare();
 
     }
@@ -29,19 +30,20 @@ public class Stage extends World
      */
     private void prepare()
     {
-        Boss boss = new Boss();
+        Boss boss = new Boss(counter);
         addObject(boss, 302, 31);
 
 
         TopDownPlayer topdownplayer = new TopDownPlayer();
         addObject(topdownplayer, 301, 353);
-
+        addObject(counter, 100, 200);
         topdownplayer.setLocation(305, 555);
     }
     
     public void goToShop()
     {
-        Shop shop = new Shop();
+        int totalCount = counter.returnValue();
+        Shop shop = new Shop(totalCount);
         Greenfoot.setWorld(shop);
     }
 }

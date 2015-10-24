@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Stage()
+comment0.params=count\ totalCount
+comment0.target=Stage(Counter,\ int)
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Stage.\r\n\ \r\n
 comment1.params=
 comment1.target=void\ prepare()
