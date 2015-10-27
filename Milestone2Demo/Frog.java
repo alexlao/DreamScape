@@ -10,7 +10,7 @@ public class Frog extends Actor
 {
     
     private int vSpeed = 0;//fall speed
-    private int accel = 2; //gravity acceleration
+    private int accel = 1; //gravity acceleration
     
     private boolean inAir;
     private int jumpHeight = 18;
@@ -119,17 +119,18 @@ public class Frog extends Actor
         if (inAir == false)
         {
             vSpeed = vSpeed - jumpHeight;
+
             inAir = true;
-            fall();
-        }
-    }
+            fall();}
+       }
+    
     
     public void eatCoin()
     {
         Actor coin;
         coin = getOneObjectAtOffset(0,0,Coin.class);
-//         ScrollingWorld scrollingWorld = (ScrollingWorld)getWorld();
-//         Counter counter = scrollingWorld.getCounter();
+        // ScrollingWorld scrollingWorld = (ScrollingWorld)getWorld();
+        // Counter counter = scrollingWorld.getCounter();
         if (coin!=null)
         {
             World world;
