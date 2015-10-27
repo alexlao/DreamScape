@@ -41,6 +41,7 @@ public class TopDownPlayer extends Actor
      */
     public void moveAndTurn()
     {
+        /*
         if(Greenfoot.isKeyDown("j"))
         {
             turn(-playerTurnSpeed);
@@ -49,6 +50,7 @@ public class TopDownPlayer extends Actor
         {
             turn(playerTurnSpeed);
         }
+        */
         if(stepTimer >  0)
         {
             stepTimer--;
@@ -79,6 +81,16 @@ public class TopDownPlayer extends Actor
                 * playerStepSize * 0.75);
             setLocation(getX() + dx, getY() + dy);
         }
+        
+        if(Greenfoot.getMouseInfo() != null)
+        {
+            int mouseX = Greenfoot.getMouseInfo().getX();
+            int mouseY = Greenfoot.getMouseInfo().getY();
+            
+            turnTowards(mouseX,mouseY);
+            
+            //Uncomment to enable turn by mouse
+        }
         }
 
     public void shoot()
@@ -91,7 +103,7 @@ public class TopDownPlayer extends Actor
         {
             shotTimer--;
         }
-        else if(Greenfoot.isKeyDown("k"))
+        else if(Greenfoot.isKeyDown("space"))
         {
             getWorld().addObject(new Shot(this), getX(), getY());
             shotTimer = 50;
