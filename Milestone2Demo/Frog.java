@@ -119,9 +119,10 @@ public class Frog extends Actor
         if (inAir == false)
         {
             vSpeed = vSpeed - jumpHeight;
-
+            setImage(new GreenfootImage("AllistarJump.png"));
             inAir = true;
             fall();}
+            
        }
     
     
