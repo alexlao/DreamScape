@@ -21,6 +21,8 @@ public class Frog extends Actor
     private static final int SPEED = 5;
     private static final int BOUNDARY = 150;
     
+    private int timer = 0;
+    
     Counter counter;
     
     public Frog(Counter counter)
@@ -48,8 +50,17 @@ public class Frog extends Actor
    
     private void KeyPress() 
     {
-        handleArrowKey("a", -SPEED);
-        handleArrowKey("d", SPEED);
+        if (Greenfoot.isKeyDown("a"))
+        {
+            move(-SPEED);
+           
+        }
+        if(Greenfoot.isKeyDown("d"))
+        {
+            move(SPEED);
+        }
+        //handleArrowKey("a", -SPEED);
+        //handleArrowKey("d", SPEED);
         if(Greenfoot.isKeyDown("w"))
         {
             jump();
@@ -106,6 +117,7 @@ public class Frog extends Actor
         if(checkGround() == true)
         {
             vSpeed = 0;
+          setImage(new GreenfootImage("Allistar.png"));
         }
         else
         {
@@ -121,10 +133,15 @@ public class Frog extends Actor
             vSpeed = vSpeed - jumpHeight;
             setImage(new GreenfootImage("AllistarJump.png"));
             inAir = true;
-            fall();}
+            fall();
+            
+        }
+            
+            
             
        }
     
+  
     
     public void eatCoin()
     {
