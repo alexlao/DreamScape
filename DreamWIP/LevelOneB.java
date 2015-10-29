@@ -57,5 +57,23 @@ public class LevelOneB extends ScrollWorld
         platform13.setLocation(1766, 118);
         Allistar allistar = new Allistar();
         addObject(allistar, 66, 394);
+        Portal portal = new Portal();
+        addObject(portal, 1785, 77);
+        portal.setLocation(1781, 67);
+        platform.setLocation(104, 325);
+        allistar.setLocation(99, 264);
+        platform3.setLocation(392, 357);
+        platform4.setLocation(529, 507);
+        platform5.setLocation(625, 507);
+        Platform platform14 = new Platform();
+        addObject(platform14, 727, 514);
+        Platform platform15 = new Platform();
+        addObject(platform15, 816, 466);
+        platform14.setLocation(719, 508);
+        platform15.setLocation(833, 460);
+        platform6.setLocation(937, 395);
+        platform7.setLocation(1045, 325);
+        platform8.setLocation(1161, 270);
+        platform9.setLocation(1297, 202);
     }
 }
