@@ -143,6 +143,6 @@ public class ScrollingWorld extends World
         platform6.setLocation(375, 436);
         platform3.setLocation(282, 494);
         platform5.setLocation(398, 547);
-        addObject(counter, 100,200);
+        addObject(counter, 36, 12);
     }
 }

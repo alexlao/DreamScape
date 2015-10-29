@@ -24,7 +24,7 @@ public class Shop extends World
         prepare();
         counter = new Counter(totalCount);
         act();
-        addObject(counter,100,200);
+        addObject(counter, 36, 12);
     }
  
     /**

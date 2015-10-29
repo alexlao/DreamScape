@@ -10,16 +10,18 @@ import java.awt.Color;
 public class Counter extends Actor
 {
     int totalCount;
-
+    private static final Color transparent = new Color (0,0,0,0);
+    private GreenfootImage background;
+    
     public Counter(int x){
        //sets counter to the parameter number specified when instantiated
        totalCount=x;
-       setImage(new GreenfootImage("" + totalCount, 20, Color.WHITE, Color.BLACK));
+       setImage(new GreenfootImage("Score: " + totalCount, 20, Color.BLACK, transparent));
         
     }
     public void bumpCounter(){
         totalCount++;
-        setImage(new GreenfootImage(""+totalCount, 20, Color.WHITE, Color.BLACK));
+        setImage(new GreenfootImage(""+totalCount, 20, Color.BLACK, transparent));
     }
     public int returnValue(){
         //returns the number on the counter
@@ -29,7 +31,7 @@ public class Counter extends Actor
     {
         //changes the counter value when item is purchased
         totalCount = totalCount - x;
-        setImage(new GreenfootImage(""+totalCount, 20, Color.WHITE, Color.BLACK));
+        setImage(new GreenfootImage(""+totalCount, 20, Color.BLACK, transparent));
     }
     public void gainPoints(int z){
         totalCount = totalCount + z;

@@ -64,7 +64,7 @@ public class ScrollingWorld2 extends World
         Portal portal = new Portal();
         addObject(portal, 460, 490);
 
-        addObject(counter, 100, 200);
+        addObject(counter, 36, 12);
     }
 
     public void bossBattle()

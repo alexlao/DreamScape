@@ -36,7 +36,7 @@ public class Stage extends World
 
         TopDownPlayer topdownplayer = new TopDownPlayer();
         addObject(topdownplayer, 301, 353);
-        addObject(counter, 100, 200);
+        addObject(counter, 36, 12);
         topdownplayer.setLocation(305, 555);
     }
     
