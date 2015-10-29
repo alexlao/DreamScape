@@ -14,6 +14,7 @@ public class Allistar extends ScrollingActor
     private boolean inAir;
     private int jumpHeight = 18;
     
+    private Counter score;
     public void act() 
     {
         keyPress();
@@ -107,6 +108,8 @@ public class Allistar extends ScrollingActor
             world = getWorld();
             world.removeObject(coin);
             Greenfoot.playSound("Beep.mp3");
+            LevelOne w = (LevelOne)getWorld();
+            w.getCounter().bumpCounter();
            
        }
 
@@ -118,6 +121,7 @@ public class Allistar extends ScrollingActor
         {
             World Game = new GameOver();
             Greenfoot.setWorld(Game);
+            
         }
     }
     
