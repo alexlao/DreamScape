@@ -69,4 +69,13 @@ public class LevelOne extends ScrollWorld
     {
         return score;
     }
+    
+    public void act()
+    {
+     if(getObjects(Coin.class).isEmpty() == true)
+        {
+         LevelOneB world2 = new LevelOneB(score);
+         Greenfoot.setWorld(world2);
+        }
+    }
 }

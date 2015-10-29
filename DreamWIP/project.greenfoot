@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Thu Oct 29 10:32:28 PDT 2015
+#Thu Oct 29 10:41:10 PDT 2015
 target16.name=ScrollingActor
 dependency35.to=Boss
 target2.name=Platform
@@ -96,6 +96,7 @@ class.Coin.superclass=ScrollingActor
 target6.type=ClassTarget
 target19.height=50
 dependency30.to=Stage
+class.LevelOneB.superclass=ScrollWorld
 target7.y=370
 target7.x=190
 target12.editor.y=0
@@ -316,6 +317,7 @@ target10.type=ClassTarget
 target14.x=10
 class.BossShot2.image=BossShot2.png
 dependency18.to=BossShot2
+class.LevelOneB.image=cell.jpg
 package.numDependencies=49
 dependency21.type=UsesDependency
 target17.type=ClassTarget
