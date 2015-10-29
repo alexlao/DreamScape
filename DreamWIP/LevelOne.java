@@ -33,7 +33,7 @@ public class LevelOne extends ScrollWorld
         Platform platform2 = new Platform();
         addObject(platform2, 256, 451);
         Platform platform3 = new Platform();
-        addObject(platform3, 431, 385);
+        addObject(platform3, 425, 385);
         Platform platform4 = new Platform();
         addObject(platform4, 607, 450);
         Platform platform5 = new Platform();
@@ -62,7 +62,29 @@ public class LevelOne extends ScrollWorld
         addObject(coin4, 1522, 298);
         Coin coin5 = new Coin();
         addObject(coin5, 1694, 217);
-        
+
+        platform2.setLocation(241, 448);
+        coin.setLocation(252, 406);
+        platform3.setLocation(370, 401);
+        coin2.setLocation(400, 345);
+        platform4.setLocation(516, 444);
+        platform5.setLocation(644, 384);
+        platform6.setLocation(740, 322);
+        platform7.setLocation(855, 247);
+        platform8.setLocation(1183, 468);
+        platform8.setLocation(1177, 468);
+        Platform platform12 = new Platform();
+        addObject(platform12, 981, 194);
+        coin3.setLocation(1152, 406);
+        platform8.setLocation(1130, 468);
+        coin3.setLocation(1131, 405);
+        platform9.setLocation(1270, 406);
+        Platform platform13 = new Platform();
+        addObject(platform13, 1393, 374);
+        platform9.setLocation(1260, 423);
+        platform13.setLocation(1398, 379);
+        platform11.setLocation(1660, 280);
+        coin5.setLocation(1675, 228);
     }
     
     public Counter getCounter()
