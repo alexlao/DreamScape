@@ -17,11 +17,7 @@ public class Platform extends ScrollingActor
      */
     public Platform()
        {
-        GreenfootImage myImage = getImage();
-        int myNewHeight = (int)myImage.getHeight()/3;
-        int myNewWidth = (int)myImage.getWidth();
-        myImage.scale(myNewWidth, myNewHeight);
-        
+      
         
     }
   
