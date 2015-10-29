@@ -39,24 +39,17 @@ public class Frog extends Actor
     public void act() 
     {
         KeyPress(); 
-        //boundedMove();
+        boundedMove();
         checkFall();
         edgeCheck();
         eatCoin();
         checkPortal();
-        shiftingScreen();
     }
    
     private void KeyPress() 
     {
-        if(Greenfoot.isKeyDown("d"))
-        {
-           move(5);
-        }
-        if(Greenfoot.isKeyDown("a"))
-        {
-            move(-5);
-        }
+        handleArrowKey("a", -SPEED);
+        handleArrowKey("d", SPEED);
         if(Greenfoot.isKeyDown("w"))
         {
             jump();
@@ -66,7 +59,6 @@ public class Frog extends Actor
     private void handleArrowKey(String k, int sX) {
         if(Greenfoot.isKeyDown(k))
         {
-            
             speedX = sX;
         }
     }
@@ -75,20 +67,6 @@ public class Frog extends Actor
         Bullet bullet = new Bullet();
         getWorld().addObject(bullet,getX(),getY());  
         Greenfoot.playSound("gun shot.wav");
-    }
-    private void shiftingScreen()//no more weir boundary 
-    {
-         ScrollingWorld w = (ScrollingWorld) getWorld();
-        if (getX() >= w.getWidth()*6/10)
-        {
-            w.shiftWorld(-6);
-            
-        }
-        if (getX()<= 15)
-        {
-            w.shiftWorld(6);
-            
-        }
     }
       //Method for falling
     public void fall()
@@ -140,13 +118,8 @@ public class Frog extends Actor
     {
         if (inAir == false)
         {
-            GreenfootImage j = new GreenfootImage("AllistarJump.png");
-              int myNewHeight = (int)j.getHeight()/3;
-              int myNewWidth = (int)j.getWidth()/3;
-              j.scale(myNewWidth, myNewHeight);
-            
             vSpeed = vSpeed - jumpHeight;
-            setImage(j);
+            setImage(new GreenfootImage("AllistarJump.png"));
             inAir = true;
             fall();}
             
