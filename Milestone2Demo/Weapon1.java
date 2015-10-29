@@ -8,12 +8,28 @@ import greenfoot.*;
  */
 public class Weapon1 extends Actor
 {
+    Counter counter;
+    public Weapon1(){
+    }
     /**
      * Act - do whatever the Weapon1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
-}
+//     removeOnClick();
+    }  
+//     public void removeOnClick()
+//     {
+//      if (Greenfoot.mouseClicked(this)) {
+//             World world;
+//             world = getWorld();
+//             world.removeObject(this);
+//             counter = world.getCounter();
+// counter.setCurrentValue(3);
+// counter.setCurrentValue(3);
+//             
+//         }    
+//     }
+       
+    }
