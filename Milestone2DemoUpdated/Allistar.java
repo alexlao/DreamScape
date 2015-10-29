@@ -18,6 +18,8 @@ public class Allistar extends ScrollingActor
     {
         keyPress();
         checkFall();
+        eatCoin();
+        checkDeath();
     }    
     
     public void keyPress()
@@ -71,7 +73,7 @@ public class Allistar extends ScrollingActor
         }
     }
 
-        public void fall()
+    public void fall()
     {
         setLocation(getX(), getY() + vSpeed);
         if (vSpeed <= 9)
@@ -80,8 +82,8 @@ public class Allistar extends ScrollingActor
         } 
         inAir = true;
     }
-        public void jump()
-    {
+    public void jump()
+        {
         if (inAir == false)
         {
             vSpeed = vSpeed - jumpHeight;
@@ -90,8 +92,33 @@ public class Allistar extends ScrollingActor
             fall();
             
         }
-            
-            
-            
+               
        }
+     
+     public void eatCoin()
+    {
+        Actor coin;
+        coin = getOneObjectAtOffset(0,0,Coin.class);
+        // ScrollingWorld scrollingWorld = (ScrollingWorld)getWorld();
+        // Counter counter = scrollingWorld.getCounter();
+        if (coin!=null)
+        {
+            World world;
+            world = getWorld();
+            world.removeObject(coin);
+            Greenfoot.playSound("Beep.mp3");
+           
+       }
+
+    }
+    
+    public void checkDeath()
+    {
+        if (getY() > getWorld().getHeight())
+        {
+            World Game = new GameOver();
+            Greenfoot.setWorld(Game);
+        }
+    }
+    
 }
