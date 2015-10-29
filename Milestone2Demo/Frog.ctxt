@@ -5,7 +5,6 @@ comment1.params=
 comment1.target=void\ act()
 comment1.text=\n\ Act\ -\ do\ whatever\ the\ Frog\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment10.params=
-<<<<<<< HEAD
 comment10.target=void\ boundedMove()
 comment11.params=
 comment11.target=void\ edgeCheck()
@@ -28,29 +27,3 @@ comment8.target=void\ jump()
 comment9.params=
 comment9.target=void\ eatCoin()
 numComments=13
-=======
-comment10.target=void\ eatCoin()
-comment11.params=
-comment11.target=void\ boundedMove()
-comment12.params=
-comment12.target=void\ edgeCheck()
-comment13.params=
-comment13.target=void\ checkPortal()
-comment2.params=
-comment2.target=void\ bound()
-comment3.params=
-comment3.target=void\ KeyPress()
-comment4.params=k\ sX
-comment4.target=void\ handleArrowKey(java.lang.String,\ int)
-comment5.params=
-comment5.target=void\ fire()
-comment6.params=
-comment6.target=void\ fall()
-comment7.params=
-comment7.target=boolean\ checkGround()
-comment8.params=
-comment8.target=void\ checkFall()
-comment9.params=
-comment9.target=void\ jump()
-numComments=14
->>>>>>> refs/remotes/origin/milestone2
