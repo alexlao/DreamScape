@@ -21,7 +21,6 @@ public class Allistar extends ScrollingActor
         checkFall();
         eatCoin();
         checkDeath();
-        
     }    
     
     public void keyPress()
