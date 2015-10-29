@@ -15,7 +15,7 @@ public class LevelOneB extends ScrollWorld
      */
     public LevelOneB(Counter score)
     {
-        super(600,600,1, 1800, 600);
+        super(1000,600,1, 2000, 600);
         addObject(score, 36, 12);
         prepare();
     }

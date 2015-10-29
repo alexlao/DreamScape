@@ -16,7 +16,7 @@ public class LevelOne extends ScrollWorld
     Counter score = new Counter(0);
     public LevelOne()
     {
-        super(600, 600, 1, 1800, 600);
+        super(1000, 600, 1, 2000, 600);
         
         addObject(score, 36, 12);
         prepare();
