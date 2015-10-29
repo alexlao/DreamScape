@@ -41,13 +41,25 @@ public class Frog extends Actor
     public void act() 
     {
         KeyPress(); 
-        boundedMove();
+        //boundedMove();
+        bound();
         checkFall();
         edgeCheck();
         eatCoin();
         checkPortal();
     }
-   
+   private void bound()
+   {
+       ScrollingWorld w  = (ScrollingWorld) getWorld();
+       if (getX()  >= w.getWidth() * 6/10)
+       {
+              w.shiftWorld(-6);
+        }
+       if (getX() <= w.getWidth() * 4/10)
+       {
+              w.shiftWorld(6);
+        }
+    }
     private void KeyPress() 
     {
         if (Greenfoot.isKeyDown("a"))
