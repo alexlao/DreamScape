@@ -15,12 +15,15 @@ public class Allistar extends ScrollingActor
     private int jumpHeight = 18;
     
     private Counter score;
+    private boolean stand = true;
+    
     public void act() 
     {
         keyPress();
         checkFall();
         eatCoin();
         checkDeath();
+       
     }    
     
     public void keyPress()
@@ -124,5 +127,7 @@ public class Allistar extends ScrollingActor
             
         }
     }
+    
+   
     
 }

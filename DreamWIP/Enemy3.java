@@ -19,7 +19,7 @@ public class Enemy3 extends ScrollingActor
 
     public void act() 
     {
-        patternSet();
+        //patternSet();
         //health();
         // death();
         shootAmount();
@@ -46,7 +46,7 @@ public class Enemy3 extends ScrollingActor
         {
 
             fire3();
-            shootTime += 200;
+            shootTime += 100;
         }
         if(shootTime < 380)
         {
@@ -87,9 +87,10 @@ public class Enemy3 extends ScrollingActor
         return playerX;
         //Player = getOneObjectAtOffset(20, 0, Player.class);
     }
-
+    /*
     public void patternSet()
     {
+        
         List players = getObjectsInRange(200, Allistar.class);
         if (!players.isEmpty())
         {
@@ -98,6 +99,7 @@ public class Enemy3 extends ScrollingActor
             setLocation(getX()+2*(int)Math.signum(diffX), getY());
         }
     }
+    */
 
     public void fire3()
     {
