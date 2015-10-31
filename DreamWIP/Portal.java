@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Portal extends Actor
+public class Portal extends ScrollingActor
 {
     /**
      * Act - do whatever the Portal wants to do. This method is called whenever

@@ -23,9 +23,13 @@ public class Allistar extends ScrollingActor
         checkFall();
         eatCoin();
         checkDeath();
-       
+        checkPortal();
     }    
-    
+
+    public Allistar(Counter s)
+    {
+        score = s;
+    }
     public void keyPress()
     {
         if(Greenfoot.isKeyDown("d"))
@@ -111,9 +115,9 @@ public class Allistar extends ScrollingActor
             world = getWorld();
             world.removeObject(coin);
             Greenfoot.playSound("Beep.mp3");
-            LevelOne w = (LevelOne)getWorld();
-            w.getCounter().bumpCounter();
-           
+            //LevelOne w = (LevelOne)getWorld();
+           // w.getCounter().bumpCounter();
+           score.bumpCounter();
        }
 
     }
@@ -127,7 +131,16 @@ public class Allistar extends ScrollingActor
             
         }
     }
-    
+        public void checkPortal()
+    {
+        Actor portal = getOneIntersectingObject(Portal.class);
+        if(portal != null)
+        {
+            
+            World topDown = new Stage(score, score.returnValue());
+            Greenfoot.setWorld(topDown);
+        }
+    }
    
     
 }

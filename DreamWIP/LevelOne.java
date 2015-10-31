@@ -44,7 +44,7 @@ public class LevelOne extends ScrollWorld
         addObject(platform7, 1002, 211);
         Platform platform8 = new Platform();
         addObject(platform8, 1171, 465);
-        Allistar allistar = new Allistar();
+        Allistar allistar = new Allistar(score);
         addObject(allistar, 81, 410);
         Coin coin = new Coin();
         addObject(coin, 273, 390);
