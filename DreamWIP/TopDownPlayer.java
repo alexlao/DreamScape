@@ -91,6 +91,7 @@ public class TopDownPlayer extends Actor
             
             //Uncomment to enable turn by mouse
         }
+        
         }
 
     public void shoot()
@@ -103,7 +104,7 @@ public class TopDownPlayer extends Actor
         {
             shotTimer--;
         }
-        else if(Greenfoot.isKeyDown("space"))
+        else if(Greenfoot.mouseClicked(getWorld()))
         {
             getWorld().addObject(new Shot(this), getX(), getY());
             shotTimer = 50;
