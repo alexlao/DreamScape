@@ -17,15 +17,23 @@ public class Boss extends Actor
     private int shotTimer = 0;
     private int shotAmount = 0;
     private int shotAmount2 = 0;
+    private int imageSwitchDelay = 0;
 
     Counter counter;
-    public Boss(Counter counter){
+    GreenfootImage boss;
+    GreenfootImage hitBoss;
+
+    public Boss(Counter counter)
+    {
         this.counter = counter;
+        boss = new GreenfootImage("SpiderBoss.png");
+        hitBoss = new GreenfootImage("HitSpiderBoss.png");
     }
 
     public void act() 
     {
         intro();
+        hitImage();
         health();
         pattern1();
         pattern2();
@@ -46,13 +54,30 @@ public class Boss extends Actor
         }
     }
 
+   private void hitImage()
+    {
+        if(isTouching(Shot.class))
+        {
+            imageSwitchDelay = 10;
+        }
+        if(imageSwitchDelay <= 0)
+        {
+            setImage(boss);
+        }
+        else
+        {
+            setImage(hitBoss);
+        }
+        imageSwitchDelay--;
+    }
+
+
     public void health()
     {
         if(isTouching(Shot.class))
         {
             removeTouching(Shot.class);
             healthCount(1);
-
         }
     }
 
@@ -591,8 +616,5 @@ public class Boss extends Actor
                 }
             }
         }
-    }
-   
-    
-    
+    } 
 }
