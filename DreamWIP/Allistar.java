@@ -17,6 +17,12 @@ public class Allistar extends ScrollingActor
     private Counter score;
     private boolean stand = true;
     
+    private int walk = 0;
+    
+    private GreenfootImage run1 = new GreenfootImage("AllistarStepOne.png");
+    private GreenfootImage run2 = new GreenfootImage("AllistarStepTwo.png");
+    
+    
     public void act() 
     {
         keyPress();
@@ -60,7 +66,21 @@ public class Allistar extends ScrollingActor
             fall();
         } 
     }
-    
+    public void Animate()
+    {
+        if (walk == 2)
+        {
+            setImage(run1);
+        }
+            
+        else
+        if (walk == 4)
+        {
+            setImage(run2);
+            walk = 0;
+        }
+        walk++;
+    }
     public boolean checkGround()
     {
        int pHeight = getImage().getHeight();
