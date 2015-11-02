@@ -1,0 +1,2 @@
+# Means ignore all files with ".class" file extension
+*.class
