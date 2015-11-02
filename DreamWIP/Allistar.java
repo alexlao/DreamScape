@@ -42,11 +42,13 @@ public class Allistar extends ScrollingActor
         {
             move(5);
             getWorld().moveCamera(5);
+            
         }
         if(Greenfoot.isKeyDown("a"))
         {
             move(-5);
             getWorld().moveCamera(-5);
+            
         }
         if(Greenfoot.isKeyDown("w"))
         {
@@ -59,22 +61,23 @@ public class Allistar extends ScrollingActor
         if(checkGround() == true)
         {
             vSpeed = 0;
-          setImage(new GreenfootImage("Allistar.png"));
+          //setImage(new GreenfootImage("Allistar.png"));
         }
         else
         {
             fall();
+           
         } 
     }
     public void Animate()
     {
-        if (walk == 2)
+        if ( walk == 5)
         {
             setImage(run1);
         }
             
         else
-        if (walk == 4)
+        if (walk == 10)
         {
             setImage(run2);
             walk = 0;
@@ -109,13 +112,14 @@ public class Allistar extends ScrollingActor
             vSpeed = vSpeed + accel; //fall speed gets larger by accel every tick
         } 
         inAir = true;
+         
     }
     public void jump()
         {
         if (inAir == false)
         {
             vSpeed = vSpeed - jumpHeight;
-            setImage(new GreenfootImage("AllistarJump.png"));
+
             inAir = true;
             fall();
             
@@ -146,8 +150,10 @@ public class Allistar extends ScrollingActor
     {
         if (getY() > getWorld().getHeight())
         {
+           setImage(new GreenfootImage("AllistarJump.png"));
             World Game = new GameOver();
             Greenfoot.setWorld(Game);
+            
             
         }
     }

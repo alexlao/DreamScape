@@ -15,5 +15,5 @@ comment6.params=
 comment6.target=int\ playerXAmount()
 comment7.params=
 comment7.target=void\ fire3()
-comment7.text=\n\ \ \ \ public\ void\ patternSet()\n\ \ \ \ {\n\ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ List\ players\ \=\ getObjectsInRange(200,\ Allistar.class);\n\ \ \ \ \ \ \ \ if\ (\!players.isEmpty())\n\ \ \ \ \ \ \ \ {\n\ \ \ \ \ \ \ \ \ \ \ \ Actor\ player\ \=\ (Actor)players.get(0);\n\ \ \ \ \ \ \ \ \ \ \ \ int\ diffX\ \=\ player.getX()-getX();\n\ \ \ \ \ \ \ \ \ \ \ \ setLocation(getX()+2*(int)Math.signum(diffX),\ getY());\n\ \ \ \ \ \ \ \ }\n\ \ \ \ }\n
+comment7.text=\r\n\ \ \ \ public\ void\ patternSet()\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ List\ players\ \=\ getObjectsInRange(200,\ Allistar.class);\r\n\ \ \ \ \ \ \ \ if\ (\!players.isEmpty())\r\n\ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ Actor\ player\ \=\ (Actor)players.get(0);\r\n\ \ \ \ \ \ \ \ \ \ \ \ int\ diffX\ \=\ player.getX()-getX();\r\n\ \ \ \ \ \ \ \ \ \ \ \ setLocation(getX()+2*(int)Math.signum(diffX),\ getY());\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n
 numComments=8

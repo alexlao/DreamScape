@@ -107,7 +107,7 @@ public class TopDownPlayer extends Actor
         else if(Greenfoot.mouseClicked(getWorld()))
         {
             getWorld().addObject(new Shot(this), getX(), getY());
-            shotTimer = 50;
+            shotTimer = 15 ;
             setImage(shot);
             
 
