@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class LevelOneB extends ScrollWorld
 {
-
+    
     /**
      * Constructor for objects of class LevelOneB.
      * 
@@ -16,12 +16,16 @@ public class LevelOneB extends ScrollWorld
     public LevelOneB(Counter score)
     {
         super(1000,600,1, 2000, 600);
+        
         addObject(score, 36, 12);
         Allistar allistar = new Allistar(score);
         addObject(allistar, 66, 394);
         allistar.setLocation(99, 264);
         prepare();
+        
     }
+
+
 
     /**
      * Prepare the world for the start of the program. That is: create the initial
@@ -58,13 +62,12 @@ public class LevelOneB extends ScrollWorld
         Platform platform13 = new Platform();
         addObject(platform13, 1773, 114);
         platform13.setLocation(1766, 118);
-        
-        
+
         Portal portal = new Portal();
         addObject(portal, 1785, 77);
         portal.setLocation(1781, 67);
         platform.setLocation(104, 325);
-        
+
         platform3.setLocation(392, 357);
         platform4.setLocation(529, 507);
         platform5.setLocation(625, 507);

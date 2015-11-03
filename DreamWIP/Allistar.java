@@ -10,19 +10,13 @@ public class Allistar extends ScrollingActor
 {
     private int vSpeed = 0;//fall speed
     private int accel = 1; //gravity acceleration
-    
+    private GreenfootSound bkgMusic;
     private boolean inAir;
     private int jumpHeight = 18;
-    
+
     private Counter score;
     private boolean stand = true;
-    
-    private int walk = 0;
-    
-    private GreenfootImage run1 = new GreenfootImage("AllistarStepOne.png");
-    private GreenfootImage run2 = new GreenfootImage("AllistarStepTwo.png");
-    
-    
+
     public void act() 
     {
         keyPress();
@@ -35,64 +29,55 @@ public class Allistar extends ScrollingActor
     public Allistar(Counter s)
     {
         score = s;
+        getImage().mirrorHorizontally();
     }
+
     public void keyPress()
     {
         if(Greenfoot.isKeyDown("d"))
         {
             move(5);
             getWorld().moveCamera(5);
+            getImage().mirrorHorizontally();
         }
         if(Greenfoot.isKeyDown("a"))
         {
             move(-5);
             getWorld().moveCamera(-5);
+            getImage().mirrorHorizontally();
         }
         if(Greenfoot.isKeyDown("w"))
         {
             jump();
         }
     }
-    
-        public void checkFall()
+
+    public void checkFall()
     {
         if(checkGround() == true)
         {
             vSpeed = 0;
-          setImage(new GreenfootImage("Allistar.png"));
+            setImage(new GreenfootImage("Allistar.png"));
+            getImage().mirrorHorizontally();
         }
         else
         {
             fall();
         } 
     }
-    public void Animate()
-    {
-        if (walk == 2)
-        {
-            setImage(run1);
-        }
-            
-        else
-        if (walk == 4)
-        {
-            setImage(run2);
-            walk = 0;
-        }
-        walk++;
-    }
+
     public boolean checkGround()
     {
-       int pHeight = getImage().getHeight();
-       int onGround = (int)(pHeight/2);
-       
-       Actor ground = getOneObjectAtOffset(0, onGround, Platform.class);
-       
-       //if pjlayer is on nothing, return false, else return true
-       if(ground == null)
-       {
-           inAir = true;
-           return false;
+        int pHeight = getImage().getHeight();
+        int onGround = (int)(pHeight/2);
+
+        Actor ground = getOneObjectAtOffset(0, onGround, Platform.class);
+
+        //if pjlayer is on nothing, return false, else return true
+        if(ground == null)
+        {
+            inAir = true;
+            return false;
         }
         else
         {
@@ -110,20 +95,22 @@ public class Allistar extends ScrollingActor
         } 
         inAir = true;
     }
+
     public void jump()
-        {
+    {
         if (inAir == false)
         {
             vSpeed = vSpeed - jumpHeight;
             setImage(new GreenfootImage("AllistarJump.png"));
+            getImage().mirrorHorizontally();
             inAir = true;
             fall();
-            
+
         }
-               
-       }
-     
-     public void eatCoin()
+
+    }
+
+    public void eatCoin()
     {
         Actor coin;
         coin = getOneObjectAtOffset(0,0,Coin.class);
@@ -136,31 +123,34 @@ public class Allistar extends ScrollingActor
             world.removeObject(coin);
             Greenfoot.playSound("Beep.mp3");
             //LevelOne w = (LevelOne)getWorld();
-           // w.getCounter().bumpCounter();
-           score.bumpCounter();
-       }
+            // w.getCounter().bumpCounter();
+            score.bumpCounter();
+        }
 
     }
-    
+
     public void checkDeath()
     {
         if (getY() > getWorld().getHeight())
         {
             World Game = new GameOver();
             Greenfoot.setWorld(Game);
-            
+
         }
     }
-        public void checkPortal()
+
+    public void checkPortal()
     {
-        Actor portal = getOneIntersectingObject(Portal.class);
-        if(portal != null)
+        //Actor portal = getOneIntersectingObject(Portal.class);
+
+        if(isTouching(Portal.class))
         {
-            
+
             World topDown = new Stage(score, score.returnValue());
+            //bkgMusic.stop();
             Greenfoot.setWorld(topDown);
         }
+
     }
-   
-    
+
 }

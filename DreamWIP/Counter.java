@@ -16,12 +16,12 @@ public class Counter extends Actor
     public Counter(int x){
        //sets counter to the parameter number specified when instantiated
        totalCount=x;
-       setImage(new GreenfootImage("Score: " + totalCount, 20, Color.BLACK, transparent));
+       setImage(new GreenfootImage("Score: " + totalCount, 20, Color.WHITE, transparent));
         
     }
     public void bumpCounter(){
         totalCount++;
-        setImage(new GreenfootImage("Score: "+totalCount, 20, Color.BLACK, transparent));
+        setImage(new GreenfootImage("Score: "+totalCount, 20, Color.WHITE, transparent));
     }
     public int returnValue(){
         //returns the number on the counter

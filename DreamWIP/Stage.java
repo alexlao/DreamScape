@@ -11,6 +11,7 @@ public class Stage extends World
     //private Counter theCounter;
     Counter counter;
     int z;
+    private GreenfootSound bkgMusic; 
     /**
      * Constructor for objects of class Stage.
      * 
@@ -18,11 +19,18 @@ public class Stage extends World
     public Stage(Counter count, int totalCount)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 600, 1); 
+        super(1000, 600, 1); 
+        bkgMusic = new GreenfootSound("sounds/Spidermusic.mp3");
+        bkgMusic.playLoop();
         counter = new Counter(totalCount);
         prepare();
 
     }
+
+    //     public void musiolor (int amount)
+    //     {
+    //         this.brickType += amount;
+    //     }
 
     /**
      * Prepare the world for the start of the program. That is: create the initial
@@ -33,13 +41,12 @@ public class Stage extends World
         Boss boss = new Boss(counter);
         addObject(boss, 302, 31);
 
-
         TopDownPlayer topdownplayer = new TopDownPlayer();
         addObject(topdownplayer, 301, 353);
         addObject(counter, 36, 12);
         topdownplayer.setLocation(305, 555);
     }
-    
+
     public void goToShop()
     {
         int totalCount = counter.returnValue();

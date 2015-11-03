@@ -22,8 +22,15 @@ public class TopDownPlayer extends Actor
 
     public void act()
     {
-        moveAndTurn();
-        shoot();
+        if(getY() >= 450)
+        {
+            moveAndTurn();
+            shoot();
+        }
+        else
+        {
+            setLocation(getX(),getY() + 1);
+        }
 
         //kill();
     }
@@ -44,13 +51,13 @@ public class TopDownPlayer extends Actor
         /*
         if(Greenfoot.isKeyDown("j"))
         {
-            turn(-playerTurnSpeed);
+        turn(-playerTurnSpeed);
         }
         if(Greenfoot.isKeyDown("l"))
         {
-            turn(playerTurnSpeed);
+        turn(playerTurnSpeed);
         }
-        */
+         */
         if(stepTimer >  0)
         {
             stepTimer--;
@@ -67,35 +74,36 @@ public class TopDownPlayer extends Actor
         {
             double radians = Math.toRadians(getRotation());
             int dx = (int) Math.round(Math.cos(radians - 1.5708)
-                * playerStepSize * 0.75);
+                    * playerStepSize * 0.75);
             int dy = (int) Math.round(Math.sin(radians - 1.5708) 
-                * playerStepSize * 0.75);
+                    * playerStepSize * 0.75);
             setLocation(getX() + dx, getY()+ dy);
         }
         else if(Greenfoot.isKeyDown("d"))
         {
             double radians = Math.toRadians(getRotation());
             int dx = (int) Math.round(Math.cos(radians + 1.5708)
-                * playerStepSize * 0.75);
+                    * playerStepSize * 0.75);
             int dy = (int) Math.round(Math.sin(radians + 1.5708) 
-                * playerStepSize * 0.75);
+                    * playerStepSize * 0.75);
             setLocation(getX() + dx, getY() + dy);
         }
-        
+
         if(Greenfoot.getMouseInfo() != null)
         {
             int mouseX = Greenfoot.getMouseInfo().getX();
             int mouseY = Greenfoot.getMouseInfo().getY();
-            
+
             turnTowards(mouseX,mouseY);
-            
+
             //Uncomment to enable turn by mouse
         }
-        
-        }
+    }
 
     public void shoot()
     { 
+        
+        
         if(shotTimer < 10)
         {
             setImage(noShot);
@@ -104,15 +112,13 @@ public class TopDownPlayer extends Actor
         {
             shotTimer--;
         }
-        else if(Greenfoot.mouseClicked(getWorld()))
+        else if(Greenfoot.mouseClicked(null))
         {
             getWorld().addObject(new Shot(this), getX(), getY());
             shotTimer = 50;
             setImage(shot);
-            
 
         }
-
         if(isTouching(BossShot.class))
         {
             removeTouching(BossShot.class);

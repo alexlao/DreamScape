@@ -5,6 +5,7 @@ public class BossShot2 extends Actor
     private TopDownPlayer player;
     private Boss boss;
     private int healthCount = 0;
+    GifImage acidShotImage = new GifImage("acidShot1.gif");
 
     public BossShot2(Boss boss)
     {
@@ -22,7 +23,7 @@ public class BossShot2 extends Actor
 
     public void act() 
     {
-        
+        setImage(acidShotImage.getCurrentImage());
         kill();
         if (!isAtEdge())
         {

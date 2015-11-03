@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class LevelOne extends ScrollWorld
 {
-
+    private GreenfootSound bkgMusic; 
     /**
      * Constructor for objects of class LevelOne.
      * 
@@ -17,7 +17,8 @@ public class LevelOne extends ScrollWorld
     public LevelOne()
     {
         super(1000, 600, 1, 2000, 600);
-        
+        bkgMusic = new GreenfootSound("sounds/Cavemusic.mp3");
+        //bkgMusic.playLoop();
         addObject(score, 36, 12);
         prepare();
     }
@@ -62,20 +63,79 @@ public class LevelOne extends ScrollWorld
         addObject(coin4, 1522, 298);
         Coin coin5 = new Coin();
         addObject(coin5, 1694, 217);
-        
+
+        platform3.setLocation(350, 450);
+        platform4.setLocation(443, 451);
+        platform5.setLocation(537, 451);
+        Enemy1 enemy1 = new Enemy1();
+        addObject(enemy1, 272, 434);
+        enemy1.setLocation(261, 427);
+        platform6.setLocation(671, 373);
+        platform7.setLocation(524, 283);
+        platform2.setLocation(260, 507);
+        platform3.setLocation(353, 507);
+        platform4.setLocation(447, 509);
+        platform5.setLocation(540, 508);
+        platform6.setLocation(673, 418);
+        platform7.setLocation(517, 317);
+        coin2.setLocation(671, 372);
+        coin.setLocation(782, 161);
+        enemy1.setLocation(259, 479);
+        platform7.setLocation(635, 509);
+        enemy1.setLocation(252, 482);
+        coin2.setLocation(689, 309);
+        platform6.setLocation(795, 425);
+        coin2.setLocation(801, 385);
+        Platform platform12 = new Platform();
+        addObject(platform12, 627, 316);
+        Platform platform13 = new Platform();
+        addObject(platform13, 510, 314);
+        Platform platform14 = new Platform();
+        addObject(platform14, 386, 294);
+        Platform platform15 = new Platform();
+        addObject(platform15, 263, 307);
+        Platform platform16 = new Platform();
+        addObject(platform16, 158, 299);
+        platform12.setLocation(630, 314);
+        platform13.setLocation(535, 315);
+        platform14.setLocation(439, 316);
+        platform15.setLocation(345, 318);
+        platform16.setLocation(252, 319);
+        Platform platform17 = new Platform();
+        addObject(platform17, 101, 224);
+        Enemy3 enemy3 = new Enemy3();
+        addObject(enemy3, 445, 198);
+        enemy3.setLocation(442, 278);
+        platform16.setLocation(254, 247);
+        platform15.setLocation(346, 245);
+        platform14.setLocation(441, 246);
+        platform13.setLocation(534, 246);
+        platform12.setLocation(628, 247);
+        removeObject(enemy3);
+        platform17.setLocation(138, 219);
+        coin.setLocation(144, 183);
+        coin2.setLocation(798, 338);
+        platform6.setLocation(796, 387);
+        Platform platform18 = new Platform();
+        addObject(platform18, 922, 142);
+        Platform platform19 = new Platform();
+        addObject(platform19, 802, 211);
+        enemy1.setLocation(328, 383);
+        removeObject(enemy1);
+        removeObject(coin);
     }
-    
+
     public Counter getCounter()
     {
         return score;
     }
-    
+
     public void act()
     {
-     if(getObjects(Coin.class).isEmpty() == true)
+        if(getObjects(Coin.class).isEmpty() == true)
         {
-         LevelOneB world2 = new LevelOneB(score);
-         Greenfoot.setWorld(world2);
+            LevelOneB world2 = new LevelOneB(score);
+            Greenfoot.setWorld(world2);
         }
     }
 }
