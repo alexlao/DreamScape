@@ -10,10 +10,12 @@ public class Allistar extends ScrollingActor
 {
     private int vSpeed = 0;//fall speed
     private int accel = 1; //gravity acceleration
+    private int walk = 0;
     private GreenfootSound bkgMusic;
     private boolean inAir;
     private int jumpHeight = 18;
-
+    private GreenfootImage run1 = new GreenfootImage("AllistarStepOne.png");
+    private GreenfootImage run2 = new GreenfootImage("AllistarStepTwo.png");
     private Counter score;
     private boolean stand = true;
 
@@ -38,18 +40,32 @@ public class Allistar extends ScrollingActor
         {
             move(5);
             getWorld().moveCamera(5);
-            getImage().mirrorHorizontally();
+            //getImage().mirrorHorizontally();
+            Animate();
         }
         if(Greenfoot.isKeyDown("a"))
         {
             move(-5);
             getWorld().moveCamera(-5);
-            getImage().mirrorHorizontally();
+            //getImage().mirrorHorizontally();
+           Animate();
         }
         if(Greenfoot.isKeyDown("w"))
         {
             jump();
         }
+    }
+    private void Animate()
+    {
+        if (walk == 5)
+        {
+            setImage(run1);
+        }else if (walk == 10)
+        {
+            setImage(run2);
+            walk = 0;
+        }
+        walk++;
     }
 
     public void checkFall()
@@ -57,8 +73,8 @@ public class Allistar extends ScrollingActor
         if(checkGround() == true)
         {
             vSpeed = 0;
-            setImage(new GreenfootImage("Allistar.png"));
-            getImage().mirrorHorizontally();
+            //setImage(new GreenfootImage("Allistar.png"));
+            //getImage().mirrorHorizontally();
         }
         else
         {

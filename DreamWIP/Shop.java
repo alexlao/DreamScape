@@ -20,7 +20,7 @@ public class Shop extends World
     public Shop(int totalCount )
     {
         //takes in paramaters to continue the counter
-        super(600, 400, 1); 
+        super(1000, 600, 1); 
         prepare();
         counter = new Counter(totalCount);
         act();
