@@ -17,15 +17,23 @@ public class Boss extends Actor
     private int shotTimer = 0;
     private int shotAmount = 0;
     private int shotAmount2 = 0;
+    private int imageSwitchDelay = 0;
 
     Counter counter;
-    public Boss(Counter counter){
+    GreenfootImage boss;
+    GreenfootImage hitBoss;
+
+    public Boss(Counter counter)
+    {
         this.counter = counter;
+        boss = new GreenfootImage("SpiderBoss.png");
+        hitBoss = new GreenfootImage("HitSpiderBoss.png");
     }
 
     public void act() 
     {
         intro();
+        hitImage();
         health();
         pattern1();
         pattern2();
@@ -46,13 +54,30 @@ public class Boss extends Actor
         }
     }
 
+   private void hitImage()
+    {
+        if(isTouching(Shot.class))
+        {
+            imageSwitchDelay = 10;
+        }
+        if(imageSwitchDelay <= 0)
+        {
+            setImage(boss);
+        }
+        else
+        {
+            setImage(hitBoss);
+        }
+        imageSwitchDelay--;
+    }
+
+
     public void health()
     {
         if(isTouching(Shot.class))
         {
             removeTouching(Shot.class);
             healthCount(1);
-
         }
     }
 
@@ -466,7 +491,7 @@ public class Boss extends Actor
                         turnCount3(1);
                     }
                 }
-                if(getX() >= 301 && getX() < 581)
+                if(getX() >= 301 && getX() < 580)
                 {
                     setLocation(getX(),getY()-1);
                     if(getY() == 0)
@@ -474,12 +499,12 @@ public class Boss extends Actor
                         setLocation(getX()+1, getY());
                     }
                 }
-                if(getX() == 581 && getY() < 300)
+                if(getX() == 580 && getY() < 300)
                 {
                     setLocation(getX(), getY() + 1);
                     shotAmount = 0;
                 }
-                if(getX() == 581 && getY() == 300)
+                if(getX() == 580 && getY() == 300)
                 {
                     //shoot stuff method here
 
@@ -510,7 +535,7 @@ public class Boss extends Actor
 
             if(turnAmount2 == 1)
             {
-                if(getX() <= 582 && getX() >= 301)
+                if(getX() <= 581 && getX() >= 301)
                 {
                     setLocation(getX()  , getY() - 1);    
                     if(getY() == 0)
@@ -591,8 +616,5 @@ public class Boss extends Actor
                 }
             }
         }
-    }
-   
-    
-    
+    } 
 }
