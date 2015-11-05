@@ -16,8 +16,12 @@ public class Allistar extends ScrollingActor
     private int jumpHeight = 18;
     private GreenfootImage run1 = new GreenfootImage("AllistarStepOne.png");
     private GreenfootImage run2 = new GreenfootImage("AllistarStepTwo.png");
+    private GreenfootImage standing = new GreenfootImage("Allistar.png");
+    
     private Counter score;
     private boolean stand = true;
+    private Lives lives;
+    
     private String type;
     public void act() 
     {
@@ -28,9 +32,10 @@ public class Allistar extends ScrollingActor
         checkPortal();
     }    
 
-    public Allistar(Counter s)
+    public Allistar(Counter s, Lives l)
     {
         score = s;
+        lives = l;
         getImage().mirrorHorizontally();
     }
 
@@ -43,6 +48,10 @@ public class Allistar extends ScrollingActor
             //getImage().mirrorHorizontally();
             Animate();
         }
+         else if(inAir != true)
+        {
+            setImage(standing);
+        }
         if(Greenfoot.isKeyDown("a"))
         {
             move(-5);
@@ -50,6 +59,7 @@ public class Allistar extends ScrollingActor
             //getImage().mirrorHorizontally();
            Animate();
         }
+     
         if(Greenfoot.isKeyDown("w"))
         {
             jump();
@@ -73,6 +83,9 @@ public class Allistar extends ScrollingActor
         if(checkGround() == true)
         {
             vSpeed = 0;
+            //setLocation(getX(),getY()- 1);
+            
+            
             //setImage(new GreenfootImage("Allistar.png"));
             //getImage().mirrorHorizontally();
         }
@@ -98,6 +111,7 @@ public class Allistar extends ScrollingActor
         else
         {
             inAir = false;
+            setLocation(getX(), getY() - 1);
             return true;
         }
     }
@@ -147,12 +161,32 @@ public class Allistar extends ScrollingActor
 
     public void checkDeath()
     {
-        if (getY() > getWorld().getHeight())
+        if (getY() >= getWorld().getHeight()*9/10)
         {
-            World Game = new GameOver();
-            Greenfoot.setWorld(Game);
+            //World Game = new GameOver();
+            //Greenfoot.setWorld(Game);
+            health();
+            respawn();
+            
+            
 
         }
+    }
+    public void health()
+    {
+         lives.life--;
+         lives.removeLife();
+         //System.out.println("" + lives.returnLives());
+          
+            
+    }
+    public void respawn()
+    {
+     World w = getWorld();
+      if (getY() >= w.getHeight()*9/10)
+       {
+           setLocation(getX()+20, w.getHeight()*1/10);
+       }
     }
 
     public void checkPortal()
@@ -167,7 +201,7 @@ public class Allistar extends ScrollingActor
                 Greenfoot.setWorld(part2);
             }
             else if( type == "LevelOneB"){
-                World topDown = new Stage(score, score.returnValue());
+                World topDown = new Stage(score, score.returnValue(), lives);
                 Greenfoot.setWorld(topDown);
             }
             else if(type == "TutorialPart2"){

@@ -14,12 +14,14 @@ public class LevelOne extends ScrollWorld
      * 
      */
     Counter score = new Counter(0);
+    Lives lives = new Lives();
     public LevelOne()
     {
         super(1000, 600, 1, 2000, 600);
         bkgMusic = new GreenfootSound("sounds/Cavemusic.mp3");
         //bkgMusic.playLoop();
         addObject(score, 36, 12);
+        addObject(lives, 920, 25);
         prepare();
     }
 
@@ -45,7 +47,7 @@ public class LevelOne extends ScrollWorld
         addObject(platform7, 1002, 211);
         Platform platform8 = new Platform();
         addObject(platform8, 1171, 465);
-        Allistar allistar = new Allistar(score);
+        Allistar allistar = new Allistar(score,lives);
         addObject(allistar, 81, 410);
         Coin coin = new Coin();
         addObject(coin, 273, 390);
@@ -133,13 +135,20 @@ public class LevelOne extends ScrollWorld
     {
         return score;
     }
+    public Lives getLives()
+    {
+        return lives;
+    }
 
     public void act()
+    
     {
+        
         if(getObjects(Coin.class).isEmpty() == true)
         {
-            LevelOneB world2 = new LevelOneB(score);
+            LevelOneB world2 = new LevelOneB(score, lives);
             Greenfoot.setWorld(world2);
         }
+        
     }
 }

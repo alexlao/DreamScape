@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class Platform extends ScrollingActor
 {
-    ScrollingWorld world;
+    
     String type;
 
     /**

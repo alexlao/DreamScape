@@ -34,12 +34,12 @@ public class Shop extends World
     private void prepare()
     {
 
-        addObject(weapon1, 110, 240);  
-        showText("3 Points", 110, 270);
-        addObject(weapon2, 296, 240);
-        showText("1 Point", 296, 270);
-        addObject(weapon3, 483, 240);
-        showText("2 Points", 483, 270);
+        addObject(weapon1, getWidth()*1/3, getHeight()/2);  
+        showText("3 Points",getWidth()*1/3, getHeight()/2-50);
+        addObject(weapon2,getWidth()*1/3+100, getHeight()/2);
+        showText("1 Point",getWidth()*1/3+100, getHeight()/2-50);
+        addObject(weapon3, getWidth()*1/3+200, getHeight()/2);
+        showText("2 Points", getWidth()*1/3+200, getHeight()/2-50);
         shopNumA = 0;
         shopNumB =0;
         shopNumC = 0;

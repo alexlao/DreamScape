@@ -9,6 +9,7 @@ import greenfoot.*;
 public class LastTut extends ScrollWorld
 {
     Counter score = new Counter(0);
+    Lives lives = new Lives();
     
     /**
      * Constructor for objects of class LastTut.
@@ -17,8 +18,9 @@ public class LastTut extends ScrollWorld
     public LastTut()
     {
         super(1000,600,1, 1395, 600);
-        Allistar allistar = new Allistar(score);
+        Allistar allistar = new Allistar(score, lives);
         addObject(allistar, 123, 394);
+        addObject(lives,920,25);
         prepare();
     }
 
@@ -49,5 +51,7 @@ public class LastTut extends ScrollWorld
         Portal portal = new Portal();
         addObject(portal, 1022, 513);
 
+        platform.setLocation(120, 531);
+        platform2.setLocation(279, 509);
     }
 }
