@@ -12,6 +12,7 @@ public class Stage extends World
     Counter counter;
     int z;
     private GreenfootSound bkgMusic; 
+    Lives life;
     /**
      * Constructor for objects of class Stage.
      * 
@@ -23,6 +24,8 @@ public class Stage extends World
         bkgMusic = new GreenfootSound("sounds/Spidermusic.mp3");
         bkgMusic.playLoop();
         counter = new Counter(totalCount);
+         life = lives;
+        addObject(life, 925, 25);
         prepare();
 
     }

@@ -165,7 +165,7 @@ public class Allistar extends ScrollingActor
     {
          lives.life--;
          lives.removeLife();
-         System.out.println("" + lives.returnLives());
+         //System.out.println("" + lives.returnLives());
           
             
     }
