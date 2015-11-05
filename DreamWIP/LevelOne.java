@@ -123,6 +123,10 @@ public class LevelOne extends ScrollWorld
         enemy1.setLocation(328, 383);
         removeObject(enemy1);
         removeObject(coin);
+        coin2.setLocation(790, 355);
+        coin3.setLocation(1167, 432);
+        coin4.setLocation(1505, 310);
+        coin5.setLocation(1673, 235);
     }
 
     public Counter getCounter()
