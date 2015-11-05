@@ -26,6 +26,9 @@ public class Stage extends World
         counter = new Counter(totalCount);
          life = lives;
         addObject(life, 925, 25);
+          TopDownPlayer topdownplayer = new TopDownPlayer(life);
+           topdownplayer.setLocation(305, 555);
+        addObject(topdownplayer, 301, 353);
         prepare();
 
     }
@@ -44,10 +47,9 @@ public class Stage extends World
         Boss boss = new Boss(counter);
         addObject(boss, 302, 31);
 
-        TopDownPlayer topdownplayer = new TopDownPlayer();
-        addObject(topdownplayer, 301, 353);
+      
         addObject(counter, 36, 12);
-        topdownplayer.setLocation(305, 555);
+       
     }
 
     public void goToShop()

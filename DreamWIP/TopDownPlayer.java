@@ -16,6 +16,7 @@ public class TopDownPlayer extends Actor
     public int shotTimer = 0;
     private GreenfootImage shot= new GreenfootImage("Topdownshot.png");
     private GreenfootImage noShot= new GreenfootImage("topdown.png");
+    Lives lives;
 
     // private Playerhitbox phb;
     //  int stationaryX;
@@ -33,6 +34,10 @@ public class TopDownPlayer extends Actor
         }
 
         //kill();
+    }
+    public TopDownPlayer (Lives l)
+    {
+        lives = l;
     }
     // 
     //     protected void addedToWorld (World w)
@@ -122,6 +127,8 @@ public class TopDownPlayer extends Actor
         if(isTouching(BossShot.class))
         {
             removeTouching(BossShot.class);
+            lives.life--;
+            lives.removeLife();
 
             //health(1);
         }
@@ -129,6 +136,8 @@ public class TopDownPlayer extends Actor
         if(isTouching(BossShot2.class))
         {
             removeTouching(BossShot2.class);
+            lives.life--;
+            lives.removeLife();
 
             //health(1);
         }
