@@ -9,6 +9,7 @@ import greenfoot.*;
 public class TutorialPart2 extends ScrollWorld
 {
     Counter score = new Counter(0);
+    Lives lives = new Lives();
     /**
      * Constructor for objects of class TutorialWorld.
      * 
@@ -17,9 +18,10 @@ public class TutorialPart2 extends ScrollWorld
     {
         super(1000,600,1, 2000, 600);
         //addObject(score, 36, 12);
-        Allistar allistar = new Allistar(score);
+        Allistar allistar = new Allistar(score, lives);
         addObject(allistar, 66, 394);
-
+        
+        addObject(lives, 925,25);
         prepare();
     }
 

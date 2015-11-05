@@ -9,6 +9,7 @@ import greenfoot.*;
 public class TutorialWorld extends ScrollWorld
 {
     Counter score = new Counter(0);
+    Lives lives = new Lives();
     private GreenfootSound bkgMusic; 
     /**
      * Constructor for objects of class TutorialWorld.
@@ -18,16 +19,17 @@ public class TutorialWorld extends ScrollWorld
     {
         super(1000,600,1, 2000, 600);
         addObject(score, 36, 12);
-        bkgMusic = new GreenfootSound("sounds/Walking.mp3");
+        addObject(lives, 920, 25);
+        //bkgMusic = new GreenfootSound("sounds/Walking.mp3");
         prepare();
     }
     public void act(){
-    bkgMusic.play();    
+    //bkgMusic.play();    
     }
     
     public void prepare()
     {
-        Allistar allistar = new Allistar(score);
+        Allistar allistar = new Allistar(score, lives);
         addObject(allistar, 81, 410);
         Platform platform10 = new Platform();
         addObject(platform10, 85, 520);
@@ -77,5 +79,9 @@ public class TutorialWorld extends ScrollWorld
         public Counter getCounter()
     {
         return score;
+    }
+    public Lives getLives()
+    {
+        return lives;
     }
 }

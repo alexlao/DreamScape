@@ -42,24 +42,13 @@ public class Frog extends Actor
     {
         KeyPress(); 
         //boundedMove();
-        bound();
+      
         checkFall();
         edgeCheck();
         eatCoin();
-        checkPortal();
+        
     }
-   private void bound()
-   {
-       ScrollingWorld w  = (ScrollingWorld) getWorld();
-       if (getX()  >= w.getWidth() * 6/10)
-       {
-              w.shiftWorld(-6);
-        }
-       if (getX() <= w.getWidth() * 4/10)
-       {
-              w.shiftWorld(6);
-        }
-    }
+
     private void KeyPress() 
     {
         if (Greenfoot.isKeyDown("a"))
@@ -173,29 +162,7 @@ public class Frog extends Actor
 
     }
     
-    private void boundedMove() {
-        try
-        {
-            if( speedX+getX() <= BOUNDARY ) 
-            {
-                setLocation(BOUNDARY, getY());
-                ((ScrollingWorld)getWorld()).shiftWorld(4);
-            } 
-            else if( speedX+getX() >= getWorld().getWidth()-BOUNDARY ) 
-            {
-                setLocation(getWorld().getWidth()-BOUNDARY, getY());
-                ((ScrollingWorld)getWorld()).shiftWorld(-4);
-            }
-            else 
-            {
-                setLocation(getX()+speedX, getY());
-            } 
-            speedX = 0;
-        }
-        catch(Exception E)
-        {
-        }
-    }
+    
 
     public void edgeCheck()
     {
@@ -205,13 +172,4 @@ public class Frog extends Actor
         }
     }
 
-    public void checkPortal()
-    {
-        Actor portal = getOneIntersectingObject(Portal.class);
-        if(portal != null)
-        {
-            ScrollingWorld2 world = (ScrollingWorld2)getWorld();
-            world.bossBattle();
-        }
-    }
 }

@@ -16,7 +16,7 @@ public class Stage extends World
      * Constructor for objects of class Stage.
      * 
      */
-    public Stage(Counter count, int totalCount)
+    public Stage(Counter count, int totalCount, Lives lives)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1); 

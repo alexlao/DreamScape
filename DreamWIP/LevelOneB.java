@@ -8,22 +8,23 @@ import greenfoot.*;
  */
 public class LevelOneB extends ScrollWorld
 {
-    
+     Lives lives;
     /**
      * Constructor for objects of class LevelOneB.
      * 
      */
-    public LevelOneB(Counter score)
+    public LevelOneB(Counter score, Lives lives)
     {
         super(1000,600,1, 2000, 600);
-        
+        addObject(lives, 920, 25);
         addObject(score, 36, 12);
-        Allistar allistar = new Allistar(score);
+        Allistar allistar = new Allistar(score,lives);
         addObject(allistar, 66, 394);
         allistar.setLocation(99, 264);
         prepare();
         
     }
+    
 
 
 
@@ -81,5 +82,9 @@ public class LevelOneB extends ScrollWorld
         platform7.setLocation(1045, 325);
         platform8.setLocation(1161, 270);
         platform9.setLocation(1297, 202);
+    }
+    public Lives getLives()
+    {
+        return lives;
     }
 }
