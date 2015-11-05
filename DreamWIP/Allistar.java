@@ -18,7 +18,7 @@ public class Allistar extends ScrollingActor
     private GreenfootImage run2 = new GreenfootImage("AllistarStepTwo.png");
     private Counter score;
     private boolean stand = true;
-
+    private String type;
     public void act() 
     {
         keyPress();
@@ -161,10 +161,26 @@ public class Allistar extends ScrollingActor
 
         if(isTouching(Portal.class))
         {
+            type = getWorld().getClass().getName();
+            if(type == "TutorialWorld"){
+                World part2 = new TutorialPart2();
+                Greenfoot.setWorld(part2);
+            }
+            else if( type == "LevelOneB"){
+                World topDown = new Stage(score, score.returnValue());
+                Greenfoot.setWorld(topDown);
+            }
+            else if(type == "TutorialPart2"){
+                World finalTut = new LastTut();
+                Greenfoot.setWorld(finalTut);
+            }
+            else if(type == "LastTut"){
+                World startGame = new LevelOne();
+                Greenfoot.setWorld(startGame);
+            }
 
-            World topDown = new Stage(score, score.returnValue());
             //bkgMusic.stop();
-            Greenfoot.setWorld(topDown);
+
         }
 
     }
