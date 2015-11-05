@@ -55,7 +55,8 @@ public class Stage extends World
     public void goToShop()
     {
         int totalCount = counter.returnValue();
-        Shop shop = new Shop(totalCount);
+        Shop shop = new Shop(totalCount, life);
         Greenfoot.setWorld(shop);
     }
+   
 }
