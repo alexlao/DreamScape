@@ -22,9 +22,11 @@ public class Boss extends Actor
     Counter counter;
     GreenfootImage boss;
     GreenfootImage hitBoss;
+    BossHealth bHealth;
 
-    public Boss(Counter counter)
+    public Boss(Counter counter, BossHealth h)
     {
+        bHealth = h;
         this.counter = counter;
         boss = new GreenfootImage("SpiderBoss.png");
         hitBoss = new GreenfootImage("HitSpiderBoss.png");
@@ -78,6 +80,8 @@ public class Boss extends Actor
         {
             removeTouching(Shot.class);
             healthCount(1);
+            bHealth.damage++;
+            bHealth.damageHit();
         }
     }
 

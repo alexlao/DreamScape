@@ -13,6 +13,7 @@ public class Stage extends World
     int z;
     private GreenfootSound bkgMusic; 
     Lives life;
+    BossHealth health;
     /**
      * Constructor for objects of class Stage.
      * 
@@ -30,6 +31,10 @@ public class Stage extends World
            topdownplayer.setLocation(305, 555);
         addObject(topdownplayer, 301, 353);
         prepare();
+        health = new BossHealth();
+        addObject(health, 930, 80);
+         Boss boss = new Boss(counter, health);
+        addObject(boss, 302, 31);
 
     }
 
@@ -44,8 +49,7 @@ public class Stage extends World
      */
     private void prepare()
     {
-        Boss boss = new Boss(counter);
-        addObject(boss, 302, 31);
+       
 
       
         addObject(counter, 36, 12);
