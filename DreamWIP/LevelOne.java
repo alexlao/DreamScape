@@ -129,6 +129,11 @@ public class LevelOne extends ScrollWorld
         coin3.setLocation(1167, 432);
         coin4.setLocation(1505, 310);
         coin5.setLocation(1673, 235);
+        coin2.setLocation(798, 355);
+        coin2.setLocation(798, 355);
+        coin3.setLocation(1170, 435);
+        coin4.setLocation(1509, 310);
+        coin2.setLocation(795, 355);
     }
 
     public Counter getCounter()
