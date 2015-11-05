@@ -17,13 +17,16 @@ public class Shop extends World
     int shopNumA;
     int shopNumB;
     int shopNumC;
-    public Shop(int totalCount )
+    
+    Lives hp;
+    public Shop(int totalCount, Lives life )
     {
         //takes in paramaters to continue the counter
         super(1000, 600, 1); 
         prepare();
         counter = new Counter(totalCount);
         act();
+        hp = life;
         addObject(counter, 36, 12);
     }
 
@@ -61,6 +64,12 @@ public class Shop extends World
             removeObject(weapon3);    
             counter.setCurrentValue(2);
         }  
+        
+        if(Greenfoot.mouseClicked(this))
+        {
+            LevelTwo nextLevel = new LevelTwo(counter,hp);
+            Greenfoot.setWorld(nextLevel);
+        }
 
     }
 }

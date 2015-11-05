@@ -43,6 +43,10 @@ public class Platform extends ScrollingActor
         {
             setImage("LogPlatform.png");
         }
+        else if(type == "LevelTwo")
+        {
+            setImage("DarkPlatform.png");
+        }
     }
 
 }

@@ -52,6 +52,9 @@ public class Boss extends Actor
             counter.gainPoints(10);
             Stage stage = (Stage)getWorld();
             stage.goToShop();
+            
+            
+            
             counter.gainPoints(10);
         }
     }
