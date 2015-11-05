@@ -20,6 +20,7 @@ public class Platform extends ScrollingActor
 
     }
     public void act(){
+        //platform changes depending on the world. it checks the worlds name and depending on that, it will change.
         type = getWorld().getClass().getName();
         if(type == "TutorialWorld"){
             setImage("tutplat.png");

@@ -1,0 +1,53 @@
+import greenfoot.*;
+
+/**
+ * Write a description of class LastTut here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class LastTut extends ScrollWorld
+{
+    Counter score = new Counter(0);
+    
+    /**
+     * Constructor for objects of class LastTut.
+     * 
+     */
+    public LastTut()
+    {
+        super(1000,600,1, 1395, 600);
+        Allistar allistar = new Allistar(score);
+        addObject(allistar, 123, 394);
+        prepare();
+    }
+
+    /**
+     * Prepare the world for the start of the program. That is: create the initial
+     * objects and add them to the world.
+     */
+    private void prepare()
+    {
+        Platform platform = new Platform();
+        addObject(platform, 123, 582);
+        Platform platform2 = new Platform();
+        addObject(platform2, 284, 547);
+        Platform platform3 = new Platform();
+        addObject(platform3, 420, 481);
+        Platform platform4 = new Platform();
+        addObject(platform4, 517, 481);
+        Platform platform5 = new Platform();
+        addObject(platform5, 606, 481);
+        Platform platform6 = new Platform();
+        addObject(platform6, 699, 534);
+        Platform platform7 = new Platform();
+        addObject(platform7, 807, 567);
+        Platform platform8 = new Platform();
+        addObject(platform8, 907, 567);
+        Platform platform9 = new Platform();
+        addObject(platform9, 1005, 567);
+        Portal portal = new Portal();
+        addObject(portal, 1022, 513);
+
+    }
+}

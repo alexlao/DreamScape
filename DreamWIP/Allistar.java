@@ -158,7 +158,7 @@ public class Allistar extends ScrollingActor
     public void checkPortal()
     {
         //Actor portal = getOneIntersectingObject(Portal.class);
-
+        //depending on the current world you're at, the portal will take you somewhere different.
         if(isTouching(Portal.class))
         {
             type = getWorld().getClass().getName();
