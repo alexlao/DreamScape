@@ -16,6 +16,8 @@ public class Allistar extends ScrollingActor
     private int jumpHeight = 18;
     private GreenfootImage run1 = new GreenfootImage("AllistarStepOne.png");
     private GreenfootImage run2 = new GreenfootImage("AllistarStepTwo.png");
+    private GreenfootImage standing = new GreenfootImage("Allistar.png");
+    
     private Counter score;
     private boolean stand = true;
     private Lives lives;
@@ -46,6 +48,10 @@ public class Allistar extends ScrollingActor
             //getImage().mirrorHorizontally();
             Animate();
         }
+         else if(inAir != true)
+        {
+            setImage(standing);
+        }
         if(Greenfoot.isKeyDown("a"))
         {
             move(-5);
@@ -53,6 +59,7 @@ public class Allistar extends ScrollingActor
             //getImage().mirrorHorizontally();
            Animate();
         }
+     
         if(Greenfoot.isKeyDown("w"))
         {
             jump();
@@ -76,6 +83,9 @@ public class Allistar extends ScrollingActor
         if(checkGround() == true)
         {
             vSpeed = 0;
+            //setLocation(getX(),getY()- 1);
+            
+            
             //setImage(new GreenfootImage("Allistar.png"));
             //getImage().mirrorHorizontally();
         }
@@ -101,6 +111,7 @@ public class Allistar extends ScrollingActor
         else
         {
             inAir = false;
+            setLocation(getX(), getY() - 1);
             return true;
         }
     }
