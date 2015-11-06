@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bullet1 extends ScrollingActor
+public class Bullet1 extends Enemy
 {
     private Enemy2 myEnemy2;
     private Enemy3 myEnemy3;

@@ -134,6 +134,16 @@ public class LevelOne extends ScrollWorld
         coin3.setLocation(1170, 435);
         coin4.setLocation(1509, 310);
         coin2.setLocation(795, 355);
+        Enemy1 enemy12 = new Enemy1();
+        addObject(enemy12, 281, 489);
+        enemy12.setLocation(275, 483);
+        Enemy2 enemy2 = new Enemy2();
+        addObject(enemy2, 270, 230);
+        enemy2.setLocation(259, 223);
+        Platform platform20 = new Platform();
+        addObject(platform20, 1346, 520);
+        
+        
     }
 
     public Counter getCounter()
