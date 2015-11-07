@@ -138,6 +138,7 @@ public class Allistar extends ScrollingActor
             getImage().mirrorHorizontally();
             inAir = true;
             fall();
+                    Greenfoot.playSound("wee.wav");
 
         }
 
@@ -160,6 +161,7 @@ public class Allistar extends ScrollingActor
             score.bumpCounter();
         }
 
+
     }
 
     public void checkDeath()
@@ -170,6 +172,7 @@ public class Allistar extends ScrollingActor
             //Greenfoot.setWorld(Game);
             health();
             respawn();
+            Greenfoot.playSound("aah.wav");
 
         }
         
@@ -181,6 +184,7 @@ public class Allistar extends ScrollingActor
         {
             l = 10;
             setImage(hurt);
+            Greenfoot.playSound("aah.wav");
         }
         if (l == 1)
         {
@@ -188,6 +192,7 @@ public class Allistar extends ScrollingActor
          setImage(getImage());
         }
         l--;
+        
     }
     public void health()
     {
