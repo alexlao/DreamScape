@@ -24,6 +24,11 @@ public class TutorialPart2 extends ScrollWorld
         addObject(lives, 925,25);
         prepare();
     }
+    
+    public void nextWorld()
+    {
+        Greenfoot.setWorld(new LastTut());
+    }
 
     public void prepare(){
 

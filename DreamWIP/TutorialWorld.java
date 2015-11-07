@@ -23,6 +23,12 @@ public class TutorialWorld extends ScrollWorld
         //bkgMusic = new GreenfootSound("sounds/Walking.mp3");
         prepare();
     }
+    
+    public void nextWorld()
+    {
+        Greenfoot.setWorld(new TutorialPart2());
+    }
+    
     public void act(){
     //bkgMusic.play();    
     }
