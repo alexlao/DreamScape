@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Sat Nov 07 02:34:34 PST 2015
+#Sat Nov 07 02:45:07 PST 2015
 target24.type=ClassTarget
 target16.name=LastTut
 target13.editor.width=900
@@ -187,6 +187,7 @@ target23.y=550
 target23.x=190
 target32.name=Allistar
 dependency47.from=Enemy1
+class.EndBubble.image=endone.png
 class.Bullet2.image=beeper.png
 dependency99.from=LevelOneB
 dependency22.from=BossShot
@@ -657,6 +658,7 @@ target24.editor.width=900
 target28.editor.y=-9
 target28.editor.x=-9
 target29.height=50
+class.EndBubble.superclass=ScrollingActor
 target11.width=90
 dependency6.from=TopDownPlayer
 target11.editor.y=0
