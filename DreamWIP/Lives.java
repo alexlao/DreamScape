@@ -25,7 +25,7 @@ public class Lives extends Actor
         setImage(current);
         
     }   
-    public int returnLives ()
+    public int returnLives ()//Zarah G Lives
     {
      return life;  
     }

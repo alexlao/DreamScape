@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Enemy2 extends ScrollingActor
+public class Enemy2 extends Enemy
 {
     private int healthCount = 0;
     private int turnAmount = 0;
@@ -107,11 +107,11 @@ public class Enemy2 extends ScrollingActor
 
     public void fire1()
     {
-        getWorld().addObject(new Bullet1(this), getX(), getY());
+        getWorld().addObject(new Bullet1(this), getX()+15, getY());
     }
 
     public void fire2()
     {
-        getWorld().addObject(new Bullet2(this), getX(), getY());
+        getWorld().addObject(new Bullet2(this), getX()-15, getY());
     }
 }

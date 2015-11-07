@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.List;
 /**
  * Write a description of class Allistar here.
  * 
@@ -17,10 +17,12 @@ public class Allistar extends ScrollingActor
     private GreenfootImage run1 = new GreenfootImage("AllistarStepOne.png");
     private GreenfootImage run2 = new GreenfootImage("AllistarStepTwo.png");
     private GreenfootImage standing = new GreenfootImage("Allistar.png");
+    private GreenfootImage hurt = new GreenfootImage("AllistarHurt.png");
     
     private Counter score;
     private boolean stand = true;
     private Lives lives;
+    private int l = 0;
     
     private String type;
     public void act() 
@@ -30,6 +32,7 @@ public class Allistar extends ScrollingActor
         eatCoin();
         checkDeath();
         checkPortal();
+        enemyDeath();
     }    
 
     public Allistar(Counter s, Lives l)
@@ -147,6 +150,7 @@ public class Allistar extends ScrollingActor
             getImage().mirrorHorizontally();
             inAir = true;
             fall();
+                    Greenfoot.playSound("wee.wav");
 
         }
     }
@@ -177,7 +181,25 @@ public class Allistar extends ScrollingActor
             //Greenfoot.setWorld(Game);
             health();
             respawn();
+            Greenfoot.playSound("aah.wav");
         }
+    }
+
+    public void enemyDeath()
+    {
+       
+        if (isTouching(Enemy.class))
+        {
+            l = 10;
+            setImage(hurt);
+            Greenfoot.playSound("aah.wav");
+        }
+        if (l == 1)
+        {
+         health();
+         setImage(getImage());
+        }
+        l--;
     }
 
     public void health()
@@ -222,10 +244,10 @@ public class Allistar extends ScrollingActor
             }
             */
            
-           if(isTouching(Portal.class))
-           {
-               getWorld().nextWorld();
-           }
+        if(isTouching(Portal.class))
+        {
+            getWorld().nextWorld();
+        }
             //bkgMusic.stop();
     }
 }
