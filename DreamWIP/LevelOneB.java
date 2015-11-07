@@ -9,25 +9,25 @@ import greenfoot.*;
 public class LevelOneB extends ScrollWorld
 {
      Lives lives;
+     Allistar allistar;
+     Timer timer;
     /**
      * Constructor for objects of class LevelOneB.
      * 
      */
-    public LevelOneB(Counter score, Lives lives)
+    public LevelOneB(Counter score, Lives lives, Timer timer)
     {
         super(1000,600,1, 2000, 600);
         addObject(lives, 920, 25);
         addObject(score, 36, 12);
-        Allistar allistar = new Allistar(score,lives);
+        allistar = new Allistar(score,lives);
+        this.timer = timer;
+        addObject(timer, 40, 30);
         addObject(allistar, 66, 394);
         allistar.setLocation(99, 264);
         prepare();
-        
     }
     
-
-
-
     /**
      * Prepare the world for the start of the program. That is: create the initial
      * objects and add them to the world.
@@ -83,8 +83,15 @@ public class LevelOneB extends ScrollWorld
         platform8.setLocation(1161, 270);
         platform9.setLocation(1297, 202);
     }
+
     public Lives getLives()
     {
         return lives;
+    }
+
+    public void nextWorld()
+    {
+        Greenfoot.setWorld(new Stage(allistar.getScore(), 
+            allistar.getScore().returnValue(), allistar.getLives(), timer));
     }
 }

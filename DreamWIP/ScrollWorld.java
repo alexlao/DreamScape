@@ -305,6 +305,10 @@ public abstract class ScrollWorld extends World
         setCameraLocation((int)(camX +dx +0.5), (int)(camY +dy +0.5));
     }
     
+    public void nextWorld()
+    {
+    }
+    
     /** MOVING BACKGROUND: */
     
     /**
