@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.List;
 /**
  * Write a description of class Allistar here.
  * 
@@ -17,10 +17,12 @@ public class Allistar extends ScrollingActor
     private GreenfootImage run1 = new GreenfootImage("AllistarStepOne.png");
     private GreenfootImage run2 = new GreenfootImage("AllistarStepTwo.png");
     private GreenfootImage standing = new GreenfootImage("Allistar.png");
+    private GreenfootImage hurt = new GreenfootImage("AllistarHurt.png");
     
     private Counter score;
     private boolean stand = true;
     private Lives lives;
+    private int l = 0;
     
     private String type;
     public void act() 
@@ -30,6 +32,7 @@ public class Allistar extends ScrollingActor
         eatCoin();
         checkDeath();
         checkPortal();
+        enemyDeath();
     }    
 
     public Allistar(Counter s, Lives l)
@@ -48,7 +51,7 @@ public class Allistar extends ScrollingActor
             //getImage().mirrorHorizontally();
             Animate();
         }
-         else if(inAir != true)
+        else if(inAir != true)
         {
             setImage(standing);
         }
@@ -65,17 +68,29 @@ public class Allistar extends ScrollingActor
             jump();
         }
     }
+    
     private void Animate()
     {
         if (walk == 5)
         {
             setImage(run1);
-        }else if (walk == 10)
+        }
+        else if (walk == 10)
         {
             setImage(run2);
             walk = 0;
         }
         walk++;
+    }
+    
+    public Counter getScore()
+    {
+        return score;
+    }
+    
+    public Lives getLives()
+    {
+        return lives;
     }
 
     public void checkFall()
@@ -135,9 +150,9 @@ public class Allistar extends ScrollingActor
             getImage().mirrorHorizontally();
             inAir = true;
             fall();
+                    Greenfoot.playSound("wee.wav");
 
         }
-
     }
 
     public void eatCoin()
@@ -156,7 +171,6 @@ public class Allistar extends ScrollingActor
             // w.getCounter().bumpCounter();
             score.bumpCounter();
         }
-
     }
 
     public void checkDeath()
@@ -167,32 +181,48 @@ public class Allistar extends ScrollingActor
             //Greenfoot.setWorld(Game);
             health();
             respawn();
-            
-            
-
+            Greenfoot.playSound("aah.wav");
         }
     }
+
+    public void enemyDeath()
+    {
+       
+        if (isTouching(Enemy.class))
+        {
+            l = 10;
+            setImage(hurt);
+            Greenfoot.playSound("aah.wav");
+        }
+        if (l == 1)
+        {
+         health();
+         setImage(getImage());
+        }
+        l--;
+    }
+
     public void health()
     {
          lives.life--;
          lives.removeLife();
-         //System.out.println("" + lives.returnLives());
-          
-            
+         //System.out.println("" + lives.returnLives());    
     }
+
     public void respawn()
     {
-     World w = getWorld();
-      if (getY() >= w.getHeight()*9/10)
-       {
-           setLocation(getX()+20, w.getHeight()*1/10);
-       }
+        World w = getWorld();
+        if (getY() >= w.getHeight()*9/10)
+        {
+            setLocation(getX()+20, w.getHeight()*1/10);
+        }
     }
 
     public void checkPortal()
     {
         //Actor portal = getOneIntersectingObject(Portal.class);
         //depending on the current world you're at, the portal will take you somewhere different.
+        /*
         if(isTouching(Portal.class))
         {
             type = getWorld().getClass().getName();
@@ -201,7 +231,7 @@ public class Allistar extends ScrollingActor
                 Greenfoot.setWorld(part2);
             }
             else if( type == "LevelOneB"){
-                World topDown = new Stage(score, score.returnValue(), lives);
+                World topDown = new Stage(score, score.returnValue(), lives, timer);
                 Greenfoot.setWorld(topDown);
             }
             else if(type == "TutorialPart2"){
@@ -212,11 +242,12 @@ public class Allistar extends ScrollingActor
                 World startGame = new LevelOne();
                 Greenfoot.setWorld(startGame);
             }
-
-            //bkgMusic.stop();
-
+            */
+           
+        if(isTouching(Portal.class))
+        {
+            getWorld().nextWorld();
         }
-
+            //bkgMusic.stop();
     }
-
 }

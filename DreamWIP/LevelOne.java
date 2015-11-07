@@ -13,16 +13,21 @@ public class LevelOne extends ScrollWorld
      * Constructor for objects of class LevelOne.
      * 
      */
-    Counter score = new Counter(0);
+    Counter score;
+    Timer timer;
     Lives lives = new Lives();
     public LevelOne()
     {
         super(1000, 600, 1, 2000, 600);
         bkgMusic = new GreenfootSound("sounds/Cavemusic.mp3");
         //bkgMusic.playLoop();
+        score =  new Counter(0);
+        timer =  new Timer();
         addObject(score, 36, 12);
+        addObject(timer, 40, 30);
         addObject(lives, 920, 25);
         prepare();
+        timer.start();
     }
 
     /**
@@ -134,6 +139,16 @@ public class LevelOne extends ScrollWorld
         coin3.setLocation(1170, 435);
         coin4.setLocation(1509, 310);
         coin2.setLocation(795, 355);
+        Enemy1 enemy12 = new Enemy1();
+        addObject(enemy12, 281, 489);
+        enemy12.setLocation(275, 483);
+        Enemy2 enemy2 = new Enemy2();
+        addObject(enemy2, 270, 230);
+        enemy2.setLocation(259, 223);
+        Platform platform20 = new Platform();
+        addObject(platform20, 1346, 520);
+        
+        
     }
 
     public Counter getCounter()
@@ -151,7 +166,7 @@ public class LevelOne extends ScrollWorld
         
         if(getObjects(Coin.class).isEmpty() == true)
         {
-            LevelOneB world2 = new LevelOneB(score, lives);
+            LevelOneB world2 = new LevelOneB(score, lives, timer);
             Greenfoot.setWorld(world2);
         }
         

@@ -23,6 +23,12 @@ public class TutorialWorld extends ScrollWorld
         //bkgMusic = new GreenfootSound("sounds/Walking.mp3");
         prepare();
     }
+    
+    public void nextWorld()
+    {
+        Greenfoot.setWorld(new TutorialPart2());
+    }
+    
     public void act(){
     //bkgMusic.play();    
     }
@@ -31,8 +37,41 @@ public class TutorialWorld extends ScrollWorld
     {
         Allistar allistar = new Allistar(score, lives);
         addObject(allistar, 81, 410);
+
+        Platform platform = new Platform();
+        addObject(platform, 93, 529);
+        Platform platform2 = new Platform();
+        addObject(platform2, 199, 536);
+        platform2.setLocation(193, 531);
+        platform2.setLocation(193, 529);
+        Platform platform3 = new Platform();
+        addObject(platform3, 299, 536);
+        platform3.setLocation(289, 530);
+        platform3.setLocation(290, 530);
+        Platform platform4 = new Platform();
+        addObject(platform4, 398, 537);
+        platform4.setLocation(388, 531);
+        platform4.setLocation(388, 530);
+        Platform platform5 = new Platform();
+        addObject(platform5, 518, 483);
+        platform5.setLocation(507, 473);
+        Platform platform6 = new Platform();
+        addObject(platform6, 664, 478);
+        platform6.setLocation(664, 473);
+        Platform platform7 = new Platform();
+        addObject(platform7, 811, 528);
+        Platform platform8 = new Platform();
+        addObject(platform8, 918, 535);
+        platform8.setLocation(911, 528);
+        Platform platform9 = new Platform();
+        addObject(platform9, 1016, 530);
+        platform9.setLocation(1010, 528);
+        platform9.setLocation(1010, 527);
+        platform7.setLocation(797, 527);
+        platform8.setLocation(897, 527);
+        platform9.setLocation(996, 527);
         Platform platform10 = new Platform();
-        addObject(platform10, 85, 520);
+        addObject(platform10, 1111, 480);
         Platform platform11 = new Platform();
         addObject(platform11, 185, 520);
         Platform platform12 = new Platform();
@@ -78,6 +117,8 @@ public class TutorialWorld extends ScrollWorld
         firstbubble.setLocation(196, 183);
         firstbubble.setLocation(317, 183);
         firstbubble.setLocation(348, 183);
+
+>>>>>>> refs/remotes/DreamScape/milestone3
     }
 
         public Counter getCounter()

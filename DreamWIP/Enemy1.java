@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Enemy1 extends ScrollingActor
+public class Enemy1 extends Enemy
 {
     private int healthCount = 0;
     private int turnAmount = 0;

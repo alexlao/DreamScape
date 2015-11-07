@@ -23,7 +23,7 @@ public class Platform extends ScrollingActor
         //platform changes depending on the world. it checks the worlds name and depending on that, it will change.
         type = getWorld().getClass().getName();
         if(type == "TutorialWorld"){
-            setImage("tutplat.png");
+            setImage("LogPlatform.png");
         }
         else if(type == "LevelOneB"){
             setImage("LargePlatform.png");
@@ -37,11 +37,15 @@ public class Platform extends ScrollingActor
         }
         else if(type == "TutorialPart2")
         {
-            setImage("tutplat.png");
+            setImage("LogPlatform.png");
         }
         else if(type == "LastTut")
         {
-            setImage("tutplat.png");
+            setImage("LogPlatform.png");
+        }
+        else if(type == "LevelTwo")
+        {
+            setImage("DarkPlatform.png");
         }
     }
 
