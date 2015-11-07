@@ -118,7 +118,6 @@ public class TutorialWorld extends ScrollWorld
         firstbubble.setLocation(317, 183);
         firstbubble.setLocation(348, 183);
 
->>>>>>> refs/remotes/DreamScape/milestone3
     }
 
         public Counter getCounter()
