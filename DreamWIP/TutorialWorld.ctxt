@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.params=
+comment0.target=TutorialWorld()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ TutorialWorld.\r\n\ \r\n
+comment1.params=
+comment1.target=void\ nextWorld()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ prepare()
+comment4.params=
+comment4.target=Counter\ getCounter()
+comment5.params=
+comment5.target=Lives\ getLives()
+numComments=6
