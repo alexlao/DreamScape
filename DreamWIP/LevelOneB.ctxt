@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=score\ lives\ timer
+comment0.target=LevelOneB(Counter,\ Lives,\ Timer)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ LevelOneB.\r\n\ \r\n
+comment1.params=
+comment1.target=void\ prepare()
+comment1.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\ That\ is\:\ create\ the\ initial\r\n\ objects\ and\ add\ them\ to\ the\ world.\r\n
+comment2.params=
+comment2.target=Lives\ getLives()
+comment3.params=
+comment3.target=void\ nextWorld()
+numComments=4
