@@ -20,7 +20,7 @@ public class TutorialPart2 extends ScrollWorld
         //addObject(score, 36, 12);
         Allistar allistar = new Allistar(score, lives);
         addObject(allistar, 66, 394);
-        
+        addObject(score, 36, 12);
         addObject(lives, 925,25);
         prepare();
     }
@@ -86,6 +86,17 @@ public class TutorialPart2 extends ScrollWorld
         addObject(platform17, 1738, 530);
         platform17.setLocation(1727, 524);
         portal.setLocation(1728, 488);
+        platform7.setLocation(703, 303);
+        platform8.setLocation(802, 303);
+        platform9.setLocation(902, 303);
+        platform10.setLocation(1002, 303);
+        platform11.setLocation(1102, 303);
+        platform12.setLocation(1202, 303);
+        platform13.setLocation(1301, 303);
+        BridgeBubble bridgebubble = new BridgeBubble();
+        addObject(bridgebubble, 815, 418);
+        LifeBubble lifebubble = new LifeBubble();
+        addObject(lifebubble, 1729, 162);
     }
 
         public Counter getCounter()

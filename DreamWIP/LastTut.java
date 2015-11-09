@@ -17,10 +17,11 @@ public class LastTut extends ScrollWorld
      */
     public LastTut()
     {
-        super(1000,600,1, 1395, 600);
+        super(1395,600,1, 1395, 600);
         Allistar allistar = new Allistar(score, lives);
         addObject(allistar, 123, 394);
         addObject(lives,920,25);
+        addObject(score, 36, 12);
         prepare();
     }
 
@@ -58,5 +59,12 @@ public class LastTut extends ScrollWorld
 
         platform.setLocation(120, 531);
         platform2.setLocation(279, 509);
+        Coin coin = new Coin();
+        addObject(coin, 484, 455);
+        coin.setLocation(477, 447);
+        coin.setLocation(473, 446);
+        coin.setLocation(471, 445);
+        SleepBubble sleepbubble = new SleepBubble();
+        addObject(sleepbubble, 945, 411);
     }
 }

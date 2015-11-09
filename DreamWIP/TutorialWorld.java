@@ -17,7 +17,7 @@ public class TutorialWorld extends ScrollWorld
      */
     public TutorialWorld()
     {
-        super(2000,600,1, 2000, 600);
+        super(1000,600,1, 2000, 600);
         addObject(score, 36, 12);
         addObject(lives, 920, 25);
         //bkgMusic = new GreenfootSound("sounds/Walking.mp3");
@@ -90,6 +90,8 @@ public class TutorialWorld extends ScrollWorld
         platform15.setLocation(1543, 466);
         EndBubble endbubble = new EndBubble();
         addObject(endbubble, 1852, 293);
+        addObject(score, 36, 12);
+        
     }
 
         public Counter getCounter()
