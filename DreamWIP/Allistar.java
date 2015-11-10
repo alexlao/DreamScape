@@ -171,8 +171,8 @@ public class Allistar extends ScrollingActor
             getImage().mirrorHorizontally();
             inAir = true;
             fall();
-                    Greenfoot.playSound("wee.wav");
-
+            Greenfoot.playSound("jump.mp3");
+            //sound downloaded from http://www.kyutwo.com/downloads/sfx/videogames/vgsounds.da/Maple%20Story/Menu.mp3
         }
     }
 
@@ -187,7 +187,8 @@ public class Allistar extends ScrollingActor
             World world;
             world = getWorld();
             world.removeObject(coin);
-            Greenfoot.playSound("Beep.mp3");
+            Greenfoot.playSound("moneysound.mp3");
+            //sound downloaded from http://www.kyutwo.com/downloads/sfx/videogames/vgsounds.da/Maple%20Story/Menu.mp3
             //LevelOne w = (LevelOne)getWorld();
             // w.getCounter().bumpCounter();
             score.bumpCounter();
@@ -202,7 +203,7 @@ public class Allistar extends ScrollingActor
             //Greenfoot.setWorld(Game);
             health();
             respawn();
-            Greenfoot.playSound("aah.wav");
+            Greenfoot.playSound("aah.mp3");
         }
     }
 
@@ -213,7 +214,7 @@ public class Allistar extends ScrollingActor
         {
             l = 10;
             setImage(hurt);
-            Greenfoot.playSound("aah.wav");
+            Greenfoot.playSound("aah.mp3");
         }
         if (l == 1)
         {
@@ -231,6 +232,8 @@ public class Allistar extends ScrollingActor
             world = getWorld();
             world.removeObject(enemy);
             score.bumpCounter();
+            Greenfoot.playSound("killsound.mp3");
+            //sound downloaded from http://soundbible.com/1079-Bir-Poop-Splat.html
             inAir = false;
             jump();
         }
