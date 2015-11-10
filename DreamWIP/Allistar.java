@@ -33,6 +33,7 @@ public class Allistar extends ScrollingActor
         checkDeath();
         checkPortal();
         enemyDeath();
+        killEnemy();
     }    
 
     public Allistar(Counter s, Lives l)
@@ -188,7 +189,7 @@ public class Allistar extends ScrollingActor
     public void enemyDeath()
     {
        
-        if (isTouching(Enemy.class))
+        if (getOneObjectAtOffset(0,0,Enemy.class)!=null)
         {
             l = 10;
             setImage(hurt);
@@ -200,6 +201,19 @@ public class Allistar extends ScrollingActor
          setImage(getImage());
         }
         l--;
+    }
+    public void killEnemy(){
+        Actor enemy;
+        enemy = getOneObjectAtOffset(0,40,Enemy.class);
+        if(enemy !=null)
+        {
+            World world;
+            world = getWorld();
+            world.removeObject(enemy);
+            score.bumpCounter();
+            
+        }
+        
     }
 
     public void health()
