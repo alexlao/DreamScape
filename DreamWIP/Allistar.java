@@ -206,22 +206,31 @@ public class Allistar extends ScrollingActor
             Greenfoot.playSound("aah.mp3");
         }
     }
-
     public void enemyDeath()
     {
        
-        if (getOneObjectAtOffset(0,0,Enemy.class)!=null)
+        if ((getOneObjectAtOffset(0,0,Enemy.class)!=null) && (l ==0))
         {
-            l = 10;
-            setImage(hurt);
+            health();
             Greenfoot.playSound("aah.mp3");
+            setImage(hurt);
+            l = 50;
+            
         }
-        if (l == 1)
+        if (l > 0)
         {
-         health();
-         setImage(getImage());
+         l--;
+        
         }
-        l--;
+        if(l ==1)
+        {
+            setImage(getImage());
+        }
+        if(getOneObjectAtOffset(0,0, Enemy.class) != null)
+        {
+            setImage(hurt);
+        }
+        
     }
     public void killEnemy(){
         Actor enemy;
