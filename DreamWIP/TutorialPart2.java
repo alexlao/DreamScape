@@ -10,11 +10,12 @@ public class TutorialPart2 extends ScrollWorld
 {
     Counter score = new Counter(0);
     Lives lives = new Lives();
+    GreenfootSound m;
     /**
      * Constructor for objects of class TutorialWorld.
      * 
      */
-    public TutorialPart2()
+    public TutorialPart2(GreenfootSound music)
     {
         super(1000,600,1, 2000, 600);
         //addObject(score, 36, 12);
@@ -23,11 +24,12 @@ public class TutorialPart2 extends ScrollWorld
         addObject(score, 36, 12);
         addObject(lives, 925,25);
         prepare();
+        m = music;
     }
     
     public void nextWorld()
     {
-        Greenfoot.setWorld(new LastTut());
+        Greenfoot.setWorld(new LastTut(m));
     }
 
     public void prepare(){

@@ -10,12 +10,12 @@ public class LastTut extends ScrollWorld
 {
     Counter score = new Counter(0);
     Lives lives = new Lives();
-    
+    GreenfootSound m;
     /**
      * Constructor for objects of class LastTut.
      * 
      */
-    public LastTut()
+    public LastTut(GreenfootSound music)
     {
         super(1395,600,1, 1395, 600);
         Allistar allistar = new Allistar(score, lives);
@@ -23,11 +23,13 @@ public class LastTut extends ScrollWorld
         addObject(lives,920,25);
         addObject(score, 36, 12);
         prepare();
+        m = music;
     }
 
     public void nextWorld()
     {
         Greenfoot.setWorld(new LevelOne());
+        m.stop();
     }
     
     /**
