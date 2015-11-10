@@ -158,6 +158,7 @@ public class Allistar extends ScrollingActor
         {
             vSpeed = vSpeed + accel; //fall speed gets larger by accel every tick
         } 
+        
         inAir = true;
     }
 
@@ -224,13 +225,14 @@ public class Allistar extends ScrollingActor
     public void killEnemy(){
         Actor enemy;
         enemy = getOneObjectAtOffset(0,40,Enemy.class);
-        if(enemy !=null)
+        if(enemy !=null && vSpeed>=0)
         {
             World world;
             world = getWorld();
             world.removeObject(enemy);
             score.bumpCounter();
-            
+            inAir = false;
+            jump();
         }
         
     }
