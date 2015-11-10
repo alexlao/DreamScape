@@ -18,18 +18,20 @@ public class Boss extends Actor
     private int shotAmount = 0;
     private int shotAmount2 = 0;
     private int imageSwitchDelay = 0;
+    GreenfootSound m;
 
     Counter counter;
     GreenfootImage boss;
     GreenfootImage hitBoss;
     BossHealth bHealth;
 
-    public Boss(Counter counter, BossHealth h)
+    public Boss(Counter counter, BossHealth h, GreenfootSound music)
     {
         bHealth = h;
         this.counter = counter;
         boss = new GreenfootImage("SpiderBoss.png");
         hitBoss = new GreenfootImage("HitSpiderBoss.png");
+        m = music;
     }
 
     public void act() 
@@ -52,6 +54,7 @@ public class Boss extends Actor
             counter.gainPoints(10);
             Stage stage = (Stage)getWorld();
             stage.goToShop();
+            m.stop();
             
             
             
