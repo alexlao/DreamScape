@@ -22,6 +22,7 @@ public class Lives extends Actor
      */
     public void act() 
     {
+        
         setImage(current);
         
     }   
@@ -53,22 +54,23 @@ public class Lives extends Actor
 
         }
     }
-    public void removeLife2()
+    /*
+    public void updateLife()
     {
-        if (life == 10)
+        if (life == 5)
         {
-            setImage(five);
-        }else if( life == 8)
+            current = five;
+        }else if( life == 4)
         {
-            setImage (four);
-        } else if (life == 6)
+             current = four;
+        } else if (life == 3)
         {
-            setImage(three);
-        } else if (life == 4)
+             current = three;
+        } else if (life == 2)
         {
-            setImage(two);
-        } else if (life == 2){
-            setImage(one);
+             current = two;
+        } else if (life == 1){
+             current = one;
         } else if (life == 0)
         {
            GameOver w = new GameOver();
@@ -76,5 +78,7 @@ public class Lives extends Actor
            
 
         }
+        
     }
+    */
 }

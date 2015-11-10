@@ -52,9 +52,13 @@ public class Shop extends World
     public void act(){
         //code that runs in the shop to see which item to purchase and if sufficient credits to purchase
         if(Greenfoot.mouseClicked(weapon1) && counter.returnValue()>=3){
+            if(hp.returnLives() < 5)
+            {
             removeObject(weapon1);
             counter.setCurrentValue(3);
-
+            hp.life++;
+            hp.removeLife();
+        }
         }
         if((Greenfoot.mouseClicked(weapon2) && counter.returnValue()>=1)){
             removeObject(weapon2);
@@ -65,7 +69,7 @@ public class Shop extends World
             counter.setCurrentValue(2);
         }  
         
-        if(Greenfoot.mouseClicked(this))
+        if(Greenfoot.isKeyDown("space"))
         {
             LevelTwo nextLevel = new LevelTwo(counter,hp);
             Greenfoot.setWorld(nextLevel);
