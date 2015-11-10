@@ -16,9 +16,10 @@ public class LevelOne extends ScrollWorld
     Counter score;
     Timer timer;
     Lives lives = new Lives();
+    Allistar allistar;
     public LevelOne()
     {
-        super(1000, 600, 1, 2000, 600);
+        super(2000, 600, 1, 2000, 600);
         bkgMusic = new GreenfootSound("sounds/Cavemusic.mp3");
         //bkgMusic.playLoop();
         score =  new Counter(0);
@@ -52,7 +53,7 @@ public class LevelOne extends ScrollWorld
         addObject(platform7, 1002, 211);
         Platform platform8 = new Platform();
         addObject(platform8, 1171, 465);
-        Allistar allistar = new Allistar(score,lives);
+        allistar = new Allistar(score,lives);
         addObject(allistar, 81, 410);
         Coin coin = new Coin();
         addObject(coin, 273, 390);
@@ -147,8 +148,11 @@ public class LevelOne extends ScrollWorld
         enemy2.setLocation(259, 223);
         Platform platform20 = new Platform();
         addObject(platform20, 1346, 520);
-        
-        
+
+        Platform platform21 = new Platform();
+        addObject(platform21, 1871, 210);
+        Portal portal = new Portal();
+        addObject(portal, 1877, 166);
     }
 
     public Counter getCounter()
@@ -160,16 +164,20 @@ public class LevelOne extends ScrollWorld
         return lives;
     }
 
-    public void act()
-    
+//     public void act()
+//     
+//     {
+//         
+//         if(getObjects(Coin.class).isEmpty() == true)
+//         {
+//             LevelOneB world2 = new LevelOneB(score, lives, timer);
+//             Greenfoot.setWorld(world2);
+//         }
+//         
+//     }
+        public void nextWorld()
     {
-        
-        if(getObjects(Coin.class).isEmpty() == true)
-        {
-            LevelOneB world2 = new LevelOneB(score, lives, timer);
-            Greenfoot.setWorld(world2);
-        }
-        
+        Greenfoot.setWorld(new LevelOneB(allistar.getScore(), allistar.getLives(), timer));
     }
 
 }
