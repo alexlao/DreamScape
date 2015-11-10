@@ -54,10 +54,6 @@ public class Boss extends Actor
             counter.gainPoints(10);
             Stage stage = (Stage)getWorld();
             stage.goToShop();
-            m.stop();
-            
-            
-            
             counter.gainPoints(10);
         }
     }
@@ -86,8 +82,6 @@ public class Boss extends Actor
         {
             removeTouching(Shot.class);
             healthCount(1);
-            bHealth.damage++;
-            bHealth.damageHit();
         }
     }
 
@@ -183,7 +177,7 @@ public class Boss extends Actor
             if(getY() >= 150 && getY() <= 160)
             {
                 setLocation(getX() + 1,getY());
-                if(getX() >= 550)
+                if(getX() >= 970)
                 {
                     setLocation(getX() + 1,getY() + 1);
                 }
@@ -191,7 +185,7 @@ public class Boss extends Actor
             if(getY() >= 161 )
             {
                 setLocation(getX() - 1,getY());
-                if(getX() <= 50 && getY() >= 161)
+                if(getX() <= 30 && getY() >= 161)
                 {
                     setLocation(getX(),getY() - 1);
                 }
@@ -207,7 +201,7 @@ public class Boss extends Actor
         {
             if(turnAmount == 0)
             {
-                if(getX() <=200)
+                if(getX() <=300)
                 {
                     setLocation(getX(), getY()-1);
                     if(getY() == 0)
@@ -215,12 +209,12 @@ public class Boss extends Actor
                         setLocation(getX()+1, getY());
                     }
                 }
-                if(getX() ==201 && getY() < 175)
+                if(getX() ==301 && getY() < 175)
                 {
                     setLocation(getX(), getY() + 1);
 
                 }
-                if(getX() ==201 && getY() == 175)
+                if(getX() ==301 && getY() == 175)
                 {
                     if(getY() == 175 && shotAmount < 200)
                     {
@@ -244,7 +238,7 @@ public class Boss extends Actor
                     }
                 }
 
-                if(getX() > 202 && getX() <401)
+                if(getX() > 302 && getX() <601)
                 {
                     setLocation(getX(),getY()-1);
                     if(getY() == 0)
@@ -252,12 +246,12 @@ public class Boss extends Actor
                         setLocation(getX()+1, getY());
                     }
                 }
-                if(getX() ==401 && getY() < 175)
+                if(getX() ==601 && getY() < 175)
                 {
                     setLocation(getX(), getY() + 1);
 
                 }
-                if(getX() ==401 && getY() == 175)
+                if(getX() ==601 && getY() == 175)
                 {
                     if(getY() == 175 && shotAmount < 200)
                     {
@@ -280,7 +274,7 @@ public class Boss extends Actor
                         setLocation(getX() + 2, getY());
                     }
                 }
-                if(getX() > 402 && getX() <=580)
+                if(getX() > 602 && getX() <=970)
                 {
                     setLocation(getX(),getY()-1);
                     if(getY() == 0)
@@ -288,12 +282,12 @@ public class Boss extends Actor
                         setLocation(getX()+1, getY());
                     }
                 }
-                if(getX() == 581 && getY() < 175)
+                if(getX() == 971 && getY() < 175)
                 {
                     setLocation(getX(), getY() + 1);
 
                 }
-                if(getX() == 581 && getY() == 175)
+                if(getX() == 971 && getY() == 175)
                 {
                     if(getY() == 175 && shotAmount < 200)
                     {
@@ -323,7 +317,7 @@ public class Boss extends Actor
             if(turnAmount == 1)
             {
 
-                if(getX() <=582 && getX() >= 401)
+                if(getX() <=972 && getX() >= 601)
                 {
                     setLocation(getX(), getY()-1);
                     if(getY() == 0)
@@ -331,12 +325,12 @@ public class Boss extends Actor
                         setLocation(getX()-1, getY());
                     }
                 }
-                if(getX() ==400 &&  getY() < 175)
+                if(getX() ==600 &&  getY() < 175)
                 {
                     setLocation(getX(), getY() + 1);
 
                 }
-                if(getX() ==400 && getY() == 175)
+                if(getX() ==600 && getY() == 175)
                 {
                     if(getY() == 175 && shotAmount < 200)
                     {
@@ -359,7 +353,7 @@ public class Boss extends Actor
                         setLocation(getX() - 1, getY());
                     }
                 }
-                if(getX() > 201 && getX() <=399)
+                if(getX() > 301 && getX() <=599)
                 {
                     setLocation(getX(),getY()-1);
                     if(getY() == 0)
@@ -367,12 +361,12 @@ public class Boss extends Actor
                         setLocation(getX()-1, getY());
                     }
                 }
-                if(getX() ==201 && getY() < 175)
+                if(getX() ==301 && getY() < 175)
                 {
                     setLocation(getX(), getY() + 1);
 
                 }
-                if(getX() ==201 && getY() == 175)
+                if(getX() ==301 && getY() == 175)
                 {
                     if(getY() == 175 && shotAmount < 200)
                     {
@@ -396,7 +390,7 @@ public class Boss extends Actor
                     }
 
                 }
-                if(getX() > 20 && getX() <=200)
+                if(getX() > 20 && getX() <=300)
                 {
                     setLocation(getX(),getY()-1);
                     if(getY() == 0)
@@ -462,7 +456,7 @@ public class Boss extends Actor
             if(turnAmount2 == 0)
             {
 
-                if(getX() <= 299)
+                if(getX() <= 499)
                 {
                     setLocation(getX()  , getY() - 1);    
                     if(getY() == 0)
@@ -470,7 +464,7 @@ public class Boss extends Actor
                         setLocation(getX() + 1, getY()); 
                     }
                 }
-                if(getX() == 300 && getY() < 200)
+                if(getX() == 500 && getY() < 200)
                 {
                     setLocation(getX(), getY() + 1);
 
@@ -485,7 +479,7 @@ public class Boss extends Actor
                 //                     setLocation(getX(), getY() + 1);
                 //                     
                 //                 }
-                if(getX() == 300 && getY() == 200)
+                if(getX() == 500 && getY() == 200)
                 {
                     //shoot stuff method here
                     if (getY() == 200 && shotAmount2 < 100)
@@ -501,7 +495,7 @@ public class Boss extends Actor
                         turnCount3(1);
                     }
                 }
-                if(getX() >= 301 && getX() < 580)
+                if(getX() >= 501 && getX() < 972)
                 {
                     setLocation(getX(),getY()-1);
                     if(getY() == 0)
@@ -509,12 +503,12 @@ public class Boss extends Actor
                         setLocation(getX()+1, getY());
                     }
                 }
-                if(getX() == 580 && getY() < 300)
+                if(getX() == 972 && getY() < 300)
                 {
                     setLocation(getX(), getY() + 1);
                     shotAmount = 0;
                 }
-                if(getX() == 580 && getY() == 300)
+                if(getX() == 972 && getY() == 300)
                 {
                     //shoot stuff method here
 
@@ -536,7 +530,7 @@ public class Boss extends Actor
                     {
                         //shoot stuff method here
                         shotAmount = 0;
-                        setLocation(getX() + 1, getY());
+                        setLocation(getX() - 1, getY());
                         setRotation(0);
                         turnCount2(1);
                     }
@@ -545,7 +539,7 @@ public class Boss extends Actor
 
             if(turnAmount2 == 1)
             {
-                if(getX() <= 581 && getX() >= 301)
+                if(getX() <= 971 && getX() >= 501)
                 {
                     setLocation(getX()  , getY() - 1);    
                     if(getY() == 0)
@@ -553,7 +547,7 @@ public class Boss extends Actor
                         setLocation(getX() - 1, getY()); 
                     }
                 }
-                if(getX() == 300 && getY() < 200)
+                if(getX() == 500 && getY() < 200)
                 {
                     setLocation(getX(), getY() + 1);
 
@@ -569,7 +563,7 @@ public class Boss extends Actor
                 // 
                 //                 }
 
-                if(getX() == 300 && getY() == 200)
+                if(getX() == 500 && getY() == 200)
                 {
                     //shoot stuff method here
                     if (getY() == 200 && shotAmount2 < 100)
@@ -586,7 +580,7 @@ public class Boss extends Actor
                         turnCount3(1);
                     }
                 }
-                if(getX() <= 299 && getX() > 20)
+                if(getX() <= 499 && getX() > 30)
                 {
                     setLocation(getX(),getY()-1);
                     if(getY() == 0)
@@ -594,12 +588,12 @@ public class Boss extends Actor
                         setLocation(getX()-1, getY());
                     }
                 }
-                if(getX() == 20 && getY() < 300)
+                if(getX() == 30 && getY() < 300)
                 {
                     setLocation(getX(), getY() + 1);
 
                 }
-                if(getX() == 20 && getY() == 300)
+                if(getX() == 30 && getY() == 300)
                 {
                     //shoot stuff method here
                     if(getY() == 300 && shotAmount < 200)

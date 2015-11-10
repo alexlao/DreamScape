@@ -8,12 +8,13 @@ import greenfoot.*;
  */
 public class Portal extends ScrollingActor
 {
+    GifImage portalImage = new GifImage("Blue portal.gif");
     /**
      * Act - do whatever the Portal wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        // Add your action code here.
+        setImage(portalImage.getCurrentImage());
     }    
 }
