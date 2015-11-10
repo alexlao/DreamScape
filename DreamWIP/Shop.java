@@ -28,6 +28,14 @@ public class Shop extends World
         act();
         hp = life;
         addObject(counter, 36, 12);
+        if (hp.returnLives() == 5)
+        {
+            showText("Already at full hp!",getWidth()*1/3, getHeight()/2-50);
+        }
+        else
+        {
+            showText("3 Points",getWidth()*1/3, getHeight()/2-50);
+        }
     }
 
     /**
@@ -38,11 +46,13 @@ public class Shop extends World
     {
 
         addObject(weapon1, getWidth()*1/3, getHeight()/2);  
-        showText("3 Points",getWidth()*1/3, getHeight()/2-50);
-        addObject(weapon2,getWidth()*1/3+100, getHeight()/2);
-        showText("1 Point",getWidth()*1/3+100, getHeight()/2-50);
-        addObject(weapon3, getWidth()*1/3+200, getHeight()/2);
-        showText("2 Points", getWidth()*1/3+200, getHeight()/2-50);
+        
+        showText("Hp",getWidth()*1/3, getHeight()/2+50);
+        addObject(weapon2,getWidth()*1/3+150, getHeight()/2);
+        showText("1 Point",getWidth()*1/3+150, getHeight()/2-50);
+        addObject(weapon3, getWidth()*1/3+300, getHeight()/2);
+        showText("2 Points", getWidth()*1/3+300, getHeight()/2-50);
+        showText("Press Space to Continue...", getWidth()*1/3+200, 500);
         shopNumA = 0;
         shopNumB =0;
         shopNumC = 0;
@@ -59,6 +69,7 @@ public class Shop extends World
             hp.life++;
             hp.removeLife();
         }
+
         }
         if((Greenfoot.mouseClicked(weapon2) && counter.returnValue()>=1)){
             removeObject(weapon2);
