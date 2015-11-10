@@ -95,7 +95,7 @@ public class Allistar extends ScrollingActor
 
     public void checkFall()
     {
-        if(checkGround() == true)
+        if((checkGround() == true) || (checkmGround() == true))
         {
             vSpeed = 0;
             //setLocation(getX(),getY()- 1);
@@ -104,7 +104,7 @@ public class Allistar extends ScrollingActor
             //setImage(new GreenfootImage("Allistar.png"));
             //getImage().mirrorHorizontally();
         }
-        else
+        else if(((checkGround() == false) && (checkmGround() == false)))
         {
             fall();
         } 
@@ -130,7 +130,26 @@ public class Allistar extends ScrollingActor
             return true;
         }
     }
+    public boolean checkmGround()
+    {
+        int pHeight = getImage().getHeight();
+        int onGround = (int)(pHeight/2);
 
+        Actor ground = getOneObjectAtOffset(0, onGround, MovingPlatform.class);
+
+        //if pjlayer is on nothing, return false, else return true
+        if(ground == null)
+        {
+            inAir = true;
+            return false;
+        }
+        else
+        {
+            inAir = false;
+            setLocation(getX(), getY() - 1);
+            return true;
+        }
+    }
     public void fall()
     {
         setLocation(getX(), getY() + vSpeed);
