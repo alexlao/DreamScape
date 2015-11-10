@@ -19,7 +19,7 @@ public class LevelOne extends ScrollWorld
     Allistar allistar;
     public LevelOne()
     {
-        super(2000, 600, 1, 2000, 600);
+        super(1000, 600, 1, 2000, 600);
         bkgMusic = new GreenfootSound("sounds/Cavemusic.mp3");
         //bkgMusic.playLoop();
         score =  new Counter(0);
