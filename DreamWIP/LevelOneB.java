@@ -27,6 +27,11 @@ public class LevelOneB extends ScrollWorld
         allistar.setLocation(99, 264);
         prepare();
     }
+    public LevelOneB()
+    {
+       super(1000,600,1, 2000, 600);
+       prepare();
+    }
     
     /**
      * Prepare the world for the start of the program. That is: create the initial
@@ -82,6 +87,36 @@ public class LevelOneB extends ScrollWorld
         platform7.setLocation(1045, 325);
         platform8.setLocation(1161, 270);
         platform9.setLocation(1297, 202);
+        Enemy2 enemy2 = new Enemy2();
+        addObject(enemy2, 523, 482);
+        platform4.setLocation(518, 512);
+        platform5.setLocation(616, 512);
+        platform14.setLocation(715, 512);
+        Platform platform16 = new Platform();
+        addObject(platform16, 820, 519);
+        platform16.setLocation(813, 512);
+        platform15.setLocation(948, 454);
+        platform15.setLocation(1098, 498);
+        platform6.setLocation(941, 425);
+        platform7.setLocation(1049, 354);
+        platform15.setLocation(534, 217);
+        Platform platform17 = new Platform();
+        addObject(platform17, 638, 224);
+        Platform platform18 = new Platform();
+        addObject(platform18, 743, 229);
+        platform15.setLocation(539, 242);
+        platform17.setLocation(636, 242);
+        platform18.setLocation(734, 242);
+        Platform platform19 = new Platform();
+        addObject(platform19, 840, 249);
+        platform19.setLocation(833, 242);
+        enemy2.setLocation(522, 214);
+        Enemy1 enemy1 = new Enemy1();
+        addObject(enemy1, 509, 490);
+        enemy1.setLocation(506, 485);
+        Enemy1 enemy12 = new Enemy1();
+        addObject(enemy12, 1482, 97);
+        enemy12.setLocation(1471, 90);
     }
 
     public Lives getLives()

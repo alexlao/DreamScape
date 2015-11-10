@@ -34,7 +34,7 @@ public class Stage extends World
         prepare();
         health = new BossHealth();
         addObject(health, 930, 80);
-         Boss boss = new Boss(counter, health);
+         Boss boss = new Boss(counter, health, bkgMusic);
         addObject(boss, 302, 31);
 
     }

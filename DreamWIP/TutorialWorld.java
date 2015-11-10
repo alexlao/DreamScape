@@ -20,17 +20,19 @@ public class TutorialWorld extends ScrollWorld
         super(1000,600,1, 2000, 600);
         addObject(score, 36, 12);
         addObject(lives, 920, 25);
-        //bkgMusic = new GreenfootSound("sounds/Walking.mp3");
+        bkgMusic = new GreenfootSound("sounds/Walking.mp3");
+        
         prepare();
     }
     
     public void nextWorld()
     {
-        Greenfoot.setWorld(new TutorialPart2());
+        Greenfoot.setWorld(new TutorialPart2(bkgMusic));
+
     }
     
     public void act(){
-    //bkgMusic.play();    
+    bkgMusic.play();    
     }
     
     public void prepare()
