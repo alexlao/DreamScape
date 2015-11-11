@@ -82,6 +82,8 @@ public class Boss extends Actor
         {
             removeTouching(Shot.class);
             healthCount(1);
+            bHealth.damage++;
+            bHealth.damageHit();
         }
     }
 
