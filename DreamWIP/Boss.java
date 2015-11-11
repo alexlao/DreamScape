@@ -55,6 +55,7 @@ public class Boss extends Actor
             Stage stage = (Stage)getWorld();
             stage.goToShop();
             counter.gainPoints(10);
+            m.stop();
         }
     }
 
@@ -82,6 +83,8 @@ public class Boss extends Actor
         {
             removeTouching(Shot.class);
             healthCount(1);
+            bHealth.damageHit();
+            bHealth.damage++;
         }
     }
 
