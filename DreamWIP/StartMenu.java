@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class StartMenu extends World
 {
-    GifImage Image = new GifImage("StartMenu.gif");
+    GifImage Image = new GifImage("StartMenu2.gif");
     public StartMenu()
     {
         super (1000,600, 1);
@@ -20,5 +20,9 @@ public class StartMenu extends World
     public void act()
     {    
                    setBackground(Image.getCurrentImage());
+                   if(Greenfoot.mouseClicked(this))
+                   {
+                       Greenfoot.setWorld(new TutorialWorld());
+                   }
     }
 }
