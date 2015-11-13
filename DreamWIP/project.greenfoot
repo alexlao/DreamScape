@@ -193,6 +193,7 @@ dependency121.type=UsesDependency
 dependency122.from=StartMenu
 dependency122.to=GifImage
 dependency122.type=UsesDependency
+<<<<<<< HEAD
 dependency123.from=StartMenu
 dependency123.to=TutorialWorld
 dependency123.type=UsesDependency
@@ -223,6 +224,23 @@ dependency130.type=UsesDependency
 dependency131.from=Start
 dependency131.to=TutorialWorld
 dependency131.type=UsesDependency
+=======
+dependency123.from=GameOver
+dependency123.to=TutorialWorld
+dependency123.type=UsesDependency
+dependency124.from=Lvl2Enemy2
+dependency124.to=bone2
+dependency124.type=UsesDependency
+dependency125.from=Lvl2Enemy1
+dependency125.to=GifImage
+dependency125.type=UsesDependency
+dependency126.from=StartMenu
+dependency126.to=GifImage
+dependency126.type=UsesDependency
+dependency13.from=Shop
+dependency13.to=Weapon1
+dependency13.type=UsesDependency
+>>>>>>> origin/milestone3
 dependency14.from=Shop
 dependency14.to=Weapon2
 dependency14.type=UsesDependency
@@ -505,12 +523,21 @@ dependency98.type=UsesDependency
 dependency99.from=LevelOneB
 dependency99.to=Stage
 dependency99.type=UsesDependency
+<<<<<<< HEAD
 mainWindow.height=1048
 mainWindow.width=1938
 mainWindow.x=-9
 mainWindow.y=-9
 package.numDependencies=131
 package.numTargets=53
+=======
+mainWindow.height=1042
+mainWindow.width=1942
+mainWindow.x=-11
+mainWindow.y=-11
+package.numDependencies=123
+package.numTargets=49
+>>>>>>> origin/milestone3
 project.charset=UTF-8
 simulation.speed=50
 target1.editor.height=700
@@ -537,12 +564,21 @@ target10.showInterface=false
 target10.type=ClassTarget
 target10.typeParameters=
 target10.width=80
+<<<<<<< HEAD
 target10.x=200
 target10.y=250
 target11.editor.height=700
 target11.editor.width=900
 target11.editor.x=40
 target11.editor.y=23
+=======
+target10.x=110
+target10.y=610
+target11.editor.height=56
+target11.editor.width=198
+target11.editor.x=0
+target11.editor.y=640
+>>>>>>> origin/milestone3
 target11.height=50
 target11.name=Enemy
 target11.naviview.expanded=true
@@ -601,6 +637,7 @@ target15.naviview.expanded=false
 target15.showInterface=false
 target15.type=AbstractTarget
 target15.typeParameters=
+<<<<<<< HEAD
 target15.width=110
 target15.x=160
 target15.y=70
@@ -608,6 +645,15 @@ target16.editor.height=734
 target16.editor.width=654
 target16.editor.x=656
 target16.editor.y=23
+=======
+target15.width=90
+target15.x=190
+target15.y=730
+target16.editor.height=687
+target16.editor.width=654
+target16.editor.x=633
+target16.editor.y=0
+>>>>>>> origin/milestone3
 target16.height=50
 target16.name=LevelOne
 target16.naviview.expanded=true
@@ -619,6 +665,7 @@ target16.x=10
 target16.y=550
 target17.editor.height=700
 target17.editor.width=900
+<<<<<<< HEAD
 target17.editor.x=105
 target17.editor.y=44
 target17.height=50
@@ -637,10 +684,31 @@ target18.editor.y=23
 target18.height=50
 target18.name=Shop
 target18.naviview.expanded=true
+=======
+target17.editor.x=40
+target17.editor.y=23
+target17.height=50
+target17.name=Enemy1
+target17.naviview.expanded=true
+target17.showInterface=false
+target17.type=ClassTarget
+target17.typeParameters=
+target17.width=80
+target17.x=10
+target17.y=670
+target18.editor.height=700
+target18.editor.width=900
+target18.editor.x=40
+target18.editor.y=23
+target18.height=50
+target18.name=Enemy2
+target18.naviview.expanded=false
+>>>>>>> origin/milestone3
 target18.showInterface=false
 target18.type=ClassTarget
 target18.typeParameters=
 target18.width=80
+<<<<<<< HEAD
 target18.x=100
 target18.y=370
 target19.editor.height=700
@@ -656,6 +724,23 @@ target19.typeParameters=
 target19.width=80
 target19.x=10
 target19.y=670
+=======
+target18.x=190
+target18.y=670
+target19.editor.height=680
+target19.editor.width=900
+target19.editor.x=40
+target19.editor.y=20
+target19.height=50
+target19.name=ScrollWorld
+target19.naviview.expanded=true
+target19.showInterface=false
+target19.type=AbstractTarget
+target19.typeParameters=
+target19.width=90
+target19.x=110
+target19.y=490
+>>>>>>> origin/milestone3
 target2.editor.height=700
 target2.editor.width=900
 target2.editor.x=65
@@ -671,14 +756,22 @@ target2.x=100
 target2.y=190
 target20.editor.height=700
 target20.editor.width=900
+<<<<<<< HEAD
 target20.editor.x=40
 target20.editor.y=23
 target20.height=50
 target20.name=Enemy2
+=======
+target20.editor.x=181
+target20.editor.y=23
+target20.height=50
+target20.name=TutorialWorld
+>>>>>>> origin/milestone3
 target20.naviview.expanded=false
 target20.showInterface=false
 target20.type=ClassTarget
 target20.typeParameters=
+<<<<<<< HEAD
 target20.width=80
 target20.x=190
 target20.y=670
@@ -686,6 +779,15 @@ target21.editor.height=680
 target21.editor.width=900
 target21.editor.x=40
 target21.editor.y=20
+=======
+target20.width=110
+target20.x=10
+target20.y=790
+target21.editor.height=696
+target21.editor.width=1294
+target21.editor.x=65
+target21.editor.y=52
+>>>>>>> origin/milestone3
 target21.height=50
 target21.name=ScrollWorld
 target21.naviview.expanded=true
@@ -735,9 +837,15 @@ target24.width=110
 target24.x=10
 target24.y=1030
 target25.editor.height=680
+<<<<<<< HEAD
 target25.editor.width=896
 target25.editor.x=40
 target25.editor.y=0
+=======
+target25.editor.width=900
+target25.editor.x=40
+target25.editor.y=20
+>>>>>>> origin/milestone3
 target25.height=50
 target25.name=BossShot
 target25.naviview.expanded=true
@@ -915,11 +1023,19 @@ target37.type=ClassTarget
 target37.typeParameters=
 target37.width=110
 target37.x=130
+<<<<<<< HEAD
 target37.y=790
 target38.editor.height=680
 target38.editor.width=900
 target38.editor.x=40
 target38.editor.y=23
+=======
+target37.y=1030
+target38.editor.height=687
+target38.editor.width=655
+target38.editor.x=-7
+target38.editor.y=0
+>>>>>>> origin/milestone3
 target38.height=50
 target38.name=Portal
 target38.naviview.expanded=true
@@ -947,8 +1063,13 @@ target4.editor.width=900
 target4.editor.x=101
 target4.editor.y=110
 target4.height=50
+<<<<<<< HEAD
 target4.name=Start
 target4.naviview.expanded=false
+=======
+target4.name=Lives
+target4.naviview.expanded=true
+>>>>>>> origin/milestone3
 target4.showInterface=false
 target4.type=ClassTarget
 target4.typeParameters=
@@ -960,8 +1081,13 @@ target40.editor.width=654
 target40.editor.x=633
 target40.editor.y=0
 target40.height=50
+<<<<<<< HEAD
 target40.name=LifeBubble
 target40.naviview.expanded=false
+=======
+target40.name=MovingPlatform
+target40.naviview.expanded=true
+>>>>>>> origin/milestone3
 target40.showInterface=false
 target40.type=ClassTarget
 target40.typeParameters=
@@ -1090,12 +1216,18 @@ target5.editor.width=900
 target5.editor.x=40
 target5.editor.y=23
 target5.height=50
+<<<<<<< HEAD
 target5.name=Lives
 target5.naviview.expanded=true
+=======
+target5.name=Coin
+target5.naviview.expanded=false
+>>>>>>> origin/milestone3
 target5.showInterface=false
 target5.type=ClassTarget
 target5.typeParameters=
 target5.width=80
+<<<<<<< HEAD
 target5.x=10
 target5.y=850
 target50.editor.height=1028
@@ -1154,6 +1286,14 @@ target6.editor.height=700
 target6.editor.width=900
 target6.editor.x=40
 target6.editor.y=20
+=======
+target5.x=190
+target5.y=130
+target6.editor.height=696
+target6.editor.width=1294
+target6.editor.x=-8
+target6.editor.y=-8
+>>>>>>> origin/milestone3
 target6.height=50
 target6.name=HaungsMode
 target6.naviview.expanded=true
