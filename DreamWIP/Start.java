@@ -17,6 +17,11 @@ public class Start extends StartMenuButtons
     GreenfootImage six = new GreenfootImage("start7.png");
     GreenfootSound scrib = new GreenfootSound("scribble.wav");
     
+    public Start()
+    {
+        setImage("Start.png");
+    }
+    
     /**
      * Act - do whatever the Start wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

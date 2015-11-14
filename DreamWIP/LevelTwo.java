@@ -243,5 +243,6 @@ public class LevelTwo extends ScrollWorld
         platform10.setLocation(1662, 254);
         platform39.setLocation(1506, 341);
         removeObject(platform37);
+        
     }
 }

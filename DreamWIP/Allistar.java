@@ -34,6 +34,7 @@ public class Allistar extends ScrollingActor
         checkPortal();
         enemyDeath();
         killEnemy();
+        
     }    
 
     public Allistar(Counter s, Lives l)
@@ -131,6 +132,7 @@ public class Allistar extends ScrollingActor
             return true;
         }
     }
+    
     public boolean checkmGround()
     {
         int pHeight = getImage().getHeight();
