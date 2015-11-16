@@ -14,7 +14,8 @@ public class StartMenu extends World
         super (1000,600, 1);
 
         prepare();
-    }
+    }
+
 
     /**
      * Constructor for objects of class StartMenu.
@@ -45,5 +46,7 @@ public class StartMenu extends World
         start.setLocation(178, 471);
         start.setLocation(161, 467);
         start.setLocation(161, 469);
+        Clicker clicker = new Clicker();
+        addObject(clicker, 395, 294);
     }
 }
