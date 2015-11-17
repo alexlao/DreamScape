@@ -18,6 +18,7 @@ public class Shop extends World
     int shopNumB;
     int shopNumC;
     
+    boolean saved = false;
     Lives hp;
     public Shop(int totalCount, Lives life )
     {
@@ -46,10 +47,12 @@ public class Shop extends World
     {
 
         addObject(weapon1, getWidth()*1/3, getHeight()/2);  
-        
         showText("Hp",getWidth()*1/3, getHeight()/2+50);
+        
+        showText("ExtraLevelAttempt", getWidth()*1/3+150, getHeight()/2+50);
         addObject(weapon2,getWidth()*1/3+150, getHeight()/2);
         showText("1 Point",getWidth()*1/3+150, getHeight()/2-50);
+        
         addObject(weapon3, getWidth()*1/3+300, getHeight()/2);
         showText("2 Points", getWidth()*1/3+300, getHeight()/2-50);
         showText("Press Space to Continue...", getWidth()*1/3+200, 500);
@@ -74,6 +77,7 @@ public class Shop extends World
         if((Greenfoot.mouseClicked(weapon2) && counter.returnValue()>=1)){
             removeObject(weapon2);
             counter.setCurrentValue(1);
+            saved = true;
         }
         if((Greenfoot.mouseClicked(weapon3) && counter.returnValue()>=2)){
             removeObject(weapon3);    
@@ -82,8 +86,15 @@ public class Shop extends World
         
         if(Greenfoot.isKeyDown("space"))
         {
+            if(saved = true)
+            {
+               LevelTwo nextLevel = new LevelTwo(counter, hp, true);
+               Greenfoot.setWorld(nextLevel);
+            }
+            else{
             LevelTwo nextLevel = new LevelTwo(counter,hp);
             Greenfoot.setWorld(nextLevel);
+           }
         }
 
     }
