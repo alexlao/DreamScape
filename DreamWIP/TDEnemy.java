@@ -15,6 +15,9 @@ public class TDEnemy extends Actor
     //{
     //    Hero = p;
     //}
+    Counter score;
+    
+    
     
     public void act() 
     {
@@ -49,12 +52,15 @@ public class TDEnemy extends Actor
         if(isTouching(Shot.class))
         {
             //delaytimer = 7;
+            
             getWorld().removeObject(this);
+            
+            
         }
     }
         catch(Exception e)
         {
-            getWorld().removeObject(this);
+            //getWorld().removeObject(this);
     }
     }
      public void timercountdown()
