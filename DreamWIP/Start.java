@@ -28,6 +28,7 @@ public class Start extends StartMenuButtons
      */
     public void act() 
     {
+        
          if(Greenfoot.mouseClicked(this))
         {
            time = 24;
@@ -64,4 +65,5 @@ public class Start extends StartMenuButtons
         }
         time--;
     }    
+
 }
