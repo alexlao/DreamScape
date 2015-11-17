@@ -18,7 +18,7 @@ public class LevelTwo extends ScrollWorld
         super(1000,600,1,4000,600);
         addObject(score, 36, 12);
         
-        System.out.println("" + hp.returnLives());
+       
         addObject(hp, 920, 25);
         Allistar allistar = new Allistar(score, hp);
         addObject(allistar, 250, 450);
@@ -29,6 +29,18 @@ public class LevelTwo extends ScrollWorld
     {
         super(1000,600,1,4000,600);
         Allistar allistar = new Allistar(new Counter(5), new Lives());
+        addObject(allistar, 250, 450);
+        prepare();
+    }
+        public LevelTwo(Counter score, Lives hp, boolean save)
+    {
+        
+        super(1000,600,1,4000,600);
+        addObject(score, 36, 12);
+        
+       
+        addObject(hp, 920, 25);
+        Allistar allistar = new Allistar(score, hp, 1);
         addObject(allistar, 250, 450);
         prepare();
     }

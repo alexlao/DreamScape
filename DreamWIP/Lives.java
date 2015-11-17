@@ -48,8 +48,8 @@ public class Lives extends Actor
             current = one;
         } else if (life == 0)
         {
-           GameOver w = new GameOver();
-           Greenfoot.setWorld(w);
+           //GameOver w = new GameOver();
+          // Greenfoot.setWorld(w);
            
 
         }
