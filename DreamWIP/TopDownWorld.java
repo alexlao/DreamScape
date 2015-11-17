@@ -11,7 +11,7 @@ public class TopDownWorld extends World
 
     TopDownPlayer p;
     Lives hp = new Lives();
-    Counter score;
+    Counter score = new Counter(0);
     
     public TopDownWorld()
     {    
@@ -19,7 +19,7 @@ public class TopDownWorld extends World
         super(800, 800, 1); 
         TopDownPlayer player = new TopDownPlayer(new Lives());
         p = player;
-        Counter score = new Counter(0);
+        //Counter score = new Counter(0);
         addObject(score, 36, 12);
         prepare();
     }

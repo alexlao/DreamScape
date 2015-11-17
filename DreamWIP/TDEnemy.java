@@ -23,6 +23,7 @@ public class TDEnemy extends Actor
     {
         movement(Hero, 3);
         checkForCollisions();
+       // timercountdown(1);
     }   
     public void movement(TopDownPlayer Hero, int speed)
     {
@@ -51,9 +52,9 @@ public class TDEnemy extends Actor
         try{
         if(isTouching(Shot.class))
         {
-            //delaytimer = 7;
+            delaytimer = 7;
             
-            getWorld().removeObject(this);
+            //getWorld().removeObject(this);
             
             
         }
@@ -63,7 +64,7 @@ public class TDEnemy extends Actor
             //getWorld().removeObject(this);
     }
     }
-     public void timercountdown()
+     public void timercountdown(int add)
      {
         {
             if(delaytimer > 0)
@@ -81,7 +82,7 @@ public class TDEnemy extends Actor
             if(delaytimer == 1)
             {
                getWorld().removeObject(this);
-               //score.add(1);
+               score.gainPoints(add);
             }
             
         }
