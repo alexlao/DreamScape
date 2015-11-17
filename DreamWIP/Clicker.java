@@ -21,6 +21,10 @@ public class Clicker extends StartMenuButtons
         {
             setImage("pencil (2).png");
         }
-        //setLocation(Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+        MouseInfo mi = Greenfoot.getMouseInfo();
+        if(mi !=null)
+        {
+            setLocation(mi.getX(), mi.getY());
+        }
     }    
 }

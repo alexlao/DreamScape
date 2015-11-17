@@ -18,11 +18,15 @@ public class TopDownPlayer extends Actor
     private GreenfootImage noShot= new GreenfootImage("topdown.png");
     Lives lives;
 
+    String type;
     // private Playerhitbox phb;
     //  int stationaryX;
 
     public void act()
     {
+        type = getWorld().getClass().getName();
+            if (type == "Stage")
+            {
         if(getY() >= 450)
         {
             moveAndTurn();
@@ -32,7 +36,12 @@ public class TopDownPlayer extends Actor
         {
             setLocation(getX(),getY() + 1);
         }
-
+       }
+      else
+    {
+        moveAndTurn();
+        shoot();
+    }
         //kill();
     }
     public TopDownPlayer (Lives l)
@@ -117,7 +126,7 @@ public class TopDownPlayer extends Actor
         {
             shotTimer--;
         }
-        else if(Greenfoot.mouseClicked(null))
+        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
         {
             getWorld().addObject(new Shot(this), getX(), getY());
             shotTimer = 50;
