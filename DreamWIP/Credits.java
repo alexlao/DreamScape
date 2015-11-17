@@ -27,7 +27,7 @@ public class Credits extends StartMenuButtons
      */
     public void act() 
     {
-         if(Greenfoot.mouseClicked(this))
+         if(Greenfoot.mouseClicked(this) && isTouching(Clicker.class))
         {
 
             time = 21;
