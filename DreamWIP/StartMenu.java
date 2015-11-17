@@ -48,5 +48,10 @@ public class StartMenu extends World
         start.setLocation(161, 469);
         Clicker clicker = new Clicker();
         addObject(clicker, 395, 294);
+        EndlessTD TD = new EndlessTD();
+        TD.setLocation(170, 469);
+        EndlessTD endlesstd = new EndlessTD();
+        addObject(endlesstd, 153, 562);
+        endlesstd.setLocation(159, 554);
     }
 }
