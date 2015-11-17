@@ -53,5 +53,15 @@ public class StartMenu extends World
         EndlessTD endlesstd = new EndlessTD();
         addObject(endlesstd, 153, 562);
         endlesstd.setLocation(159, 554);
+        removeObject(start);
+        Start start2 = new Start();
+        addObject(start2, 167, 455);
+        start2.setLocation(160, 455);
+        removeObject(haungsmode);
+        removeObject(credits);
+        HaungsMode haungsmode2 = new HaungsMode();
+        addObject(haungsmode2, 733, 463);
+        Credits credits2 = new Credits();
+        addObject(credits2, 769, 550);
     }
 }

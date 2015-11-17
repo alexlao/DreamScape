@@ -85,7 +85,7 @@ public class Boss extends Actor
             healthCount(1);
             bHealth.damage++;
             bHealth.damageHit();
-
+            Greenfoot.playSound("killsound.mp3");
         }
     }
 

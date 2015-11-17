@@ -28,7 +28,7 @@ int time = 0;
      */
     public void act() 
     {
-         if(Greenfoot.mouseClicked(this))
+         if(Greenfoot.mouseClicked(this) )
         {
            time = 24;
            scrib.play();
