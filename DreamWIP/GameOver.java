@@ -29,7 +29,7 @@ public class GameOver extends World
             if(a.getSave() == 1)
             {
                 
-                Greenfoot.setWorld(new LevelTwo(a.getScore(), new Lives()));
+                Greenfoot.setWorld(new LevelTwo(a.getScore(), new Lives(),new Timer()));
                 
             }
         }

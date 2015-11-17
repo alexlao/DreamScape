@@ -8,16 +8,16 @@ import greenfoot.*;
  */
 public class LevelTwo extends ScrollWorld
 {
-
+    
     /**
      * Constructor for objects of class LevelTwo.
      * 
      */
-    public LevelTwo(Counter score, Lives hp)
+    public LevelTwo(Counter score, Lives hp, Timer t)
     {
         super(1000,600,1,4000,600);
         addObject(score, 36, 12);
-        
+        addObject(t, 40, 30);
        
         addObject(hp, 920, 25);
         Allistar allistar = new Allistar(score, hp);
@@ -32,12 +32,12 @@ public class LevelTwo extends ScrollWorld
         addObject(allistar, 250, 450);
         prepare();
     }
-        public LevelTwo(Counter score, Lives hp, boolean save)
+        public LevelTwo(Counter score, Lives hp, boolean save, Timer t)
     {
         
         super(1000,600,1,4000,600);
         addObject(score, 36, 12);
-        
+        addObject(t, 40, 30);
        
         addObject(hp, 920, 25);
         Allistar allistar = new Allistar(score, hp, 1);

@@ -13,6 +13,7 @@ public class Shop extends World
     Weapon2 weapon2 = new Weapon2();
     Weapon3 weapon3 = new Weapon3();
     Counter counter;
+    Timer time;
     int z;
     int shopNumA;
     int shopNumB;
@@ -20,7 +21,7 @@ public class Shop extends World
     
     boolean saved = false;
     Lives hp;
-    public Shop(int totalCount, Lives life )
+    public Shop(int totalCount, Lives life, Timer t )
     {
         //takes in paramaters to continue the counter
         super(1000, 600, 1); 
@@ -28,6 +29,7 @@ public class Shop extends World
         counter = new Counter(totalCount);
         act();
         hp = life;
+        time = t;
         addObject(counter, 36, 12);
         if (hp.returnLives() == 5)
         {
@@ -88,11 +90,11 @@ public class Shop extends World
         {
             if(saved = true)
             {
-               LevelTwo nextLevel = new LevelTwo(counter, hp, true);
+               LevelTwo nextLevel = new LevelTwo(counter, hp, true, time);
                Greenfoot.setWorld(nextLevel);
             }
             else{
-            LevelTwo nextLevel = new LevelTwo(counter,hp);
+            LevelTwo nextLevel = new LevelTwo(counter,hp, time);
             Greenfoot.setWorld(nextLevel);
            }
         }
