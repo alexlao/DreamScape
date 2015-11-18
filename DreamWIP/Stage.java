@@ -38,6 +38,12 @@ public class Stage extends World
         addObject(health, 930, 80);
          Boss boss = new Boss(counter, health, bkgMusic);
         addObject(boss, 302, 31);
+        
+        if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
+    UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
+         myInfo.setScore(600-timer.count);//set the score to your info
+        myInfo.store(); //store the info
+    }
 
     }
 

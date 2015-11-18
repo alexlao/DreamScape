@@ -23,6 +23,12 @@ public class LevelTwo extends ScrollWorld
         Allistar allistar = new Allistar(score, hp);
         addObject(allistar, 250, 450);
         prepare();
+        
+        if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
+    UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
+         myInfo.setScore(1000-t.count);//set the score to your info
+        myInfo.store(); //store the info
+    }
     }
 
     public LevelTwo()//for level building purposes
@@ -43,6 +49,12 @@ public class LevelTwo extends ScrollWorld
         Allistar allistar = new Allistar(score, hp, 1);
         addObject(allistar, 250, 450);
         prepare();
+        
+        if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
+    UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
+         myInfo.setScore(1000-t.count);//set the score to your info
+        myInfo.store(); //store the info
+    }
     }
 
     /**
