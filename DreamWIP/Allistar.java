@@ -23,6 +23,7 @@ public class Allistar extends ScrollingActor
     private boolean stand = true;
     private Lives lives;
     private int l = 0;
+    private int check = 0;
     
     private String type;
     public void act() 
@@ -42,6 +43,14 @@ public class Allistar extends ScrollingActor
         score = s;
         lives = l;
         getImage().mirrorHorizontally();
+    }
+    
+    public Allistar(Counter s, Lives l, int save)
+    {
+        score = s;
+        lives = l;
+        getImage().mirrorHorizontally();
+        check = save;
     }
 
     public void keyPress()
@@ -255,6 +264,11 @@ public class Allistar extends ScrollingActor
     {
          lives.life--;
          lives.removeLife();
+         if(lives.returnLives() == 0)
+         {
+             GameOver w = new GameOver(this);
+             Greenfoot.setWorld(w);
+            }
          //System.out.println("" + lives.returnLives());    
     }
 
@@ -298,5 +312,10 @@ public class Allistar extends ScrollingActor
             getWorld().nextWorld();
         }
             //bkgMusic.stop();
+    }
+    
+    public int getSave()
+    {
+        return check;
     }
 }

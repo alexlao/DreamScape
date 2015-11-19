@@ -13,6 +13,7 @@ public class Stage extends World
     int z;
     private GreenfootSound bkgMusic; 
     Lives life;
+    Timer time;
     BossHealth health;
     /**
      * Constructor for objects of class Stage.
@@ -26,8 +27,9 @@ public class Stage extends World
         bkgMusic.playLoop();
         counter = new Counter(totalCount);
          life = lives;
+         time = timer;
         addObject(life, 925, 25);
-        addObject(timer, 40, 30);
+        addObject(time, 40, 30);
           TopDownPlayer topdownplayer = new TopDownPlayer(life);
            topdownplayer.setLocation(305, 555);
         addObject(topdownplayer, 301, 353);
@@ -36,6 +38,12 @@ public class Stage extends World
         addObject(health, 930, 80);
          Boss boss = new Boss(counter, health, bkgMusic);
         addObject(boss, 302, 31);
+        
+        if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
+    UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
+         myInfo.setScore(600-timer.count);//set the score to your info
+        myInfo.store(); //store the info
+    }
 
     }
 
@@ -60,7 +68,7 @@ public class Stage extends World
     public void goToShop()
     {
         int totalCount = counter.returnValue();
-        Shop shop = new Shop(totalCount, life);
+        Shop shop = new Shop(totalCount, life, time);
         Greenfoot.setWorld(shop);
     }
    

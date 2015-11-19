@@ -13,13 +13,15 @@ public class Shop extends World
     Weapon2 weapon2 = new Weapon2();
     Weapon3 weapon3 = new Weapon3();
     Counter counter;
+    Timer time;
     int z;
     int shopNumA;
     int shopNumB;
     int shopNumC;
     
+    boolean saved = false;
     Lives hp;
-    public Shop(int totalCount, Lives life )
+    public Shop(int totalCount, Lives life, Timer t )
     {
         //takes in paramaters to continue the counter
         super(1000, 600, 1); 
@@ -27,6 +29,7 @@ public class Shop extends World
         counter = new Counter(totalCount);
         act();
         hp = life;
+        time = t;
         addObject(counter, 36, 12);
         if (hp.returnLives() == 5)
         {
@@ -36,7 +39,15 @@ public class Shop extends World
         {
             showText("3 Points",getWidth()*1/3, getHeight()/2-50);
         }
+
+     if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
+       UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
+    
+             myInfo.setScore(1000-time.count);//set the score to your info
+             myInfo.store(); //store the info
+           
     }
+}
 
     /**
      * Prepare the world for the start of the program. That is: create the initial
@@ -46,10 +57,12 @@ public class Shop extends World
     {
 
         addObject(weapon1, getWidth()*1/3, getHeight()/2);  
-        
         showText("Hp",getWidth()*1/3, getHeight()/2+50);
+        
+        showText("ExtraLevelAttempt", getWidth()*1/3+150, getHeight()/2+50);
         addObject(weapon2,getWidth()*1/3+150, getHeight()/2);
         showText("1 Point",getWidth()*1/3+150, getHeight()/2-50);
+        
         addObject(weapon3, getWidth()*1/3+300, getHeight()/2);
         showText("2 Points", getWidth()*1/3+300, getHeight()/2-50);
         showText("Press Space to Continue...", getWidth()*1/3+200, 500);
@@ -74,6 +87,7 @@ public class Shop extends World
         if((Greenfoot.mouseClicked(weapon2) && counter.returnValue()>=1)){
             removeObject(weapon2);
             counter.setCurrentValue(1);
+            saved = true;
         }
         if((Greenfoot.mouseClicked(weapon3) && counter.returnValue()>=2)){
             removeObject(weapon3);    
@@ -82,8 +96,15 @@ public class Shop extends World
         
         if(Greenfoot.isKeyDown("space"))
         {
-            LevelTwo nextLevel = new LevelTwo(counter,hp);
+            if(saved = true)
+            {
+               LevelTwo nextLevel = new LevelTwo(counter, hp, true, time);
+               Greenfoot.setWorld(nextLevel);
+            }
+            else{
+            LevelTwo nextLevel = new LevelTwo(counter,hp, time);
             Greenfoot.setWorld(nextLevel);
+           }
         }
 
     }
