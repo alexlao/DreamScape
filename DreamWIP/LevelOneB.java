@@ -26,12 +26,18 @@ public class LevelOneB extends ScrollWorld
         addObject(allistar, 66, 394);
         allistar.setLocation(99, 264);
         prepare();
+      
         
+    
+        
+<<<<<<< HEAD
+=======
         if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
-    UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
-         myInfo.setScore(300-timer.count);//set the score to your info
-        myInfo.store(); //store the info
+    //UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
+        // myInfo.setScore(300-timer.count);//set the score to your info
+        //myInfo.store(); //store the info
     }
+>>>>>>> origin/milestone3
     }
     public LevelOneB()
     {
@@ -124,6 +130,9 @@ public class LevelOneB extends ScrollWorld
         addObject(enemy12, 1482, 97);
         enemy12.setLocation(1471, 90);
     }
+    public void act()
+    {
+    }
 
     public Lives getLives()
     {
@@ -132,7 +141,13 @@ public class LevelOneB extends ScrollWorld
 
     public void nextWorld()
     {
+<<<<<<< HEAD
         Greenfoot.setWorld(new Stage(allistar.getScore(), 
+         allistar.getScore().returnValue(), allistar.getLives(), timer));
+           
+=======
+        Greenfoot.setWorld(new Stage(
             allistar.getScore().returnValue(), allistar.getLives(), timer));
+>>>>>>> origin/milestone3
     }
 }

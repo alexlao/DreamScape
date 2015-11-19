@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class LevelTwo extends ScrollWorld
 {
-    
+    Timer time;
     /**
      * Constructor for objects of class LevelTwo.
      * 
@@ -16,19 +16,16 @@ public class LevelTwo extends ScrollWorld
     public LevelTwo(Counter score, Lives hp, Timer t)
     {
         super(1000,600,1,4000,600);
+        time = t;
         addObject(score, 36, 12);
-        addObject(t, 40, 30);
+        addObject(time, 40, 30);
        
         addObject(hp, 920, 25);
         Allistar allistar = new Allistar(score, hp);
         addObject(allistar, 250, 450);
         prepare();
         
-        if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
-    UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
-         myInfo.setScore(1000-t.count);//set the score to your info
-        myInfo.store(); //store the info
-    }
+   
     }
 
     public LevelTwo()//for level building purposes
@@ -42,19 +39,16 @@ public class LevelTwo extends ScrollWorld
     {
         
         super(1000,600,1,4000,600);
+        time = t;
         addObject(score, 36, 12);
-        addObject(t, 40, 30);
+        addObject(time, 40, 30);
        
         addObject(hp, 920, 25);
         Allistar allistar = new Allistar(score, hp, 1);
         addObject(allistar, 250, 450);
         prepare();
         
-        if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
-    UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
-         myInfo.setScore(1000-t.count);//set the score to your info
-        myInfo.store(); //store the info
-    }
+  
     }
 
     /**
@@ -268,5 +262,9 @@ public class LevelTwo extends ScrollWorld
         platform39.setLocation(1506, 341);
         removeObject(platform37);
         
+    }
+    public void nextWorld()
+    {
+        Greenfoot.setWorld(new End(time));
     }
 }
