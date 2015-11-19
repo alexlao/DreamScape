@@ -14,6 +14,10 @@ public class Shot extends Actor
         this.player = player;
         setRotation(player.getRotation());
     }
+    
+    public Shot()
+    {
+    }
 
     public Shot(Boss boss)
     {

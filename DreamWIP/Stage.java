@@ -63,6 +63,7 @@ public class Stage extends World
         done = false;
         
 
+
     }
 
     //     public void musiolor (int amount)

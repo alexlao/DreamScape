@@ -17,7 +17,7 @@ public class TopDownWorld extends World
     {    
         
         super(800, 800, 1); 
-        TopDownPlayer player = new TopDownPlayer(new Lives());
+        TopDownPlayer player = new TopDownPlayer(new Lives(), true);
         p = player;
         //Counter score = new Counter(0);
         addObject(score, 36, 12);
@@ -34,14 +34,89 @@ public class TopDownWorld extends World
     
     public void act()
     {
-        
-        if(Greenfoot.getRandomNumber(1000) < 20)
+        spawnPerk();
+        if (score.returnValue() >= 0)
         {
-            Counter s = score;
-            BasicEnemy e = new BasicEnemy(p,s);
+            spawnBasic();
+        }
+        if(score.returnValue() > 10)
+        {
+            spawnBat();
+        }
+ 
+}
+
+    public void spawnBasic()
+    {
+        if(this.numberOfObjects() < 20)
+        {
+    if(Greenfoot.getRandomNumber(2) == 0)
+           {
+               if(Greenfoot.getRandomNumber(1000) < 5)
+        {
+            //Counter s = score;
+            BasicEnemy e = new BasicEnemy(p,score);
             addObject(e, p.getX() + Greenfoot.getRandomNumber(100) + 100, p.getY() + Greenfoot.getRandomNumber(100) + 100);
             //maxSpawn++;
             
         }
     }
+    else
+     {
+         if(Greenfoot.getRandomNumber(1000) < 5)
+        {
+            // Counter s = score;
+            BasicEnemy e = new BasicEnemy(p,score);
+            addObject(e, p.getX() - Greenfoot.getRandomNumber(200) - 100, p.getY() - Greenfoot.getRandomNumber(200) - 100);
+            //maxSpawn++;
+            
+        }
+    }
+}
+}
+    public void spawnBat()
+    {
+        if(this.numberOfObjects() < 20)
+        {
+    if(Greenfoot.getRandomNumber(2) == 0)
+           {
+               if(Greenfoot.getRandomNumber(1000) < 3)
+        {
+            //Counter s = score;
+            BatEnemy e = new BatEnemy(p,score);
+            addObject(e, p.getX() + Greenfoot.getRandomNumber(200) + 100, p.getY() + Greenfoot.getRandomNumber(200) + 100);
+            //maxSpawn++;
+            
+        }
+    }
+    else
+     {
+         if(Greenfoot.getRandomNumber(1000) < 3)
+        {
+            // Counter s = score;
+            BatEnemy e = new BatEnemy(p,score);
+            addObject(e, p.getX() - Greenfoot.getRandomNumber(200) - 100, p.getY() - Greenfoot.getRandomNumber(200) - 100);
+            //maxSpawn++;
+            
+        }
+    }
+}
+}
+
+public void spawnPerk()
+{
+    if(this.numberOfObjects() < 20)
+    {
+        if(Greenfoot.getRandomNumber(5000) == 1)
+        {
+           addObject(new QuickShotBox(), Greenfoot.getRandomNumber(getWidth()) - 10, Greenfoot.getRandomNumber(getHeight())- 10);
+            
+        }
+    }
+}
+
+public Counter getScore()
+{
+    return score;
+}
 }
