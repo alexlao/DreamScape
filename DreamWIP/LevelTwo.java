@@ -8,21 +8,24 @@ import greenfoot.*;
  */
 public class LevelTwo extends ScrollWorld
 {
-
+    Timer time;
     /**
      * Constructor for objects of class LevelTwo.
      * 
      */
-    public LevelTwo(Counter score, Lives hp)
+    public LevelTwo(Counter score, Lives hp, Timer t)
     {
         super(1000,600,1,4000,600);
+        time = t;
         addObject(score, 36, 12);
-        
-        System.out.println("" + hp.returnLives());
+        addObject(time, 40, 30);
+       
         addObject(hp, 920, 25);
         Allistar allistar = new Allistar(score, hp);
         addObject(allistar, 250, 450);
         prepare();
+        
+   
     }
 
     public LevelTwo()//for level building purposes
@@ -31,6 +34,21 @@ public class LevelTwo extends ScrollWorld
         Allistar allistar = new Allistar(new Counter(5), new Lives());
         addObject(allistar, 250, 450);
         prepare();
+    }
+        public LevelTwo(Counter score, Lives hp, boolean save, Timer t)
+    {
+        
+        super(1000,600,1,4000,600);
+        time = t;
+        addObject(score, 36, 12);
+        addObject(time, 40, 30);
+       
+        addObject(hp, 920, 25);
+        Allistar allistar = new Allistar(score, hp, 1);
+        addObject(allistar, 250, 450);
+        prepare();
+        
+  
     }
 
     /**
@@ -244,5 +262,9 @@ public class LevelTwo extends ScrollWorld
         platform39.setLocation(1506, 341);
         removeObject(platform37);
         
+    }
+    public void nextWorld()
+    {
+        Greenfoot.setWorld(new End(time));
     }
 }

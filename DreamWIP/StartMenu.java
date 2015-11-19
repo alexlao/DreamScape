@@ -63,5 +63,13 @@ public class StartMenu extends World
         addObject(haungsmode2, 733, 463);
         Credits credits2 = new Credits();
         addObject(credits2, 769, 550);
+        HighScores highscores = new HighScores();
+        addObject(highscores, 743, 379);
+        highscores.setLocation(745, 377);
+        highscores.setLocation(741, 377);
+        endlesstd.setLocation(273, 546);
+        endlesstd.setLocation(274, 550);
+        start2.setLocation(149, 458);
+        credits2.setLocation(816, 545);
     }
 }

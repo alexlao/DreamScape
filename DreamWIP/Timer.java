@@ -61,4 +61,9 @@ public class Timer extends Actor
     {
        count = 0; 
     }
+
+    public int getElapsedTime()
+    {
+        return count;
+    }
 }

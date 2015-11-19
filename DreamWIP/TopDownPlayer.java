@@ -18,11 +18,16 @@ public class TopDownPlayer extends Actor
     private GreenfootImage noShot= new GreenfootImage("topdown.png");
     Lives lives;
 
+    String type;
+    int hitDelay;
     // private Playerhitbox phb;
     //  int stationaryX;
 
     public void act()
     {
+        type = getWorld().getClass().getName();
+            if (type == "Stage")
+            {
         if(getY() >= 450)
         {
             if(((Stage)getWorld()).isMenu() !=true){
@@ -34,7 +39,14 @@ public class TopDownPlayer extends Actor
         {
             setLocation(getX(),getY() + 1);
         }
-
+       }
+      else if (type == "TopDownWorld")
+    {
+        moveAndTurn();
+        shoot();
+        checkCollisions();
+        getWorld().addObject(lives, 720, 25);
+    }
         //kill();
     }
     public TopDownPlayer (Lives l)
@@ -119,7 +131,7 @@ public class TopDownPlayer extends Actor
         {
             shotTimer--;
         }
-        else if(Greenfoot.mouseClicked(null))
+        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
         {
             getWorld().addObject(new Shot(this), getX(), getY());
             shotTimer = 50;
@@ -144,5 +156,45 @@ public class TopDownPlayer extends Actor
             //health(1);
         }
     }
+    
+    public void checkCollisions()
+    {
+        Actor enemy = getOneIntersectingObject(TDEnemy.class);
+        if((enemy != null) && (hitDelay == 0))
+        {
+            if(lives.returnLives() < 2)
+            {
+                //music.stop();
+                //getWorld().removeObject(this);
+                //Gg endText = new Gg(c);
+                
+                //GameOver game = new GameOver(endText);
+               //Greenfoot.setWorld(game);
+            }
+            else
+            {
+                //health --;
+               //GreenfootSound hurt = new GreenfootSound("Hurt.wav");
+                //hurt.play();
+                //setImage(injured);
+                lives.life--;
+                lives.removeLife();
+                
+                hitDelay = 50;
+            }
+            
+            
+        }
+        if(hitDelay > 0)
+            {
+                hitDelay--;
+            }
+        if(hitDelay == 1)
+            {
+                //setImage(stand);
+            }
+            
+    }
+    }
 
-}
+

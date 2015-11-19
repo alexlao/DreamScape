@@ -9,22 +9,32 @@ import greenfoot.*;
 public class GameOver extends World
 {
 
-    /**
-     * Constructor for objects of class GameOver.
-     * 
-     */
-    public GameOver()
+    Allistar a;
+    
+    public GameOver(Allistar player)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
-        
+        a = player;
         showText("Game Over",getWidth()/2, getHeight()/2);
+
     }
     public void act()
     {
         if (Greenfoot.isKeyDown("space"))
         {
-            Greenfoot.setWorld(new TutorialWorld());
+            if(a.getSave() == 0)
+            {
+             Greenfoot.setWorld(new LevelOne());
+            }
+            if(a.getSave() == 1)
+            {
+                
+                Greenfoot.setWorld(new LevelTwo(a.getScore(), new Lives(),new Timer()));
+                
+            }
         }
+        
     }
+    
 }

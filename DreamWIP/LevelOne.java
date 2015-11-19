@@ -29,7 +29,8 @@ public class LevelOne extends ScrollWorld
         addObject(lives, 920, 25);
         prepare();
         timer.start();
-    }
+    
+}
 
     /**
      * Prepare the world for the start of the program. That is: create the initial

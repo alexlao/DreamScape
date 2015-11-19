@@ -19,7 +19,7 @@ int time = 0;
     
     public EndlessTD()
     {
-        setImage("Start.png");
+        setImage("endlessmode.png");
     }
     
     /**

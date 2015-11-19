@@ -13,6 +13,7 @@ public class Stage extends World
     int z;
     private GreenfootSound bkgMusic; 
     Lives life;
+    Timer time;
     BossHealth health;
     Boss boss;
     boolean isOn;   
@@ -38,11 +39,12 @@ public class Stage extends World
         bkgMusic = new GreenfootSound("sounds/Spidermusic.mp3");
         bkgMusic.playLoop();
         counter = new Counter(totalCount);
-        life = lives;
+         life = lives;
+         time = timer;
         addObject(life, 925, 25);
-        addObject(timer, 40, 30);
-        TopDownPlayer topdownplayer = new TopDownPlayer(life);
-        topdownplayer.setLocation(305, 555);
+        addObject(time, 40, 30);
+          TopDownPlayer topdownplayer = new TopDownPlayer(life);
+           topdownplayer.setLocation(305, 555);
         addObject(topdownplayer, 301, 353);
         prepare();
         health = new BossHealth();
@@ -60,6 +62,12 @@ public class Stage extends World
         pic2 = new LeftClick();
         done = false;
         
+        
+//         if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
+//     UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
+//          myInfo.setScore(600-timer.count);//set the score to your info
+//         myInfo.store(); //store the info
+//     }
     }
 
     //     public void musiolor (int amount)
@@ -124,7 +132,7 @@ public class Stage extends World
     public void goToShop()
     {
         int totalCount = counter.returnValue();
-        Shop shop = new Shop(totalCount, life);
+        Shop shop = new Shop(totalCount, life, time);
         Greenfoot.setWorld(shop);
     }
 
