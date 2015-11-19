@@ -30,8 +30,10 @@ public class TopDownPlayer extends Actor
             {
         if(getY() >= 450)
         {
+            if(((Stage)getWorld()).isMenu() !=true){
             moveAndTurn();
             shoot();
+        }
         }
         else
         {
