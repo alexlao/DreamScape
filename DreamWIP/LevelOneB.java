@@ -126,7 +126,7 @@ public class LevelOneB extends ScrollWorld
 
     public void nextWorld()
     {
-        Greenfoot.setWorld(new Stage(allistar.getScore(), 
+        Greenfoot.setWorld(new Stage(
             allistar.getScore().returnValue(), allistar.getLives(), timer));
     }
 }

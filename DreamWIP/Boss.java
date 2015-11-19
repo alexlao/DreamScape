@@ -121,7 +121,7 @@ public class Boss extends Actor
 
     public void intro()
     {
-        if(getY() < 150 && damageAmount < 1)
+        if(getY() < 149 && damageAmount < 1)
         {
             setLocation(getX(), getY() + 1);
         }
