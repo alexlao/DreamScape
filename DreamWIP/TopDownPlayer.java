@@ -14,17 +14,21 @@ public class TopDownPlayer extends Actor
     public int playerSpeed = 5;
     public int playerTurnSpeed = 3;
     public int shotTimer = 0;
+    public boolean inTopDown = false;
     private GreenfootImage shot= new GreenfootImage("Topdownshot.png");
     private GreenfootImage noShot= new GreenfootImage("topdown.png");
     Lives lives;
 
+    
+    private int perkTimer = 0;
+    private int shotType = 0;
     String type;
     int hitDelay;
     // private Playerhitbox phb;
     //  int stationaryX;
 
     public void act()
-    {
+        {
         type = getWorld().getClass().getName();
             if (type == "Stage")
             {
@@ -39,16 +43,30 @@ public class TopDownPlayer extends Actor
         }
        }
       else if (type == "TopDownWorld")
-    {
+      {
         moveAndTurn();
-        shoot();
+        topDownShoot();
         checkCollisions();
+        showPerkTime();
         getWorld().addObject(lives, 720, 25);
+        if(perkTimer >= 1)
+        {
+            perkTimer--;
+        }
+        if(perkTimer == 0)
+        {
+            shotType = 0;
+        }
     }
         //kill();
     }
     public TopDownPlayer (Lives l)
     {
+        lives = l;
+    }
+    public TopDownPlayer(Lives l, boolean td)
+    {
+        inTopDown = td;
         lives = l;
     }
     // 
@@ -119,8 +137,7 @@ public class TopDownPlayer extends Actor
 
     public void shoot()
     { 
-        
-        
+
         if(shotTimer < 10)
         {
             setImage(noShot);
@@ -153,7 +170,47 @@ public class TopDownPlayer extends Actor
 
             //health(1);
         }
+ 
+}
+
+public void topDownShoot()
+{
+              if(shotType == 1)
+        {
+        if(shotTimer < 10)
+        {
+            setImage(noShot);
+        }
+        if(shotTimer >  0)
+        {
+            shotTimer--;
+        }
+        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+        {
+            getWorld().addObject(new QuickShot(this), getX(), getY());
+            shotTimer = 50;
+            setImage(shot);
+        }
     }
+    
+    if (shotType == 0)
+    {
+                if(shotTimer < 10)
+        {
+            setImage(noShot);
+        }
+        if(shotTimer >  0)
+        {
+            shotTimer--;
+        }
+        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+        {
+            getWorld().addObject(new Shot(this), getX(), getY());
+            shotTimer = 50;
+            setImage(shot);
+        }
+    }
+}
     
     public void checkCollisions()
     {
@@ -165,9 +222,9 @@ public class TopDownPlayer extends Actor
                 //music.stop();
                 //getWorld().removeObject(this);
                 //Gg endText = new Gg(c);
-                
-                //GameOver game = new GameOver(endText);
-               //Greenfoot.setWorld(game);
+                int score = ((TopDownWorld)getWorld()).getScore().returnValue();
+                TopDownGameOver game = new TopDownGameOver(score);
+               Greenfoot.setWorld(game);
             }
             else
             {
@@ -191,7 +248,29 @@ public class TopDownPlayer extends Actor
             {
                 //setImage(stand);
             }
+          
             
+            
+        Actor quick = getOneIntersectingObject(QuickShotBox.class); 
+        if(quick != null)
+        {
+            perkTimer = 1000;
+            shotType = 1;
+        }
+        
+    }
+    
+    public void showPerkTime()
+    {
+        if(perkTimer > 1)
+        {
+            getWorld().showText("Perk: " + perkTimer, 50, 32);
+        }
+        if(perkTimer == 0)
+        {
+            getWorld().showText("Perk: None", 50, 32);
+        }
+        
     }
     }
 

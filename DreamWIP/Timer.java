@@ -20,7 +20,10 @@ public class Timer extends Actor
         setImage(new GreenfootImage("Time: " + count, 20, Color.WHITE, 
             transparent));
     }
-    
+    public Timer(boolean image)
+    {
+        this.start();
+    }
     public void act()
     {
         int currentSeconds = 
@@ -60,5 +63,10 @@ public class Timer extends Actor
     public void reset()
     {
        count = 0; 
+    }
+    
+    public int getElapsedTime()
+    {
+        return count;
     }
 }

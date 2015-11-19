@@ -30,19 +30,23 @@ public class TDEnemy extends Actor
         
         if(this.getX() < Hero.getX())
         {
+            turnTowards(Hero.getX(), Hero.getY());
             setLocation(getX() + speed, getY());
         }
         else if(this.getX() > Hero.getX())
         {
+            turnTowards(Hero.getX(), Hero.getY());
             setLocation(getX() - speed, getY());
         }
         
         if(this.getY() < Hero.getY())
         {
+            turnTowards(Hero.getX(), Hero.getY());
             setLocation(getX(), getY() + speed);
         }
         else if(this.getY() > Hero.getY())
         {
+            turnTowards(Hero.getX(), Hero.getY());
             setLocation(getX(), getY() - speed);
         }
         
