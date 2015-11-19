@@ -40,9 +40,8 @@ public class Shop extends World
             showText("3 Points",getWidth()*1/3, getHeight()/2-50);
         }
 
-<<<<<<< HEAD
     
-=======
+
 //      if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
 //        UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
 //     
@@ -50,7 +49,7 @@ public class Shop extends World
 //              myInfo.store(); //store the info
 //            
 //     }
->>>>>>> origin/milestone3
+
 }
 
     /**

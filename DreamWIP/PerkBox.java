@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class PerkBox extends Actor
 {
-    Timer disappear = new Timer(true);
+    //Timer disappear = new Timer(true);
     public PerkBox()
     {
         
@@ -21,10 +21,10 @@ public class PerkBox extends Actor
     public void fade()
     {
         
-       if (disappear.getElapsedTime() == 1)
-        {
-            getWorld().removeObject(this);
-       } 
+      // if (disappear.getElapsedTime() == 1)
+       // {
+      //      getWorld().removeObject(this);
+      // } 
     }
     
     public void checkPlayer()

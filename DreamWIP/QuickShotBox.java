@@ -22,11 +22,11 @@ public class QuickShotBox extends PerkBox
     public void fade()
     {
         
-       if (disappear.getElapsedTime() == 1)
-        {
-            getWorld().removeObject(this);
+      // if (disappear.getElapsedTime() == 1)
+       // {
+      //      getWorld().removeObject(this);
        } 
     }
     
     
-}
+
