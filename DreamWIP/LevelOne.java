@@ -29,11 +29,7 @@ public class LevelOne extends ScrollWorld
         addObject(lives, 920, 25);
         prepare();
         timer.start();
-        if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
-    UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
-         myInfo.setScore(100-timer.count);//set the score to your info
-        myInfo.store(); //store the info
-    }
+    
 }
 
     /**
