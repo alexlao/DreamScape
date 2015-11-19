@@ -93,7 +93,7 @@ public class TutorialWorld extends ScrollWorld
         EndBubble endbubble = new EndBubble();
         addObject(endbubble, 1852, 293);
         addObject(score, 36, 12);
-        
+
     }
 
         public Counter getCounter()
