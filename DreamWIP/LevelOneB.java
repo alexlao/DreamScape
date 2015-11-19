@@ -30,14 +30,7 @@ public class LevelOneB extends ScrollWorld
         
     
         
-<<<<<<< HEAD
-=======
-        if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
-    //UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
-        // myInfo.setScore(300-timer.count);//set the score to your info
-        //myInfo.store(); //store the info
-    }
->>>>>>> origin/milestone3
+
     }
     public LevelOneB()
     {
@@ -141,13 +134,10 @@ public class LevelOneB extends ScrollWorld
 
     public void nextWorld()
     {
-<<<<<<< HEAD
-        Greenfoot.setWorld(new Stage(allistar.getScore(), 
+
+        Greenfoot.setWorld(new Stage(
          allistar.getScore().returnValue(), allistar.getLives(), timer));
            
-=======
-        Greenfoot.setWorld(new Stage(
-            allistar.getScore().returnValue(), allistar.getLives(), timer));
->>>>>>> origin/milestone3
+
     }
 }

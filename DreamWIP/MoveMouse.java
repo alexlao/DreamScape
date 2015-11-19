@@ -16,6 +16,6 @@ public class MoveMouse extends Actor
      */
     public void act() 
     {
-    setImage(move.getCurrentImage());
+     setImage(move.getCurrentImage());
     } 
 }

@@ -62,16 +62,7 @@ public class Stage extends World
         pic2 = new LeftClick();
         done = false;
         
-<<<<<<< HEAD
-   
-=======
-        
-//         if (UserInfo.isStorageAvailable()) {//test to see if your data is avalable(logged in)
-//     UserInfo myInfo = UserInfo.getMyInfo(); //set myInfo to UserInfo
-//          myInfo.setScore(600-timer.count);//set the score to your info
-//         myInfo.store(); //store the info
-//     }
->>>>>>> origin/milestone3
+
     }
 
     //     public void musiolor (int amount)
