@@ -48,6 +48,9 @@ public class Platform extends ScrollingActor
         else if(type == "LevelTwo")
         {
             setImage("DarkPlatform.png");
+        } else if (type == "LevelThree")
+        {
+            setImage("platform1.png");
         }
     }
     catch(Exception e)

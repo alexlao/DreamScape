@@ -9,6 +9,9 @@ import greenfoot.*;
 public class LevelTwo extends ScrollWorld
 {
     Timer time;
+    Counter s;
+    Lives lives;
+   
     /**
      * Constructor for objects of class LevelTwo.
      * 
@@ -17,6 +20,8 @@ public class LevelTwo extends ScrollWorld
     {
         super(1000,600,1,4000,600);
         time = t;
+        s = score;
+        lives = hp;
         addObject(score, 36, 12);
         addObject(time, 40, 30);
        
@@ -57,7 +62,8 @@ public class LevelTwo extends ScrollWorld
      */
     private void prepare()
     {
-
+        
+        
         Platform platform = new Platform();
         addObject(platform, 75, 537);
         Platform platform2 = new Platform();
@@ -265,6 +271,6 @@ public class LevelTwo extends ScrollWorld
     }
     public void nextWorld()
     {
-        Greenfoot.setWorld(new End(time));
+        Greenfoot.setWorld(new LevelThree(s, lives, time));
     }
 }

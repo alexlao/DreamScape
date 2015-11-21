@@ -6,27 +6,45 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class LevelThree extends World
+public class LevelThree extends ScrollWorld
 {
-
+    Counter s;
+    Lives lives;
+    Timer time;
     /**
      * Constructor for objects of class LevelThree.
      * 
      */
-    public LevelThree()
+    public LevelThree(Counter score, Lives hp, Timer t)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 4000, 1); 
+        super(600, 1000, 1,600,4000); 
+        s = score;
+        time = t;
+        lives = hp;
+        addObject(s, 36, 12);
+        addObject(time, 40, 30);
+        addObject(hp, 920, 25);
+        Allistar allistar = new Allistar(s, lives);
+               addObject(allistar, 250,550);
 
         prepare();
     }
-
+    public LevelThree()
+    {
+       super(600,4000,1,600,4000);
+       Allistar allistar = new Allistar(new Counter(5), new Lives());
+       addObject(allistar, 250,3550);
+       prepare();
+    }
+    
     /**
      * Prepare the world for the start of the program. That is: create the initial
      * objects and add them to the world.
      */
     private void prepare()
     {
+
         Portal portal = new Portal();
         addObject(portal, 294, 387);
         portal.setLocation(292, 387);
@@ -140,8 +158,269 @@ public class LevelThree extends World
         addObject(platform25, 474, 3298);
         removeObject(platform25);
         Platform platform26 = new Platform();
-        addObject(platform26, 466, 3293);
-        platform26.setLocation(466, 3290);
-        platform26.setLocation(466, 3283);
+        addObject(platform26, 471, 3291);
+        Platform platform27 = new Platform();
+        addObject (platform27, 280, 3291);
+
+        platform13.setLocation(372, 3291);
+        BrokenPlatform brokenplatform6 = new BrokenPlatform();
+        addObject(brokenplatform6, 518, 3385);
+        brokenplatform6.setLocation(514, 3387);
+        BrokenPlatform brokenplatform7 = new BrokenPlatform();
+        addObject(brokenplatform7, 204, 3211);
+        Platform platform28 = new Platform();
+        addObject(platform28, 302, 3147);
+        Platform platform29 = new Platform();
+        addObject(platform29, 428, 3080);
+        Platform platform30 = new Platform();
+        addObject(platform30, 339, 3013);
+        BrokenPlatform brokenplatform8 = new BrokenPlatform();
+        addObject(brokenplatform8, 220, 2949);
+        Platform platform31 = new Platform();
+        addObject(platform31, 76, 2877);
+        Platform platform32 = new Platform();
+        addObject(platform32, 180, 2885);
+        Platform platform33 = new Platform();
+        addObject(platform33, 290, 2882);
+        platform32.setLocation(176, 2848);
+        platform31.setLocation(70, 2849);
+        platform32.setLocation(166, 2849);
+        platform33.setLocation(265, 2849);
+        Platform platform34 = new Platform();
+        addObject(platform34, 372, 2856);
+        platform34.setLocation(363, 2849);
+        BrokenPlatform brokenplatform9 = new BrokenPlatform();
+        addObject(brokenplatform9, 423, 2909);
+        BrokenPlatform brokenplatform10 = new BrokenPlatform();
+        addObject(brokenplatform10, 105, 2763);
+        BrokenPlatform brokenplatform11 = new BrokenPlatform();
+        addObject(brokenplatform11, 198, 2702);
+        BrokenPlatform brokenplatform12 = new BrokenPlatform();
+        addObject(brokenplatform12, 287, 2655);
+        brokenplatform12.setLocation(287, 2645);
+        Platform platform35 = new Platform();
+        addObject(platform35, 426, 2592);
+        Platform platform36 = new Platform();
+        addObject(platform36, 164, 2596);
+        platform36.setLocation(165, 2569);
+        platform35.setLocation(429, 2567);
+        brokenplatform12.setLocation(306, 2638);
+        brokenplatform11.setLocation(205, 2701);
+        platform36.setLocation(165, 2566);
+        platform35.setLocation(428, 2558);
+        platform36.setLocation(165, 2558);
+        Platform platform37 = new Platform();
+        addObject(platform37, 94, 2486);
+        platform37.setLocation(94, 2480);
+        BrokenPlatform brokenplatform13 = new BrokenPlatform();
+        addObject(brokenplatform13, 525, 2486);
+        brokenplatform13.setLocation(526, 2483);
+        Platform platform38 = new Platform();
+        addObject(platform38, 242, 2406);
+        platform38.setLocation(232, 2407);
+        Platform platform39 = new Platform();
+        addObject(platform39, 340, 2417);
+        platform39.setLocation(332, 2407);
+        Platform platform40 = new Platform();
+        addObject(platform40, 439, 2415);
+        platform40.setLocation(432, 2407);
+        brokenplatform3.setLocation(305, 3534);
+        platform9.setLocation(227, 3693);
+        platform10.setLocation(361, 3601);
+        brokenplatform3.setLocation(318, 3466);
+        platform11.setLocation(62, 3477);
+        brokenplatform5.setLocation(127, 3339);
+        brokenplatform4.setLocation(95, 3594);
+        platform10.setLocation(396, 3599);
+        brokenplatform3.setLocation(282, 3479);
+        brokenplatform4.setLocation(118, 3579);
+        brokenplatform3.setLocation(287, 3474);
+        platform12.setLocation(524, 3472);
+        brokenplatform6.setLocation(524, 3357);
+        platform26.setLocation(471, 3252);
+        platform13.setLocation(371, 3252);
+        platform11.setLocation(66, 3445);
+        platform11.setLocation(61, 3471);
+        platform27.setLocation(271, 3252);
+        brokenplatform5.setLocation(126, 3353);
+        platform12.setLocation(524, 3470);
+        brokenplatform7.setLocation(150, 3159);
+        brokenplatform7.setLocation(104, 3173);
+        platform28.setLocation(243, 3076);
+        brokenplatform10.setLocation(89, 2625);
+        brokenplatform11.setLocation(190, 2613);
+        platform31.setLocation(67, 2734);
+        platform32.setLocation(201, 2681);
+        platform31.setLocation(70, 2679);
+        platform32.setLocation(166, 2679);
+        platform33.setLocation(266, 2679);
+        platform34.setLocation(366, 2679);
+        brokenplatform8.setLocation(214, 2809);
+        brokenplatform9.setLocation(442, 2802);
+        platform30.setLocation(331, 2931);
+        brokenplatform8.setLocation(214, 2802);
+        platform28.setLocation(215, 3076);
+        platform30.setLocation(314, 2966);
+        platform29.setLocation(428, 3076);
+        brokenplatform8.setLocation(217, 2859);
+        brokenplatform9.setLocation(439, 2849);
+        brokenplatform9.setLocation(441, 2853);
+        brokenplatform8.setLocation(216, 2831);
+        brokenplatform9.setLocation(441, 2832);
+        platform35.setLocation(524, 2726);
+        platform38.setLocation(279, 2097);
+        platform39.setLocation(382, 2097);
+        platform40.setLocation(496, 2098);
+        platform37.setLocation(147, 2219);
+        platform37.setLocation(86, 2243);
+        platform36.setLocation(200, 2325);
+        brokenplatform11.setLocation(330, 2530);
+        brokenplatform13.setLocation(496, 2383);
+        brokenplatform11.setLocation(367, 2475);
+        brokenplatform13.setLocation(494, 2363);
+        brokenplatform11.setLocation(380, 2464);
+        brokenplatform12.setLocation(259, 2557);
+        brokenplatform12.setLocation(257, 2560);
+        brokenplatform13.setLocation(504, 2318);
+        brokenplatform11.setLocation(391, 2417);
+        brokenplatform12.setLocation(258, 2513);
+        brokenplatform13.setLocation(505, 2288);
+        brokenplatform11.setLocation(393, 2381);
+        brokenplatform12.setLocation(284, 2471);
+        brokenplatform12.setLocation(275, 2472);
+        brokenplatform10.setLocation(158, 2572);
+        Platform platform41 = new Platform();
+        addObject(platform41, 448, 2576);
+        platform41.setLocation(448, 2573);
+        brokenplatform13.setLocation(298, 2273);
+        platform36.setLocation(184, 2186);
+        platform38.setLocation(280, 2053);
+        platform39.setLocation(385, 2065);
+        platform38.setLocation(280, 2064);
+        platform39.setLocation(380, 2064);
+        platform40.setLocation(480, 2064);
+        platform37.setLocation(184, 2064);
+        Platform platform42 = new Platform();
+        addObject(platform42, 117, 1974);
+        platform42.setLocation(86, 1960);
+        BrokenPlatform brokenplatform14 = new BrokenPlatform();
+        addObject(brokenplatform14, 222, 1874);
+        brokenplatform14.setLocation(211, 1865);
+        BrokenPlatform brokenplatform15 = new BrokenPlatform();
+        addObject(brokenplatform15, 541, 1951);
+        Platform platform43 = new Platform();
+        addObject(platform43, 388, 1868);
+        brokenplatform14.setLocation(211, 1860);
+        platform43.setLocation(388, 1861);
+        platform43.setLocation(388, 1859);
+        Platform platform44 = new Platform();
+        addObject(platform44, 493, 1772);
+        platform44.setLocation(494, 1760);
+        Platform platform45 = new Platform();
+        addObject(platform45, 349, 1688);
+        BrokenPlatform brokenplatform16 = new BrokenPlatform();
+        addObject(brokenplatform16, 219, 1608);
+        platform45.setLocation(399, 1680);
+        Platform platform46 = new Platform();
+        addObject(platform46, 312, 1596);
+        brokenplatform16.setLocation(220, 1506);
+        brokenplatform16.setLocation(177, 1456);
+        platform46.setLocation(300, 1587);
+        platform45.setLocation(374, 1679);
+        platform46.setLocation(242, 1592);
+        brokenplatform16.setLocation(118, 1503);
+        Platform platform47 = new Platform();
+        addObject(platform47, 125, 1689);
+        platform47.setLocation(116, 1684);
+        BrokenPlatform brokenplatform17 = new BrokenPlatform();
+        addObject(brokenplatform17, 386, 1502);
+        brokenplatform16.setLocation(119, 1486);
+        brokenplatform16.setLocation(119, 1488);
+        brokenplatform17.setLocation(385, 1494);
+        platform44.setLocation(508, 1761);
+        brokenplatform17.setLocation(385, 1488);
+        Platform platform48 = new Platform();
+        addObject(platform48, 256, 1402);
+        Platform platform49 = new Platform();
+        addObject(platform49, 408, 1284);
+        Platform platform50 = new Platform();
+        addObject(platform50, 311, 1287);
+        Platform platform51 = new Platform();
+        addObject(platform51, 217, 1282);
+        platform51.setLocation(207, 1282);
+        platform51.setLocation(202, 1263);
+        platform50.setLocation(300, 1264);
+        platform50.setLocation(300, 1263);
+        platform51.setLocation(200, 1267);
+        platform50.setLocation(300, 1267);
+        platform49.setLocation(398, 1267);
+        Platform platform52 = new Platform();
+        addObject(platform52, 117, 1273);
+        platform52.setLocation(99, 1267);
+        platform52.setLocation(99, 1267);
+        Platform platform53 = new Platform();
+        addObject(platform53, 504, 1271);
+        platform53.setLocation(496, 1266);
+        Platform platform54 = new Platform();
+        addObject(platform54, 118, 1140);
+        Platform platform55 = new Platform();
+        addObject(platform55, 224, 1052);
+        Platform platform56 = new Platform();
+        addObject(platform56, 449, 1139);
+        platform55.setLocation(288, 1027);
+        platform56.setLocation(431, 1128);
+        platform54.setLocation(140, 1130);
+        platform54.setLocation(142, 1136);
+        platform56.setLocation(431, 1134);
+        platform56.setLocation(432, 1133);
+        platform56.setLocation(431, 1135);
+        BrokenPlatform brokenplatform18 = new BrokenPlatform();
+        addObject(brokenplatform18, 176, 954);
+        BrokenPlatform brokenplatform19 = new BrokenPlatform();
+        addObject(brokenplatform19, 103, 869);
+        brokenplatform19.setLocation(102, 839);
+        brokenplatform18.setLocation(176, 947);
+        BrokenPlatform brokenplatform20 = new BrokenPlatform();
+        addObject(brokenplatform20, 186, 741);
+        BrokenPlatform brokenplatform21 = new BrokenPlatform();
+        addObject(brokenplatform21, 251, 651);
+        brokenplatform21.setLocation(257, 625);
+        brokenplatform20.setLocation(186, 724);
+        brokenplatform21.setLocation(259, 620);
+        BrokenPlatform brokenplatform22 = new BrokenPlatform();
+        addObject(brokenplatform22, 393, 533);
+        brokenplatform22.setLocation(389, 533);
+        Platform platform57 = new Platform();
+        addObject(platform57, 298, 440);
+        platform57.setLocation(289, 435);
+        brokenplatform18.setLocation(176, 931);
+        brokenplatform19.setLocation(90, 824);
+        brokenplatform20.setLocation(189, 716);
+        brokenplatform21.setLocation(277, 606);
+        brokenplatform22.setLocation(410, 525);
+        platform8.setLocation(371, 3801);
+        platform8.setLocation(371, 3805);
+        removeObject(platform8);
+        removeObject(platform7);
+        platform9.setLocation(235, 3693);
+        removeObject(brokenplatform12);
+        Platform platform58 = new Platform();
+        addObject(platform58, 294, 2473);
+        removeObject(brokenplatform13);
+        Platform platform59 = new Platform();
+        addObject(platform59, 284, 2273);
+        platform36.setLocation(61, 2274);
+        BrokenPlatform brokenplatform23 = new BrokenPlatform();
+        addObject(brokenplatform23, 131, 2163);
+        brokenplatform23.setLocation(343, 2174);
+        brokenplatform23.setLocation(194, 2165);
+        brokenplatform23.setLocation(193, 2165);
+        BrokenPlatform brokenplatform24 = new BrokenPlatform();
+        addObject(brokenplatform24, 434, 935);
+        BrokenPlatform brokenplatform25 = new BrokenPlatform();
+        addObject(brokenplatform25, 456, 817);
+        BrokenPlatform brokenplatform26 = new BrokenPlatform();
+        addObject(brokenplatform26, 407, 723);
+        brokenplatform26.setLocation(387, 722);
     }
 }

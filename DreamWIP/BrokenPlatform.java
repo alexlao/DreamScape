@@ -31,33 +31,33 @@ public class BrokenPlatform extends Platform
     {
         if (isTouching(Allistar.class))
         {
-            time = 30;
+            time = 50;
         }
-        if (time == 27  )
+        if (time == 45  )
         {
             setImage(one);
-        } else if (time ==24 )
+        } else if (time == 40 )
         {
             setImage(two);
-        } else if (time == 21 )
+        } else if (time == 35 )
         {
             setImage(three);
-        } else if (time == 18 )
+        } else if (time == 30 )
         {
             setImage(four);
-        } else if (time == 15 )
+        } else if (time == 25 )
         {
             setImage(five);
-        } else if (time == 12 )
+        } else if (time == 20 )
         {
             setImage(six);
-        } else if (time == 9 )
+        } else if (time == 15 )
         {
             setImage(seven);
-        } else if (time == 6 )
+        } else if (time == 10 )
         {
             setImage(eight);
-        } else if (time == 3 )
+        } else if (time == 5 )
         {
             getWorld().removeObject(this);
         }

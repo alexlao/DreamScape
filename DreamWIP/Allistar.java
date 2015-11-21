@@ -208,7 +208,7 @@ public class Allistar extends ScrollingActor
 
     public void checkDeath()
     {
-        if (getY() >= getWorld().getHeight()*9/10)
+        if (getY() >= getWorld().getHeight()*49/50)
         {
             //World Game = new GameOver();
             //Greenfoot.setWorld(Game);
