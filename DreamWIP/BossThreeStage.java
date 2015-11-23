@@ -7,18 +7,23 @@ import greenfoot.*;
  * @version (a version number or a date)
  */
 public class BossThreeStage extends World
-{
-
+{   
+    BossHealth bossHealth;
+    FighterPlane fighter;
     /**
      * Constructor for objects of class BossThreeStage.
      * 
      */
-    public BossThreeStage()
+    public BossThreeStage(Counter s, Lives l, Timer t)
     {    
         super(1000, 600, 1); 
-        setPaintOrder(Shot.class, FighterPlane.class, TopDownPlayer.class, Missile.class, Cloud.class, 
+        setPaintOrder(BossHealth.class, Shot.class, FighterPlane.class, TopDownPlayer.class, Missile.class, Cloud.class, 
             FloorTile.class, NoTile.class);
         prepare();
+        bossHealth = new BossHealth();
+        addObject(bossHealth, 930, 80);
+        fighter = new FighterPlane(bossHealth);
+        addObject(fighter, 500, 222);
     }
 
     /**
@@ -60,8 +65,8 @@ public class BossThreeStage extends World
         removeObject(cloud6);
         Cloud cloud7 = new Cloud();
         addObject(cloud7, 374, 58);
-        FighterPlane fighterplane = new FighterPlane();
-        addObject(fighterplane, 500, 222);
+       
         addObject(new TopDownPlayer(new Lives()), 300, 500);
+        
     }
 }

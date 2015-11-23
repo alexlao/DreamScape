@@ -37,7 +37,8 @@ public class LevelThree extends ScrollWorld
        addObject(allistar, 250,3550);
        prepare();
     }
-    
+    
+
     /**
      * Prepare the world for the start of the program. That is: create the initial
      * objects and add them to the world.
@@ -422,5 +423,9 @@ public class LevelThree extends ScrollWorld
         BrokenPlatform brokenplatform26 = new BrokenPlatform();
         addObject(brokenplatform26, 407, 723);
         brokenplatform26.setLocation(387, 722);
+    }
+    public void nextWorld()
+    {
+        Greenfoot.setWorld(new BossThreeStage(s, lives, time));
     }
 }

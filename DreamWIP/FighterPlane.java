@@ -5,14 +5,16 @@ public class FighterPlane extends Actor
     int hitCount;
     int direction;
     int imageLoopCount;
+    BossHealth bH;
     
     
-    public FighterPlane()
+    public FighterPlane(BossHealth b)
     {
         turn(180);
         hitCount = 0;
         direction = 1;
         imageLoopCount = 50;
+        bH = b;
     }
     
     public void act() 
@@ -48,6 +50,7 @@ public class FighterPlane extends Actor
             hitCount++;
             getWorld().removeObject(getOneIntersectingObject(Shot.class));
             imageLoopCount = 0;
+            health();
         }
     }
     
@@ -62,5 +65,12 @@ public class FighterPlane extends Actor
         {
             setImage("FighterPlane.png");
         }
+    }
+    public void health()
+    {
+        
+            removeTouching(Shot.class);
+            bH.damage++;
+            bH.damageHit();
     }
 }
