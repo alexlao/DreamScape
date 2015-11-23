@@ -60,8 +60,15 @@ public class TopDownPlayer extends Actor
             shotType = 0;
         }
     }
+    else if(type == "BossThreeStage")
+    {
+        moveAndTurn();
+        topDownShoot();
+        checkInsideHole();
         //kill();
     }
+   }
+    
     public TopDownPlayer (Lives l)
     {
         lives = l;
@@ -274,6 +281,23 @@ public void topDownShoot()
         }
         
     }
+    
+    public void checkInsideHole()
+    {
+        Actor hole = getOneIntersectingObject(NoTile.class);
+        Actor explosion = getOneIntersectingObject(Explosion.class);
+        if((hole != null && getX() > (hole.getX() - 25) &&
+            getX() < (hole.getX() + 25) &&
+            getY() > (hole.getY() - 25) &&
+            getY() < (hole.getY() + 25)) ||
+            (explosion != null && getX() > (explosion.getX() - 25) &&
+            getX() < (explosion.getX() + 25) &&
+            getY() > (explosion.getY() - 25) &&
+            getY() < (explosion.getY() + 25)))
+        {
+            setLocation(525, 575);
+            lives.life--;
+            lives.removeLife();
+        }
     }
-
-
+}
