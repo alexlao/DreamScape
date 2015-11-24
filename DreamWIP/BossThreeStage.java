@@ -10,6 +10,9 @@ public class BossThreeStage extends World
 {   
     BossHealth bossHealth;
     FighterPlane fighter;
+    Timer time;
+    Counter score;
+    Lives lives;
     /**
      * Constructor for objects of class BossThreeStage.
      * 
@@ -20,6 +23,9 @@ public class BossThreeStage extends World
         setPaintOrder(BossHealth.class, Shot.class, FighterPlane.class, TopDownPlayer.class, Missile.class, Cloud.class, 
             FloorTile.class, NoTile.class);
         prepare();
+        time = t;
+        score = s;
+        lives = l;
         bossHealth = new BossHealth();
         addObject(bossHealth, 930, 80);
         fighter = new FighterPlane(bossHealth);
@@ -69,4 +75,9 @@ public class BossThreeStage extends World
         addObject(new TopDownPlayer(new Lives()), 300, 500);
         
     }
+    public void nextWorld()
+    {
+        Greenfoot.setWorld(new End(time));
+    }
+    
 }

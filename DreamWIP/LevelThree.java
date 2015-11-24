@@ -424,7 +424,20 @@ public class LevelThree extends ScrollWorld
         BrokenPlatform brokenplatform26 = new BrokenPlatform();
         addObject(brokenplatform26, 407, 723);
         brokenplatform26.setLocation(387, 722);
-    }
+        Level3Enemy1 level3enemy1 = new Level3Enemy1();
+        addObject(level3enemy1, 265, 3219);
+        level3enemy1.setLocation(263, 3214);
+        Level3Enemy1 level3enemy12 = new Level3Enemy1();
+        addObject(level3enemy12, 61, 2643);
+        level3enemy12.setLocation(61, 2637);
+        Level3Enemy1 level3enemy13 = new Level3Enemy1();
+        addObject(level3enemy13, 183, 2033);
+        level3enemy13.setLocation(175, 2028);
+        Level3Enemy1 level3enemy14 = new Level3Enemy1();
+        addObject(level3enemy14, 95, 1235);
+        level3enemy14.setLocation(93, 1227);
+    }
+
     public void nextWorld()
     {
         Greenfoot.setWorld(new BossThreeStage(s, lives, time));

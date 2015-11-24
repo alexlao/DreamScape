@@ -43,6 +43,7 @@ public class Allistar extends ScrollingActor
         score = s;
         lives = l;
         getImage().mirrorHorizontally();
+        check = 0;
     }
     
     public Allistar(Counter s, Lives l, int save)
