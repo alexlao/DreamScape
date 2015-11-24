@@ -22,10 +22,10 @@ public class LevelTwo extends ScrollWorld
         time = t;
         s = score;
         lives = hp;
-        addObject(score, 36, 12);
+        addObject(s, 36, 12);
         addObject(time, 40, 30);
        
-        addObject(hp, 920, 25);
+        addObject(lives, 920, 25);
         Allistar allistar = new Allistar(score, hp);
         addObject(allistar, 250, 450);
         prepare();
@@ -45,11 +45,14 @@ public class LevelTwo extends ScrollWorld
         
         super(1000,600,1,4000,600);
         time = t;
-        addObject(score, 36, 12);
+        s = score;
+        
+        lives = hp;
+        addObject(s, 36, 12);
         addObject(time, 40, 30);
        
-        addObject(hp, 920, 25);
-        Allistar allistar = new Allistar(score, hp, 1);
+        addObject(lives, 920, 25);
+        Allistar allistar = new Allistar(s, lives, 1);
         addObject(allistar, 250, 450);
         prepare();
         

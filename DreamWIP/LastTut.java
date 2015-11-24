@@ -17,7 +17,7 @@ public class LastTut extends ScrollWorld
      */
     public LastTut(GreenfootSound music)
     {
-        super(1395,600,1, 1395, 600);
+        super(1000,600,1, 1395, 600);
         Allistar allistar = new Allistar(score, lives);
         addObject(allistar, 123, 394);
         addObject(lives,920,25);

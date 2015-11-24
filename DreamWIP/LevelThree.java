@@ -22,11 +22,12 @@ public class LevelThree extends ScrollWorld
         s = score;
         time = t;
         lives = hp;
-        addObject(s, 36, 12);
-        addObject(time, 40, 30);
-        addObject(hp, 920, 25);
-        Allistar allistar = new Allistar(s, lives);
-               addObject(allistar, 250,550);
+       addObject(s, 36, 12);
+       addObject(time, 40, 30);
+       addObject(lives, 920, 25);
+
+       Allistar allistar = new Allistar(s, lives);
+       addObject(allistar, 250,550);
 
         prepare();
     }
