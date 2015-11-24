@@ -17,7 +17,7 @@ public class GameOver extends World
         super(600, 600, 1); 
         a = player;
         showText("Game Over",getWidth()/2, getHeight()/2);
-
+        
     }
     public void act()
     {

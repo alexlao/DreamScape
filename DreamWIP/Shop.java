@@ -31,6 +31,7 @@ public class Shop extends World
         hp = life;
         time = t;
         addObject(counter, 36, 12);
+        saved = false;
         if (hp.returnLives() == 5)
         {
             showText("Already at full hp!",getWidth()*1/3, getHeight()/2-50);
@@ -67,7 +68,8 @@ public class Shop extends World
     }
 
     
-    public void act(){
+    public void act()
+     {
         //code that runs in the shop to see which item to purchase and if sufficient credits to purchase
         if(Greenfoot.mouseClicked(weapon1) && counter.returnValue()>=3){
             if(hp.returnLives() < 5)
@@ -76,31 +78,41 @@ public class Shop extends World
             counter.setCurrentValue(3);
             hp.life++;
             hp.removeLife();
+            //System.out.println("" + saved);
+            }
         }
-
-        }
+         
         if((Greenfoot.mouseClicked(weapon2) && counter.returnValue()>=1)){
             removeObject(weapon2);
-            counter.setCurrentValue(1);
             saved = true;
+            counter.setCurrentValue(1);
+            
         }
         if((Greenfoot.mouseClicked(weapon3) && counter.returnValue()>=2)){
             removeObject(weapon3);    
             counter.setCurrentValue(2);
         }  
         
-        if(Greenfoot.isKeyDown("space"))
-        {
-            if(saved = true)
-            {
-               LevelTwo nextLevel = new LevelTwo(counter, hp, true, time);
-               Greenfoot.setWorld(nextLevel);
-            }
-            else{
-            LevelTwo nextLevel = new LevelTwo(counter,hp, time);
-            Greenfoot.setWorld(nextLevel);
-           }
-        }
-
+        
+        checkContinue();
     }
+
+public void checkContinue()
+  {
+    if(Greenfoot.isKeyDown("space"))
+        {
+               
+           if(saved == true)
+            {
+               LevelTwo nextLevel = new LevelTwo(counter, hp, saved, time);
+              Greenfoot.setWorld(nextLevel);
+            }
+            if(saved == false)
+            {
+                LevelTwo nextLevel = new LevelTwo(counter,hp, time);
+                Greenfoot.setWorld(nextLevel);
+           }
+        }{
+    }
+}
 }
