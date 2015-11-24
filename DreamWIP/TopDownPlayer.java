@@ -219,6 +219,24 @@ public void topDownShoot()
             setImage(shot);
         }
     }
+    
+        if (shotType == 2)
+    {
+                if(shotTimer < 10)
+        {
+            setImage(noShot);
+        }
+        if(shotTimer >  0)
+        {
+            shotTimer--;
+        }
+        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+        {
+            getWorld().addObject(new RapidShot(this), getX(), getY());
+            shotTimer = 20;
+            setImage(shot);
+        }
+    }
 }
     
     public void checkCollisions()
@@ -265,6 +283,12 @@ public void topDownShoot()
         {
             perkTimer = 1000;
             shotType = 1;
+        }
+        Actor rapid = getOneIntersectingObject(RapidShotBox.class);
+        if(rapid != null)
+        {
+            perkTimer = 1000;
+            shotType = 2;
         }
         
     }

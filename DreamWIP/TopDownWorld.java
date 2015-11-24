@@ -107,10 +107,14 @@ public void spawnPerk()
 {
     if(this.numberOfObjects() < 20)
     {
-        if(Greenfoot.getRandomNumber(5000) == 1)
+        if(Greenfoot.getRandomNumber(1000) == 1)
         {
            addObject(new QuickShotBox(), Greenfoot.getRandomNumber(getWidth()) - 10, Greenfoot.getRandomNumber(getHeight())- 10);
             
+        }
+        if(Greenfoot.getRandomNumber(1000) == 1)
+        {
+            addObject(new RapidShotBox(), Greenfoot.getRandomNumber(getWidth()) - 10, Greenfoot.getRandomNumber(getHeight())- 10);
         }
     }
 }
