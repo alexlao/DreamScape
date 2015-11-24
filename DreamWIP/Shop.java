@@ -113,7 +113,7 @@ public class Shop extends World
         
         if(Greenfoot.isKeyDown("space"))
         {
-            if(saved = true)
+            if(saved == true)
             {
                LevelTwo nextLevel = new LevelTwo(counter, hp, true, time);
                Greenfoot.setWorld(nextLevel);
