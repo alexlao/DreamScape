@@ -64,7 +64,7 @@ public class TopDownPlayer extends Actor
     {
         moveAndTurn();
         topDownShoot();
-        checkInsideHole();
+        checkDeath();
         //kill();
     }
    }
@@ -306,10 +306,11 @@ public void topDownShoot()
         
     }
     
-    public void checkInsideHole()
+    public void checkDeath()
     {
         Actor hole = getOneIntersectingObject(NoTile.class);
         Actor explosion = getOneIntersectingObject(Explosion.class);
+        Actor missile = getOneIntersectingObject(Missile.class);
         if((hole != null && getX() > (hole.getX() - 25) &&
             getX() < (hole.getX() + 25) &&
             getY() > (hole.getY() - 25) &&
@@ -322,6 +323,14 @@ public void topDownShoot()
             setLocation(525, 575);
             lives.life--;
             lives.removeLife();
+        }
+        else if(missile != null && getX() > 500 && getX() < 550 &&
+            getY() > 550 && getY() < 600)
+        {
+             getWorld().removeObject(missile);
+             setLocation(525, 575);
+             lives.life--;
+             lives.removeLife();
         }
     }
 }
