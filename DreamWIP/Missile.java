@@ -49,7 +49,12 @@ public class Missile extends SmoothMover
 
     public void checkExplode()
     {
-        if(((getX() == targetX && getY() == targetY) || isAtEdge()) 
+        if(getOneIntersectingObject(FloorTile.class)  != null
+            && getOneIntersectingObject(FloorTile.class).getX() == 525
+            && getOneIntersectingObject(FloorTile.class).getY() == 575)
+       {
+        }
+        else if(((getX() == targetX && getY() == targetY) || isAtEdge()) 
             && getOneIntersectingObject(FloorTile.class)  != null)
         {
             int x = getOneIntersectingObject(FloorTile.class).getX();
