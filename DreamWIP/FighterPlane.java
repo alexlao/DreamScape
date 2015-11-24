@@ -73,4 +73,5 @@ public class FighterPlane extends Actor
             bH.damage++;
             bH.damageHit();
     }
+    
 }
