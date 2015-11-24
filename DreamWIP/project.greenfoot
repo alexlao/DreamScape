@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Mon Nov 23 20:45:45 PST 2015
+#Tue Nov 24 08:15:33 PST 2015
 target15.width=110
 target5.height=50
 dependency147.from=TopDownWorld
@@ -1148,9 +1148,9 @@ target25.type=ClassTarget
 target32.editor.height=696
 target61.width=80
 dependency213.type=UsesDependency
+target73.y=1270
 target58.type=ClassTarget
 target66.naviview.expanded=true
-target73.y=1270
 dependency85.type=UsesDependency
 target73.x=10
 dependency119.from=LevelOneB
@@ -1886,7 +1886,7 @@ target19.editor.x=0
 target47.editor.y=80
 target47.editor.x=105
 target75.editor.y=0
-class.Weapon1.image=apple1.png
+class.Weapon1.image=Allistar.png
 target75.editor.x=353
 target2.width=80
 dependency201.to=Cloud
