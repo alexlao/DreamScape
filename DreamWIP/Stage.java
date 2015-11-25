@@ -97,7 +97,7 @@ public class Stage extends World
 
         }
         if(Greenfoot.mouseClicked(ok1)){
-            System.out.println("test");
+            
             bubble1.setImage("instruction2.png");
             removeObject(ok1);
             addObject(ok2, 494, 435);

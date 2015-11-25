@@ -18,9 +18,14 @@ public class Shop extends World
     int shopNumA;
     int shopNumB;
     int shopNumC;
-    
+    int p;
+    int o;
+    boolean left;
+    boolean mid;
+    boolean right;
     boolean saved = false;
     Lives hp;
+    InvisibileBox inv1 = new InvisibileBox();
     public Shop(int totalCount, Lives life, Timer t )
     {
         //takes in paramaters to continue the counter
@@ -31,13 +36,9 @@ public class Shop extends World
         hp = life;
         time = t;
         addObject(counter, 36, 12);
-        if (hp.returnLives() == 5)
+        if (hp.returnLives() >= 5)
         {
             showText("Already at full hp!",getWidth()*1/3, getHeight()/2-50);
-        }
-        else
-        {
-            showText("3 Points",getWidth()*1/3, getHeight()/2-50);
         }
 
 
@@ -52,14 +53,14 @@ public class Shop extends World
     {
 
         addObject(weapon1, getWidth()*1/3, getHeight()/2);  
-        showText("Hp",getWidth()*1/3, getHeight()/2+50);
         
-        showText("ExtraLevelAttempt", getWidth()*1/3+150, getHeight()/2+50);
+        
         addObject(weapon2,getWidth()*1/3+150, getHeight()/2);
-        showText("1 Point",getWidth()*1/3+150, getHeight()/2-50);
+        
         
         addObject(weapon3, getWidth()*1/3+300, getHeight()/2);
-        showText("2 Points", getWidth()*1/3+300, getHeight()/2-50);
+        addObject(inv1, 100, 100);
+        
         showText("Press Space to Continue...", getWidth()*1/3+200, 500);
         shopNumA = 0;
         shopNumB =0;
@@ -68,6 +69,27 @@ public class Shop extends World
 
     
     public void act(){
+        if(inv1.isItTouching(Weapon1.class)){
+          showText("+HP",getWidth()*1/3, getHeight()/2+50);
+          showText("3 Points", getWidth()*1/3, getHeight()/2-50);  
+        }
+        else if(inv1.isItTouching(Weapon2.class)){
+            showText("1 Point",getWidth()*1/3+150, getHeight()/2-50);
+            showText("Extra Game Attempt", getWidth()*1/3+150, getHeight()/2+50);
+        }
+        else if(inv1.isItTouching(Weapon3.class)){
+           showText("2 Points", getWidth()*1/3+300, getHeight()/2-50);
+            showText("Upgraded Shot", getWidth()*1/3+300, getHeight()/2+50); 
+        }
+        else{
+            showText(null,getWidth()*1/3, getHeight()/2+50);
+            showText(null, getWidth()*1/3, getHeight()/2-50); 
+            showText(null,getWidth()*1/3+150, getHeight()/2-50);
+            showText(null, getWidth()*1/3+150, getHeight()/2+50);
+            showText(null, getWidth()*1/3+300, getHeight()/2-50);
+            showText(null, getWidth()*1/3+300, getHeight()/2+50); 
+        }
+       
         //code that runs in the shop to see which item to purchase and if sufficient credits to purchase
         if(Greenfoot.mouseClicked(weapon1) && counter.returnValue()>=3){
             if(hp.returnLives() < 5)
@@ -91,7 +113,7 @@ public class Shop extends World
         
         if(Greenfoot.isKeyDown("space"))
         {
-            if(saved = true)
+            if(saved == true)
             {
                LevelTwo nextLevel = new LevelTwo(counter, hp, true, time);
                Greenfoot.setWorld(nextLevel);
