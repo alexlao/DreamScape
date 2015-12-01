@@ -274,6 +274,6 @@ public class LevelTwo extends ScrollWorld
     }
     public void nextWorld()
     {
-        Greenfoot.setWorld(new LevelThree(s, lives, time));
+        Greenfoot.setWorld(new BossTwoStage(s.returnValue(), lives, time));
     }
 }

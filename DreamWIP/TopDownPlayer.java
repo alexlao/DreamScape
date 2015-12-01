@@ -67,6 +67,12 @@ public class TopDownPlayer extends Actor
         checkDeath();
         //kill();
     }
+    else if(type == "BossTwoStage")
+    {
+        moveAndTurn();
+        topDownShoot();
+        checkDeath();
+    }
    }
     
     public TopDownPlayer (Lives l)
