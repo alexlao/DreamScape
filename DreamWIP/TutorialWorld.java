@@ -32,7 +32,7 @@ public class TutorialWorld extends ScrollWorld
     }
     
     public void act(){
-    bkgMusic.play();    
+        bkgMusic.play();    
     }
     
     public void prepare()
