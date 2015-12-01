@@ -93,7 +93,7 @@ public class Shop extends World
         }
        
         //code that runs in the shop to see which item to purchase and if sufficient credits to purchase
-        if(Greenfoot.mouseClicked(weapon1) && counter.returnValue()>=3&&inv1.isItTouching(Weapon1.class)){
+        if((Greenfoot.mouseClicked(inv1)||Greenfoot.mouseClicked(weapon1))  && counter.returnValue()>=3&&inv1.isItTouching(Weapon1.class)){
             if(hp.returnLives() < 5)
             {
             removeObject(weapon1);
@@ -103,12 +103,12 @@ public class Shop extends World
         }
 
         }
-        if((Greenfoot.mouseClicked(weapon2) && counter.returnValue()>=1&&inv1.isItTouching(Weapon2.class))){
+        if((Greenfoot.mouseClicked(weapon2) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=1&&inv1.isItTouching(Weapon2.class)){
             removeObject(weapon2);
             counter.setCurrentValue(1);
             saved = true;
         }
-        if((Greenfoot.mouseClicked(weapon3) && counter.returnValue()>=2) &&inv1.isItTouching(Weapon3.class)){
+        if((Greenfoot.mouseClicked(weapon3) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=2 &&inv1.isItTouching(Weapon3.class)){
             removeObject(weapon3);    
             counter.setCurrentValue(2);
             td1.purchasedNew();

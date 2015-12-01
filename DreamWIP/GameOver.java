@@ -19,11 +19,11 @@ public class GameOver extends World
         super(600, 600, 1); 
         a = player;
         showText("Game Over",getWidth()/2, getHeight()/2);
-        x = td1.purchasedAmount();
+        //x = td1.purchasedAmount();
     }
     public void act()
     {
-        if (Greenfoot.isKeyDown("space"))
+        if (Greenfoot.isKeyDown("l"))
         {
             if(a.getSave() == 0)
             {
