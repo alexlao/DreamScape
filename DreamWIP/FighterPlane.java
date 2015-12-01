@@ -15,6 +15,7 @@ public class FighterPlane extends Actor
         direction = 1;
         imageLoopCount = 50;
         bH = b;
+        
     }
     
     public void act() 
@@ -23,6 +24,7 @@ public class FighterPlane extends Actor
         move();
         checkForHit();
         switchImage();
+        endGame();
     }    
 
     public void fireMissle()
@@ -82,5 +84,10 @@ public class FighterPlane extends Actor
     }
     public void endGame()
     {
+        if (hitCount > 21)
+        {
+            BossThreeStage b = (BossThreeStage) getWorld();
+            b.nextWorld();
+        }
     }
 }
