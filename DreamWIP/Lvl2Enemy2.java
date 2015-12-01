@@ -19,13 +19,12 @@ public class Lvl2Enemy2 extends Enemy
      */
     public void act() 
     {
-         if (turnAmount >= 0 &&  turnAmount <= 200)
+         if (turnAmount >= 0 &&  turnAmount <= 150)
         {
             setImage(skeleton.getCurrentImage());
             
         }  
-        if (turnAmount > 200)
-        {
+        if (turnAmount > 150)        {
             setImage(skeleton2.getCurrentImage());
         }// Add your action code here.
         pattern();
@@ -37,21 +36,18 @@ public class Lvl2Enemy2 extends Enemy
         {
             shoot();
         }
-        if (turnAmount >= 10 &&  turnAmount <= 200)
+        if (turnAmount >= 10 &&  turnAmount <= 150)
         {
             move(3);
             
         }  
-        if (turnAmount == 209)
-        {
-          shoot2();
-        }
-        if (turnAmount > 210 && turnAmount <400)
+        
+        if (turnAmount > 150 && turnAmount <=300)
         {
             move(-3);
         }
         
-        if (turnAmount == 410)
+        if (turnAmount > 300)
         {
 
            turnAmount = 0;

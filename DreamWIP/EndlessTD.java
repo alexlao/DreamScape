@@ -8,13 +8,20 @@ import greenfoot.*;
  */
 public class EndlessTD extends StartMenuButtons
 {
-int time = 0;
-    GreenfootImage one = new GreenfootImage("start1.png");
-    GreenfootImage two = new GreenfootImage("start2.png");
-    GreenfootImage three = new GreenfootImage("start3.png");
-    GreenfootImage four = new GreenfootImage("start4.png");
-    GreenfootImage five = new GreenfootImage("start5.png");
-    GreenfootImage six = new GreenfootImage("start7.png");
+    int time = 0;
+    GreenfootImage one = new GreenfootImage("e1.png");
+    GreenfootImage two = new GreenfootImage("e2.png");
+    GreenfootImage three = new GreenfootImage("e3.png");
+    GreenfootImage four = new GreenfootImage("e4.png");
+    GreenfootImage five = new GreenfootImage("e5.png");
+    GreenfootImage six = new GreenfootImage("e6.png");
+    GreenfootImage seven = new GreenfootImage("e7.png");
+    GreenfootImage eight = new GreenfootImage("e8.png");
+    GreenfootImage nine = new GreenfootImage("e9.png");
+    GreenfootImage ten = new GreenfootImage("e10.png");
+    GreenfootImage eleven = new GreenfootImage("e11.png");
+    GreenfootImage twelve = new GreenfootImage("e12.png");
+    GreenfootImage thirteen = new GreenfootImage("e13.png");
     GreenfootSound scrib = new GreenfootSound("scribble.wav");
     
     public EndlessTD()
@@ -30,34 +37,63 @@ int time = 0;
     {
          if(Greenfoot.mouseClicked(this) )
         {
-           time = 24;
+           time = 39;
            scrib.play();
         }
-        if (time == 21)
+        if (time == 36)
         {
             setImage(one);
         }
-        if (time == 18)
+        if (time == 33)
         {
                         setImage(two);
         }
-        if (time == 15)
+        if (time == 30)
         {
                         setImage(three);
         }
-        if (time == 12)
+        if (time == 27)
         {
                         setImage(four);
         }
-        if (time == 9)
+        if (time == 24)
         {
                         setImage(five);
         }
-        if (time == 6)
+        if (time == 21)
         {
                         setImage(six);
         }
-        if (time == 3)
+        if (time == 18)
+        {
+                        setImage(seven);
+        }
+        if (time == 15)
+        {
+                        setImage(eight);
+        }
+        
+        if (time == 12)
+        {
+                        setImage(nine);
+        }
+        if (time == 9)
+        {
+                        setImage(ten);
+        }
+        if (time == 6)
+        {
+                        setImage(eleven);
+        }
+        if (time == 5)
+        {
+            setImage (twelve);
+        }
+        if (time == 4)
+        {
+            setImage (thirteen);
+        }
+        if (time == 2)
         {
              Greenfoot.setWorld(new TopDownWorld());
              scrib.stop();

@@ -9,6 +9,7 @@ import greenfoot.*;
 public class Level3Enemy1 extends Enemy
 {
     int count = 0;
+    int turnCount = 0;
     GifImage e1 = new GifImage("ebird.gif");
     GifImage e2 = new GifImage("ebird2.gif");
     /**
@@ -30,30 +31,82 @@ public class Level3Enemy1 extends Enemy
     }    
     public void pattern()
     {
-     if (count == 5)
-     {
-         shoot();
-        }
+     if( turnCount == 0){
+    
        if (count >= 0 && count < 100)
       {
-        move(4);
-        
+        move(2);
+        if(Greenfoot.getRandomNumber(1000) < 4)
+        {
+            shoot();
+        }
      } else if( count == 105)
      {
          shoot();
         }
       else if (count >= 110 && count <= 210)
       {
-          move(-4);
+          move(-2);
          
     } else if (count > 210)
     {
         count = 0;
+        turnCount = 1;
     }
    }
+        if( turnCount == 1){
+     if (count == 5)
+     {
+         //shoot();
+        }
+       if (count >= 0 && count < 100)
+      {
+        move(2);
+        
+     } else if( count == 105)
+     {
+         //shoot();
+        }
+      else if (count >= 110 && count <= 210)
+      {
+          move(-2);
+         
+    } else if (count > 210)
+    {
+        count = 0;
+        turnCount = 2;
+    }
+   }
+        if( turnCount == 2){
+   
+       if (count >= 0 && count < 100)
+      {
+        move(2);
+       
+        
+     } else if( count == 105)
+     {
+         //shoot();
+        }
+      else if (count >= 110 && count <= 210)
+      {
+          move(-2);
+           if(Greenfoot.getRandomNumber(1000) < 4)
+        {
+            shoot();
+        }
+         
+    } else if (count > 210)
+    {
+        count = 0;
+        turnCount = 0;
+    }
+   }
+}
    public void shoot()
    {
        World w = getWorld();
        w.addObject(new poop(), getX(), getY()+10);
     }
+    
 }

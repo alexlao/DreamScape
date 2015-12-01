@@ -26,7 +26,7 @@ public class LevelTwo extends ScrollWorld
         addObject(time, 40, 30);
        
         addObject(lives, 920, 25);
-        Allistar allistar = new Allistar(score, hp);
+        Allistar allistar = new Allistar(score, hp, 0);
         addObject(allistar, 250, 450);
         prepare();
         
@@ -39,8 +39,10 @@ public class LevelTwo extends ScrollWorld
         Allistar allistar = new Allistar(new Counter(5), new Lives());
         addObject(allistar, 250, 450);
         prepare();
+        
     }
-        public LevelTwo(Counter score, Lives hp, boolean save, Timer t)
+       
+    public LevelTwo(Counter score, Lives hp, boolean save, Timer t)
     {
         
         super(1000,600,1,4000,600);
@@ -48,7 +50,7 @@ public class LevelTwo extends ScrollWorld
         s = score;
         
         lives = hp;
-        addObject(s, 36, 12);
+        addObject(s, 36, 12); 
         addObject(time, 40, 30);
        
         addObject(lives, 920, 25);
@@ -56,8 +58,8 @@ public class LevelTwo extends ScrollWorld
         addObject(allistar, 250, 450);
         prepare();
         
-  
-    }
+}
+
 
     /**
      * Prepare the world for the start of the program. That is: create the initial
@@ -272,6 +274,7 @@ public class LevelTwo extends ScrollWorld
         removeObject(platform37);
         
     }
+  
     public void nextWorld()
     {
         Greenfoot.setWorld(new LevelThree(s, lives, time));
