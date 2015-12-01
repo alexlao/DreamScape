@@ -75,7 +75,7 @@ public class BossThreeStage extends World
         Cloud cloud7 = new Cloud();
         addObject(cloud7, 374, 58);
        
-        addObject(new TopDownPlayer(new Lives(), 1), 300, 500);
+        addObject(new TopDownPlayer(new Lives(), shottype), 300, 500);
         
     }
     public void nextWorld()
