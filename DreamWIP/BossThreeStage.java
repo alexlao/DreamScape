@@ -25,6 +25,18 @@ public class BossThreeStage extends World
         fighter = new FighterPlane(bossHealth);
         addObject(fighter, 500, 222);
     }
+    
+    public BossThreeStage()
+    {
+        super(1000, 600, 1); 
+        setPaintOrder(BossHealth.class, Shot.class, FighterPlane.class, TopDownPlayer.class, Missile.class, Cloud.class, 
+            FloorTile.class, NoTile.class);
+        prepare();
+        bossHealth = new BossHealth();
+        addObject(bossHealth, 930, 80);
+        fighter = new FighterPlane(bossHealth);
+        addObject(fighter, 500, 222);
+    }
 
     /**
      * Prepare the world for the start of the program. That is: create the initial

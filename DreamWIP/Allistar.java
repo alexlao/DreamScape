@@ -28,14 +28,23 @@ public class Allistar extends ScrollingActor
     private String type;
     public void act() 
     {
-        keyPress();
+        type = getWorld().getClass().getName();
+        if(type != "FinalCutscene" &&
+            type != "FinalCutsceneTwo" &&
+            type != "FinalCutsceneThree")
+        {
+            keyPress();
+        }
+        else
+        {
+            moveForward();
+        }
         checkFall();
         eatCoin();
         checkDeath();
         checkPortal();
         enemyDeath();
         killEnemy();
-        
     }    
 
     public Allistar(Counter s, Lives l)
@@ -60,7 +69,7 @@ public class Allistar extends ScrollingActor
             move(5);
             getWorld().moveCamera(5);
             //getImage().mirrorHorizontally();
-            Animate();
+            animate();
         }
         else if(inAir != true)
         {
@@ -71,16 +80,23 @@ public class Allistar extends ScrollingActor
             move(-5);
             getWorld().moveCamera(-5);
             //getImage().mirrorHorizontally();
-           Animate();
+           animate();
         }
-     
         if(Greenfoot.isKeyDown("w"))
         {
             jump();
         }
     }
     
-    private void Animate()
+    //Copies keyboard behavior for moving Allistar during the last cutscene
+    public void moveForward()
+    {
+        move(5);
+        getWorld().moveCamera(5);
+        animate();
+    }
+    
+    private void animate()
     {
         if (walk == 5)
         {
