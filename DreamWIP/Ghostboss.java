@@ -111,7 +111,7 @@ public class Ghostboss extends Actor
 
     private void hitImage()
     {
-        if(isTouching(Shot.class))
+        if(isTouching(Shot.class) &&  transAmount >= 253)
         {
             imageSwitchDelay = 10;
         }
