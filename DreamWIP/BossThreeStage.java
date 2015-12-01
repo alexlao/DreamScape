@@ -80,7 +80,7 @@ public class BossThreeStage extends World
     }
     public void nextWorld()
     {
-        Greenfoot.setWorld(new End(time));
+        Greenfoot.setWorld(new FinalCutscene(time));
     }
     
 }

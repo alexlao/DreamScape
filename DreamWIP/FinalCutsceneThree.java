@@ -10,12 +10,14 @@ public class FinalCutsceneThree extends ScrollWorld
 {
     Counter score;
     Lives lives;
-    public FinalCutsceneThree()
+    Timer time;
+    public FinalCutsceneThree(Timer t)
     {
         super(1500, 600,1, 1500, 600);
         Counter score = new Counter(0);
         lives = new Lives();
         prepare();
+        time = t;
     }
     
     public void prepare()
@@ -40,11 +42,12 @@ public class FinalCutsceneThree extends ScrollWorld
         portal.setLocation(1481, 297);
         portal.setLocation(1485, 296);
         portal.setLocation(1485, 297);
-    }
+    }
+
 
     public void nextWorld()
     {
-        Greenfoot.setWorld(new End(new Timer()));
+        Greenfoot.setWorld(new End(time));
     }
 
 }
