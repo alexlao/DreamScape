@@ -278,7 +278,8 @@ public void topDownShoot()
     public void checkCollisions()
     {
         Actor enemy = getOneIntersectingObject(TDEnemy.class);
-        if((enemy != null) && (hitDelay == 0))
+        Actor bone = getOneIntersectingObject(TDBone.class);
+        if(((enemy != null) || (bone != null)) && (hitDelay == 0))
         {
             if(lives.returnLives() < 2)
             {
