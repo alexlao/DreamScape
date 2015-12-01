@@ -10,6 +10,8 @@ public class GameOver extends World
 {
 
     Allistar a;
+    TopDownPlayer td1;
+    int x;
     
     public GameOver(Allistar player)
     {    
@@ -17,7 +19,7 @@ public class GameOver extends World
         super(600, 600, 1); 
         a = player;
         showText("Game Over",getWidth()/2, getHeight()/2);
-        
+        x = td1.purchasedAmount();
     }
     public void act()
     {
@@ -30,7 +32,7 @@ public class GameOver extends World
             if(a.getSave() == 1)
             {
                 
-                Greenfoot.setWorld(new LevelTwo(a.getScore(), new Lives(),new Timer()));
+                Greenfoot.setWorld(new LevelTwo(a.getScore(), new Lives(),new Timer(), x));
                 
             }
         }

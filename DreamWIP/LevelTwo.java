@@ -11,16 +11,18 @@ public class LevelTwo extends ScrollWorld
     Timer time;
     Counter s;
     Lives lives;
+    int shottype;
    
     /**
      * Constructor for objects of class LevelTwo.
      * 
      */
-    public LevelTwo(Counter score, Lives hp, Timer t)
+    public LevelTwo(Counter score, Lives hp, Timer t, int x)
     {
         super(1000,600,1,4000,600);
         time = t;
         s = score;
+        shottype = x;
         lives = hp;
         addObject(s, 36, 12);
         addObject(time, 40, 30);
@@ -42,13 +44,13 @@ public class LevelTwo extends ScrollWorld
         
     }
        
-    public LevelTwo(Counter score, Lives hp, boolean save, Timer t)
+    public LevelTwo(Counter score, Lives hp, boolean save, Timer t, int x)
     {
         
         super(1000,600,1,4000,600);
         time = t;
         s = score;
-        
+        shottype = x;
         lives = hp;
         addObject(s, 36, 12); 
         addObject(time, 40, 30);
@@ -277,6 +279,6 @@ public class LevelTwo extends ScrollWorld
   
     public void nextWorld()
     {
-        Greenfoot.setWorld(new LevelThree(s, lives, time));
+        Greenfoot.setWorld(new LevelThree(s, lives, time, shottype));
     }
 }

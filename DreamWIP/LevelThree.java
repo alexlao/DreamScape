@@ -11,11 +11,12 @@ public class LevelThree extends ScrollWorld
     Counter s;
     Lives lives;
     Timer time;
+    int shottype;
     /**
      * Constructor for objects of class LevelThree.
      * 
      */
-    public LevelThree(Counter score, Lives hp, Timer t)
+    public LevelThree(Counter score, Lives hp, Timer t, int x)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 1000, 1,600,4000); 
@@ -25,7 +26,7 @@ public class LevelThree extends ScrollWorld
        addObject(s, 36, 12);
        addObject(time, 40, 30);
        addObject(lives, 920, 25);
-
+       shottype = x;
        Allistar allistar = new Allistar(s, lives);
        addObject(allistar, 250,550);
 
@@ -436,10 +437,11 @@ public class LevelThree extends ScrollWorld
         Level3Enemy1 level3enemy14 = new Level3Enemy1();
         addObject(level3enemy14, 95, 1235);
         level3enemy14.setLocation(93, 1227);
-    }
+    }
+
 
     public void nextWorld()
     {
-        Greenfoot.setWorld(new BossThreeStage(s, lives, time));
+        Greenfoot.setWorld(new BossThreeStage(s, lives, time, shottype));
     }
 }

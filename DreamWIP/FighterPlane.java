@@ -52,6 +52,13 @@ public class FighterPlane extends Actor
             imageLoopCount = 0;
             health();
         }
+         if(getOneIntersectingObject(Shot2.class) != null)
+        {
+            hitCount++;
+            getWorld().removeObject(getOneIntersectingObject(Shot2.class));
+            imageLoopCount = 0;
+            health();
+        }
     }
     
     public void switchImage()

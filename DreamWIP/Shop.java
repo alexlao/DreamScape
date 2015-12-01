@@ -12,6 +12,7 @@ public class Shop extends World
     Weapon1 weapon1 = new Weapon1();
     Weapon2 weapon2 = new Weapon2();
     Weapon3 weapon3 = new Weapon3();
+    TopDownPlayer td1 = new TopDownPlayer(0);
     Counter counter;
     Timer time;
     int z;
@@ -20,6 +21,7 @@ public class Shop extends World
     int shopNumC;
     int p;
     int o;
+    int shottype;
     boolean left;
     boolean mid;
     boolean right;
@@ -91,7 +93,7 @@ public class Shop extends World
         }
        
         //code that runs in the shop to see which item to purchase and if sufficient credits to purchase
-        if(Greenfoot.mouseClicked(weapon1) && counter.returnValue()>=3){
+        if(Greenfoot.mouseClicked(weapon1) && counter.returnValue()>=3&&inv1.isItTouching(Weapon1.class)){
             if(hp.returnLives() < 5)
             {
             removeObject(weapon1);
@@ -101,25 +103,28 @@ public class Shop extends World
         }
 
         }
-        if((Greenfoot.mouseClicked(weapon2) && counter.returnValue()>=1)){
+        if((Greenfoot.mouseClicked(weapon2) && counter.returnValue()>=1&&inv1.isItTouching(Weapon2.class))){
             removeObject(weapon2);
             counter.setCurrentValue(1);
             saved = true;
         }
-        if((Greenfoot.mouseClicked(weapon3) && counter.returnValue()>=2)){
+        if((Greenfoot.mouseClicked(weapon3) && counter.returnValue()>=2) &&inv1.isItTouching(Weapon3.class)){
             removeObject(weapon3);    
             counter.setCurrentValue(2);
+            td1.purchasedNew();
+            shottype = td1.purchasedAmount();
+            System.out.println("Copped");
         }  
         
         if(Greenfoot.isKeyDown("space"))
         {
             if(saved == true)
             {
-               LevelTwo nextLevel = new LevelTwo(counter, hp, true, time);
+               LevelTwo nextLevel = new LevelTwo(counter, hp, true, time, shottype);
                Greenfoot.setWorld(nextLevel);
             }
             else{
-            LevelTwo nextLevel = new LevelTwo(counter,hp, time);
+            LevelTwo nextLevel = new LevelTwo(counter,hp, time, shottype);
             Greenfoot.setWorld(nextLevel);
            }
         }

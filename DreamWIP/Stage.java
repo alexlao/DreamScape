@@ -43,7 +43,7 @@ public class Stage extends World
          time = timer;
         addObject(life, 925, 25);
         addObject(time, 40, 30);
-          TopDownPlayer topdownplayer = new TopDownPlayer(life);
+          TopDownPlayer topdownplayer = new TopDownPlayer(life, 0);
            topdownplayer.setLocation(305, 555);
         addObject(topdownplayer, 301, 353);
         prepare();

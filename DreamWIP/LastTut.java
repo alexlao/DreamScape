@@ -28,7 +28,7 @@ public class LastTut extends ScrollWorld
 
     public void nextWorld()
     {
-        Greenfoot.setWorld(new LevelOne());
+        Greenfoot.setWorld(new IntroText());
         m.stop();
     }
     

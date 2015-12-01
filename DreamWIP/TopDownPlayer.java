@@ -18,7 +18,7 @@ public class TopDownPlayer extends Actor
     private GreenfootImage shot= new GreenfootImage("Topdownshot.png");
     private GreenfootImage noShot= new GreenfootImage("topdown.png");
     Lives lives;
-
+    public int purchasedShot = 0;
     
     private int perkTimer = 0;
     private int shotType = 0;
@@ -26,7 +26,10 @@ public class TopDownPlayer extends Actor
     int hitDelay;
     // private Playerhitbox phb;
     //  int stationaryX;
-
+    public TopDownPlayer(int x){
+        purchasedShot = x;
+        
+    }
     public void act()
         {
         type = getWorld().getClass().getName();
@@ -63,15 +66,16 @@ public class TopDownPlayer extends Actor
     else if(type == "BossThreeStage")
     {
         moveAndTurn();
-        topDownShoot();
+        shoot();
         checkDeath();
         //kill();
     }
    }
     
-    public TopDownPlayer (Lives l)
+    public TopDownPlayer (Lives l, int x)
     {
         lives = l;
+        purchasedShot = x;
     }
     public TopDownPlayer(Lives l, boolean td)
     {
@@ -143,15 +147,22 @@ public class TopDownPlayer extends Actor
             //Uncomment to enable turn by mouse
         }
     }
+    public void purchasedNew(){
+        purchasedShot++;
+    }
+    public int purchasedAmount(){
+        return purchasedShot;
+    }
 
     public void shoot()
     { 
-
-        if(shotTimer < 10)
+        if(purchasedShot == 0){
+            if(shotTimer < 10)
         {
             setImage(noShot);
-        }
-        if(shotTimer >  0)
+            
+        }   
+         if(shotTimer >  0)
         {
             shotTimer--;
         }
@@ -162,6 +173,25 @@ public class TopDownPlayer extends Actor
             setImage(shot);
 
         }
+    }
+        if (purchasedShot >= 1){
+            if(shotTimer < 10)
+        {
+            setImage(noShot);
+            
+        }   
+         if(shotTimer >  0)
+        {
+            shotTimer--;
+        }
+        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+        {
+            getWorld().addObject(new Shot2(this), getX(), getY());
+            shotTimer = 25;
+            setImage(shot);
+            System.out.println("New Shot");
+        }
+    }
         if(isTouching(BossShot.class))
         {
             removeTouching(BossShot.class);
