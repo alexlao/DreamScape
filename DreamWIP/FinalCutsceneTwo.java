@@ -10,12 +10,14 @@ public class FinalCutsceneTwo extends ScrollWorld
 {
     Counter score;
     Lives lives;
-    public FinalCutsceneTwo()
+    Timer time;
+    public FinalCutsceneTwo(Timer t)
     {
         super(1000, 600,1, 1500, 600);
         Counter score = new Counter(0);
         lives = new Lives();
         prepare();
+        time = t;
     }
     
     public void prepare()
@@ -34,6 +36,6 @@ public class FinalCutsceneTwo extends ScrollWorld
     
     public void nextWorld()
     {
-        Greenfoot.setWorld(new FinalCutsceneThree());
+        Greenfoot.setWorld(new FinalCutsceneThree(time));
     }
 }
