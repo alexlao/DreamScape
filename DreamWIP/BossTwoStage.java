@@ -37,7 +37,7 @@ public class BossTwoStage extends World
     private void prepare()
     {
         addObject(score, 36, 12);
-        addObject(new TopDownPlayer(new Lives()), 500, 800);
+        addObject(new TopDownPlayer(new Lives(),0), 500, 800);
     }
 
     public void goToShop()
