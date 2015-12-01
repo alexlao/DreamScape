@@ -8,6 +8,7 @@ import greenfoot.*;
  */
 public class Portal extends ScrollingActor
 {
+    String type;
     GifImage portalImage = new GifImage("Blue portal.gif");
     /**
      * Act - do whatever the Portal wants to do. This method is called whenever
@@ -15,6 +16,41 @@ public class Portal extends ScrollingActor
      */
     public void act() 
     {
-        setImage(portalImage.getCurrentImage());
+             type = getWorld().getClass().getName();
+        
+        if(type == "TutorialWorld"){
+            setImage(portalImage.getCurrentImage());
+        }
+        else if(type == "LevelOneB"){
+           setImage(portalImage.getCurrentImage());
+
+        }
+        else if(type == "LevelOne")
+        {
+
+             setImage(portalImage.getCurrentImage());
+
+        }
+        else if(type == "TutorialPart2")
+        {
+            setImage(portalImage.getCurrentImage());
+        }
+        else if(type == "LastTut")
+        {
+           setImage(portalImage.getCurrentImage());
+        }
+        else if(type == "LevelTwo")
+        {
+            setImage(portalImage.getCurrentImage());
+        } else if (type == "LevelThree")
+        {
+             setImage(portalImage.getCurrentImage());
+        } else if (type == "FinalCutsceneThree")
+        {
+            setImage("FinalCutscene3Portal.png");
+        }
+    
+   
+       
     }    
 }
