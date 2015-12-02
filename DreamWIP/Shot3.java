@@ -1,19 +1,100 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Shot3 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Shot3 extends Actor
 {
-    /**
-     * Act - do whatever the Shot3 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+   private TopDownPlayer player;
+   private Boss boss;
+   private int healthCount = 0;
+   private int bossTime = 0;
+   private GreenfootImage bossHit;
+   private GreenfootImage n;
+   GifImage shot3 = new GifImage("Shot3.gif");
+  
+    public Shot3(TopDownPlayer player)
+    {
+        this.player = player;
+        setRotation(player.getRotation());
+    }
+    
+    public Shot3()
+    {
+    }
+
+    public Shot3(Boss boss)
+    {
+        this.boss = boss;
+        n = new GreenfootImage(boss.getImage());
+        bossHit= new GreenfootImage("HitBoss.png");
+    }
+
+    public void health(int amount)
+    {
+        this.healthCount += amount;
+    }
+
+
+    public void kill()
+    {
+        Actor Boss;
+        Boss = getOneObjectAtOffset(0,0, Boss.class);
+        if(Boss != null)
+        {
+            health(10);
+        }
+        if(healthCount >= 1)
+        {
+            World world;
+            world = getWorld();
+            getWorld().removeObject(Boss);
+            //Greenfoot.playSound("slurp.wav");
+            //getWorld().removeObjects(getWorld().getObjects(Boss.class));
+            getWorld().addObject (new Test(), 20, 20);
+        }
+    }
+
     public void act() 
     {
-        // Add your action code here.
-    }    
-}
+        World world = getWorld();
+        setImage(shot3.getCurrentImage());
+        if (!isAtEdge())
+        {
+            move(5);
+        }
+        else
+        {
+            world.removeObject(this);
+         }
+
+        //juice();//animates the spider when hit; I added this code here because the shot class seems to be better at detecting the spider than the spider detecting the shot
+        
+   }
+   
+   public void juice()
+   {
+
+       World w = getWorld();
+       Actor b1;
+       b1 = getOneIntersectingObject(Boss.class);
+       if (b1 !=null && bossTime == 1)//this part works alone; changes to the HitBoss pic
+        {
+            
+            b1.setImage(bossHit);
+            
+        }
+        else if( getX() >= w.getWidth() - 20 || getY() >= w.getHeight() - 20|| getX() <= 20 || getY() <= 20|| getX() >= w.getWidth()-20 && getY() >= w.getHeight() - 20|| getX() <= 20 && getY() <= 20 || getX() >= w.getWidth() && getY() <= 20|| getX() <= 20 && getY() >= w.getHeight())
+        {
+            w.removeObject(this);// avoids the "Actor not in world problem" ; I tried isAtEdge(), didn't work at all
+            
+        }
+       
+         else if(bossTime == 15)//supposedly returns to the original image
+        {
+            b1.setImage(n);// error always points to the this line
+            bossTime = 0;
+            
+            }
+        bossTime++;
+    }
+ 
+    }
+

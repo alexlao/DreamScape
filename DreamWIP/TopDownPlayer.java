@@ -199,6 +199,24 @@ public class TopDownPlayer extends Actor
             System.out.println("New Shot");
         }
     }
+         if (purchasedShot == 2){
+            if(shotTimer < 10)
+        {
+            setImage(noShot);
+            
+        }   
+         if(shotTimer >  0)
+        {
+            shotTimer--;
+        }
+        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+        {
+            getWorld().addObject(new Shot3(this), getX(), getY());
+            shotTimer = 10;
+            setImage(shot);
+            System.out.println("Third Shot");
+        }
+    }
         if(isTouching(BossShot.class))
         {
             removeTouching(BossShot.class);

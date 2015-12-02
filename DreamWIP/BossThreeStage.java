@@ -21,7 +21,7 @@ public class BossThreeStage extends World
     public BossThreeStage(Counter s, Lives l, Timer t, int x)
     {    
         super(1000, 600, 1); 
-        setPaintOrder(Shot2.class, Shot.class, BossHealth.class,  FighterPlane.class, TopDownPlayer.class, Missile.class, Cloud.class, 
+        setPaintOrder(Shot3.class,Shot2.class, Shot.class, BossHealth.class,  FighterPlane.class, TopDownPlayer.class, Missile.class, Cloud.class, 
             FloorTile.class, NoTile.class);
         shottype = x;
         prepare();
