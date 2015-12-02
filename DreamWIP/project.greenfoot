@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Wed Dec 02 01:55:57 PST 2015
+#Wed Dec 02 14:05:42 PST 2015
 dependency211.to=Explosion
 target33.typeParameters=
 dependency71.type=UsesDependency
@@ -118,7 +118,7 @@ dependency229.type=UsesDependency
 class.Portal.superclass=ScrollingActor
 dependency214.from=LevelThree
 dependency144.type=UsesDependency
-class.Weapon1.image=apple1.png
+class.Weapon1.image=Allistar.png
 class.Clicker.superclass=StartMenuButtons
 target14.naviview.expanded=false
 target52.name=EndlessTD
@@ -2388,7 +2388,7 @@ target26.naviview.expanded=true
 dependency113.type=UsesDependency
 target7.naviview.expanded=true
 target101.editor.height=700
-simulation.speed=50
+simulation.speed=51
 dependency61.type=UsesDependency
 target88.type=ClassTarget
 dependency138.from=StartMenu
