@@ -11,7 +11,7 @@ public class LevelTwo extends ScrollWorld
     Timer time;
     Counter s;
     Lives lives;
-    int shottype;
+    private int shottype;
    
     /**
      * Constructor for objects of class LevelTwo.
@@ -28,7 +28,7 @@ public class LevelTwo extends ScrollWorld
         addObject(time, 40, 30);
        
         addObject(lives, 920, 25);
-        Allistar allistar = new Allistar(score, hp, 0);
+        Allistar allistar = new Allistar(score, hp);
         addObject(allistar, 250, 450);
         prepare();
         
@@ -56,7 +56,7 @@ public class LevelTwo extends ScrollWorld
         addObject(time, 40, 30);
        
         addObject(lives, 920, 25);
-        Allistar allistar = new Allistar(s, lives, 1);
+        Allistar allistar = new Allistar(s, lives);
         addObject(allistar, 250, 450);
         prepare();
         
@@ -279,6 +279,7 @@ public class LevelTwo extends ScrollWorld
   
     public void nextWorld()
     {
+        System.out.println("End of World 2, value of shottype" + shottype);
         Greenfoot.setWorld(new LevelThree(s, lives, time, shottype));
     }
 }

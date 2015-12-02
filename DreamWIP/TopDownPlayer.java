@@ -181,7 +181,7 @@ public class TopDownPlayer extends Actor
 
         }
     }
-        if (purchasedShot >= 1){
+        if (purchasedShot == 1){
             if(shotTimer < 10)
         {
             setImage(noShot);

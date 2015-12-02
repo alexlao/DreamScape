@@ -20,7 +20,7 @@ public class LevelOneB extends ScrollWorld
         super(1000,600,1, 2000, 600);
         addObject(lives, 920, 25);
         addObject(score, 36, 12);
-        allistar = new Allistar(score,lives);
+        allistar = new Allistar(score,lives, 0);
         this.timer = timer;
         addObject(timer, 40, 30);
         addObject(allistar, 66, 394);

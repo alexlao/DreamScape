@@ -19,7 +19,7 @@ public class TutorialPart2 extends ScrollWorld
     {
         super(1000,600,1, 2000, 600);
         //addObject(score, 36, 12);
-        Allistar allistar = new Allistar(score, lives);
+        Allistar allistar = new Allistar(score, lives, 0);
         addObject(allistar, 66, 394);
         addObject(score, 36, 12);
         addObject(lives, 925,25);

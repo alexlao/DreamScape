@@ -13,7 +13,7 @@ public class BossThreeStage extends World
     Timer time;
     Counter score;
     Lives lives;
-    int shottype;
+    private int shottype;
     /**
      * Constructor for objects of class BossThreeStage.
      * 
@@ -21,12 +21,13 @@ public class BossThreeStage extends World
     public BossThreeStage(Counter s, Lives l, Timer t, int x)
     {    
         super(1000, 600, 1); 
-        setPaintOrder(Shot2.class, BossHealth.class, Shot.class, FighterPlane.class, TopDownPlayer.class, Missile.class, Cloud.class, 
+        setPaintOrder(Shot2.class, BossHealth.class,  FighterPlane.class, TopDownPlayer.class, Missile.class, Cloud.class, 
             FloorTile.class, NoTile.class);
+        shottype = x;
         prepare();
         time = t;
         score = s;
-        shottype = x;
+        
         lives = l;
         bossHealth = new BossHealth();
         addObject(bossHealth, 930, 80);

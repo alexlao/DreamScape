@@ -22,7 +22,7 @@ public class FinalCutscene extends ScrollWorld
     
     public void prepare()
     {
-        Allistar allistar = new Allistar(score, lives);
+        Allistar allistar = new Allistar(score, lives, 0);
         addObject(allistar, 370, 550);
         for(int i =  0; i  < 15; i++)
         {

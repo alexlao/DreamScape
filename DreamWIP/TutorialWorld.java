@@ -37,7 +37,7 @@ public class TutorialWorld extends ScrollWorld
     
     public void prepare()
     {
-        Allistar allistar = new Allistar(score, lives);
+        Allistar allistar = new Allistar(score, lives, 0);
         addObject(allistar, 81, 410);
 
         Portal portal2 = new Portal();

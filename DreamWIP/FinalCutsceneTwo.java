@@ -22,7 +22,7 @@ public class FinalCutsceneTwo extends ScrollWorld
     
     public void prepare()
     {
-        Allistar allistar = new Allistar(score, lives);
+        Allistar allistar = new Allistar(score, lives, 0);
         addObject(allistar, 50, 445);
         for(int i =  0; i  < 13; i++)
         {
@@ -36,6 +36,6 @@ public class FinalCutsceneTwo extends ScrollWorld
     
     public void nextWorld()
     {
-        Greenfoot.setWorld(new FinalCutsceneThree(time));
+        Greenfoot.setWorld(new FinalCutsceneThree(time, 0));
     }
 }

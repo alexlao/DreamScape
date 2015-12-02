@@ -113,6 +113,7 @@ public class Shop extends World
             counter.setCurrentValue(2);
             td1.purchasedNew();
             shottype = td1.purchasedAmount();
+            System.out.println(shottype);
             System.out.println("Copped");
         }  
         

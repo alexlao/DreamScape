@@ -11,18 +11,20 @@ public class FinalCutsceneThree extends ScrollWorld
     Counter score;
     Lives lives;
     Timer time;
-    public FinalCutsceneThree(Timer t)
+    int shottype;
+    public FinalCutsceneThree(Timer t, int x)
     {
         super(1500, 600,1, 1500, 600);
         Counter score = new Counter(0);
         lives = new Lives();
+        shottype = x;
         prepare();
         time = t;
     }
     
     public void prepare()
     {
-        Allistar allistar = new Allistar(score, lives);
+        Allistar allistar = new Allistar(score, lives, shottype);
         addObject(allistar, 65, 520);
         for(int i =  0; i  < 15; i++)
         {

@@ -13,6 +13,7 @@ public class BossTwoStage extends World
     Lives lives;
     BossHealth bossHealth;
     Ghostboss boss;
+    int x;
     /**
      * Constructor for objects of class BossTwoStage.
      * 
@@ -23,6 +24,7 @@ public class BossTwoStage extends World
         super(1000, 600, 1);  
         time = t;
        // score = s;
+        x = totalCount;
         lives = l;
         bossHealth = new BossHealth();
         addObject(l, 925, 25);
@@ -37,7 +39,7 @@ public class BossTwoStage extends World
     private void prepare()
     {
         addObject(score, 36, 12);
-        addObject(new TopDownPlayer(0), 500, 800);
+        addObject(new TopDownPlayer(x), 500, 800);
     }
 
     public void goToShop()
