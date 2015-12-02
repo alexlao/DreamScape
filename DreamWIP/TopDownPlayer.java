@@ -17,6 +17,7 @@ public class TopDownPlayer extends Actor
     public boolean inTopDown = false;
     private GreenfootImage shot= new GreenfootImage("Topdownshot.png");
     private GreenfootImage noShot= new GreenfootImage("topdown.png");
+    private GreenfootImage injured = new GreenfootImage("HurtTD.png");
     Lives lives;
     public int purchasedShot = 0;
     
@@ -292,10 +293,10 @@ public void topDownShoot()
             }
             else
             {
-                //health --;
-               //GreenfootSound hurt = new GreenfootSound("Hurt.wav");
-                //hurt.play();
-                //setImage(injured);
+                
+               GreenfootSound hurt = new GreenfootSound("Hurt.wav");
+                hurt.play();
+                setImage(injured);
                 lives.life--;
                 lives.removeLife();
                 
@@ -310,7 +311,7 @@ public void topDownShoot()
             }
         if(hitDelay == 1)
             {
-                //setImage(stand);
+                setImage(noShot);
             }
           
             
@@ -338,7 +339,7 @@ public void topDownShoot()
             if(lives.returnLives() == 5)
             {
                 TopDownWorld w = (TopDownWorld)getWorld();
-                w.getScore().gainPoints(10);
+                w.getScore().gainPoints(5);
             }
         }
         

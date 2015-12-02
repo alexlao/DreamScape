@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.*;
 /**
  * Write a description of class TopDownWorld here.
  * 
@@ -12,7 +12,8 @@ public class TopDownWorld extends World
     TopDownPlayer p;
     Lives hp = new Lives();
     Counter score = new Counter(0);
-    
+    ;
+    Counter perkCount = new Counter(0);
     public TopDownWorld()
     {    
         
@@ -27,8 +28,7 @@ public class TopDownWorld extends World
     public void prepare()
     {
         addObject(p, 400,400);
-        addObject(new SkelEnemy(p, score), 500, 700);
-        addObject(new HpBox(), 100, 200);
+       
         //addObject(hp, 720, 25);
         
     }
@@ -43,6 +43,10 @@ public class TopDownWorld extends World
         if(score.returnValue() > 10)
         {
             spawnBat();
+        }
+        if(score.returnValue() > 20)
+        {
+            spawnSkel();
         }
  
 }
@@ -103,19 +107,54 @@ public class TopDownWorld extends World
     }
 }
 }
-
-public void spawnPerk()
-{
-    if(this.numberOfObjects() < 20)
+    public void spawnSkel()
     {
-        if(Greenfoot.getRandomNumber(1000) == 1)
+        if(this.numberOfObjects() < 20)
         {
-           addObject(new QuickShotBox(), Greenfoot.getRandomNumber(getWidth()) - 10, Greenfoot.getRandomNumber(getHeight())- 10);
+    if(Greenfoot.getRandomNumber(2) == 0)
+           {
+               if(Greenfoot.getRandomNumber(1000) < 3)
+        {
+            //Counter s = score;
+            SkelEnemy e = new SkelEnemy(p,score);
+            addObject(e, p.getX() + Greenfoot.getRandomNumber(200) + 100, p.getY() + Greenfoot.getRandomNumber(200) + 100);
+            //maxSpawn++;
             
         }
-        if(Greenfoot.getRandomNumber(1000) == 1)
+    }
+    else
+     {
+         if(Greenfoot.getRandomNumber(1000) < 3)
         {
-            addObject(new RapidShotBox(), Greenfoot.getRandomNumber(getWidth()) - 10, Greenfoot.getRandomNumber(getHeight())- 10);
+            // Counter s = score;
+            SkelEnemy e = new SkelEnemy(p,score);
+            addObject(e, p.getX() - Greenfoot.getRandomNumber(200) - 100, p.getY() - Greenfoot.getRandomNumber(200) - 100);
+            //maxSpawn++;
+            
+        }
+    }
+}
+}
+public void spawnPerk()
+{
+
+    if(perkCount.returnValue() < 2)
+    {
+        if(Greenfoot.getRandomNumber(3000) == 1)
+        {
+           addObject(new QuickShotBox(perkCount), Greenfoot.getRandomNumber(getWidth()) - 10, Greenfoot.getRandomNumber(getHeight())- 10);
+           perkCount.add();
+        }
+        if(Greenfoot.getRandomNumber(3000) == 1)
+        {
+            addObject(new RapidShotBox(perkCount), Greenfoot.getRandomNumber(getWidth()) - 10, Greenfoot.getRandomNumber(getHeight())- 10);
+            perkCount.add();
+        }
+        if(Greenfoot.getRandomNumber(2000) == 1)
+        {
+            addObject(new HpBox(perkCount), Greenfoot.getRandomNumber(getWidth()) - 10, Greenfoot.getRandomNumber(getHeight())- 10);
+            perkCount.add();
+            
         }
     }
 }
@@ -123,5 +162,9 @@ public void spawnPerk()
 public Counter getScore()
 {
     return score;
+}
+public Counter getPerks()
+{
+    return perkCount;
 }
 }

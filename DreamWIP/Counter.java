@@ -37,5 +37,13 @@ public class Counter extends Actor
         totalCount = totalCount + z;
         setImage(new GreenfootImage("Score: "+totalCount, 20, Color.WHITE, transparent));
     }
+    public void add()
+    {
+        totalCount++;
+    }
+    public void subtract()
+    {
+        totalCount--;
+    }
     
 }

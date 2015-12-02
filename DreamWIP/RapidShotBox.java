@@ -8,12 +8,25 @@ import greenfoot.*;
  */
 public class RapidShotBox extends PerkBox
 {
-    /**
-     * Act - do whatever the RapidShotBox wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    Counter c;
+    public RapidShotBox(Counter s)
+    {
+        c = s;
+    }
     public void act() 
     {
         checkPlayer();
-    }    
+        
+    }  
+        public void checkPlayer()
+    {
+        Actor player = getOneIntersectingObject(TopDownPlayer.class);
+        if (player != null)
+        {
+            getWorld().removeObject(this);
+            c.subtract();
+           
+    
+        }
+    }
 }

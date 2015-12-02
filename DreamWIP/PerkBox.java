@@ -9,10 +9,8 @@ import greenfoot.*;
 public class PerkBox extends Actor
 {
     //Timer disappear = new Timer(true);
-    public PerkBox()
-    {
-        
-    }
+    
+    
     public void act() 
     {
        
@@ -33,6 +31,10 @@ public class PerkBox extends Actor
         if (player != null)
         {
             getWorld().removeObject(this);
+            
+           
+    
         }
     }
+
 }

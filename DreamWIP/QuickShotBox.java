@@ -8,24 +8,29 @@ import greenfoot.*;
  */
 public class QuickShotBox extends PerkBox
 {
-
-    public QuickShotBox()
+    Counter c;
+    public QuickShotBox(Counter s)
     {
-        //Timer disappear = new Timer(true);
+        c = s;
     }
     public void act() 
     {
       // fade();
       checkPlayer();
+      
     }    
     
-    public void fade()
+    public void checkPlayer()
     {
-        
-      // if (disappear.getElapsedTime() == 1)
-       // {
-      //      getWorld().removeObject(this);
-       } 
+        Actor player = getOneIntersectingObject(TopDownPlayer.class);
+        if (player != null)
+        {
+            getWorld().removeObject(this);
+            c.subtract();
+           
+    
+        }
+    }
     }
     
     

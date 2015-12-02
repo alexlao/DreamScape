@@ -8,12 +8,25 @@ import greenfoot.*;
  */
 public class HpBox extends PerkBox
 {
-    /**
-     * Act - do whatever the HpBox wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public Counter c;
+    public HpBox(Counter s)
+    {
+        c = s;
+    }
     public void act() 
     {
         checkPlayer();
+       
     }    
+        public void checkPlayer()
+    {
+        Actor player = getOneIntersectingObject(TopDownPlayer.class);
+        if (player != null)
+        {
+            getWorld().removeObject(this);
+            c.subtract();
+           
+    
+        }
+    }
 }
