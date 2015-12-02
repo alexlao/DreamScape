@@ -27,6 +27,7 @@ public class Stage extends World
     OK ok3;
     OK ok4;
     boolean done;
+    int shottype;
     /**
      * Constructor for objects of class Stage.
      * 
@@ -61,7 +62,7 @@ public class Stage extends World
         pic1 = new MoveMouse();
         pic2 = new LeftClick();
         done = false;
-        
+        shottype = 0;
 
 
     }
@@ -128,7 +129,7 @@ public class Stage extends World
     public void goToShop()
     {
         int totalCount = counter.returnValue();
-        Shop shop = new Shop(totalCount, life, time);
+        Shop shop = new Shop(totalCount, life, time, shottype,0);
         Greenfoot.setWorld(shop);
     }
 

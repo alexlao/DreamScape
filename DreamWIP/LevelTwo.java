@@ -12,6 +12,7 @@ public class LevelTwo extends ScrollWorld
     Counter s;
     Lives lives;
     private int shottype;
+    int totalCount;
    
     /**
      * Constructor for objects of class LevelTwo.
@@ -279,7 +280,8 @@ public class LevelTwo extends ScrollWorld
   
     public void nextWorld()
     {
-        System.out.println("End of World 2, value of shottype" + shottype);
-        Greenfoot.setWorld(new LevelThree(s, lives, time, shottype));
+        System.out.println("End of World 2, value of shottype " + shottype);
+        totalCount = s.returnValue();
+        Greenfoot.setWorld(new BossTwoStage(totalCount, lives, time, shottype));
     }
 }
