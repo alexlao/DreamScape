@@ -23,11 +23,12 @@ public class TopDownWorld extends World
         addObject(score, 36, 12);
         prepare();
     }
-    
+
     public void prepare()
     {
         addObject(p, 400,400);
         addObject(new SkelEnemy(p, score), 500, 700);
+        addObject(new HpBox(), 100, 200);
         //addObject(hp, 720, 25);
         
     }

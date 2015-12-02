@@ -327,6 +327,20 @@ public void topDownShoot()
             perkTimer = 1000;
             shotType = 2;
         }
+        Actor hp = getOneIntersectingObject(HpBox.class);
+        if(hp != null)
+        {
+            if (lives.returnLives() < 5)
+            {
+             lives.life++;
+             lives.removeLife();
+            }
+            if(lives.returnLives() == 5)
+            {
+                TopDownWorld w = (TopDownWorld)getWorld();
+                w.getScore().gainPoints(10);
+            }
+        }
         
     }
     

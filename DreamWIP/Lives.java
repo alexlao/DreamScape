@@ -34,7 +34,7 @@ public class Lives extends Actor
     {
         if (life == 5)
         {
-            setImage(five);
+            current = five;
         }else if( life == 4)
         {
             current = four;

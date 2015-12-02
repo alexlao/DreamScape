@@ -34,6 +34,7 @@ public class TDBone extends Actor
          }
          Animate();
          b++;
+         checkCollisions();
     } 
         public void Animate()
     {
@@ -57,6 +58,20 @@ public class TDBone extends Actor
                         setImage(b5);
                         b = 0;
         } 
+    }
+    
+    public void checkCollisions()
+    {
+        try{
+        Actor quick = getOneIntersectingObject(QuickShot.class);
+        if(quick != null)
+        {
+            getWorld().removeObject(this);
+        }
+    }
+    catch(Exception e)
+    {
+    }
     }
 }
 
