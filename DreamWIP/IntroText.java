@@ -14,6 +14,7 @@ public class IntroText extends World
     OK2 ok;
     IntroTrans introtrans;
     int x;
+    GreenfootSound dream;
     /**
      * Constructor for objects of class IntroText.
      * 
@@ -27,6 +28,8 @@ public class IntroText extends World
         ok = new OK2();
         x = 0;
         prepare();
+        dream = new GreenfootSound("dream-harp.mp3");
+        dream.playLoop();
     }
 
     public void prepare(){
@@ -56,6 +59,7 @@ public class IntroText extends World
         }
         if(Greenfoot.mouseClicked(ok) && x == 1){
             Greenfoot.setWorld(new LevelOne());
+            dream.stop();
         }
     }
 }
