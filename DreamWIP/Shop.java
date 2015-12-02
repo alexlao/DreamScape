@@ -36,11 +36,12 @@ public class Shop extends World
         //takes in paramaters to continue the counter
         super(1000, 600, 1); 
         x = i;
+        shopRound = z;
         prepare();
         counter = new Counter(totalCount);
         act();
         hp = life;
-        shopRound = z;
+        
         time = t;
         addObject(counter, 36, 12);
         if (hp.returnLives() >= 5)
@@ -62,10 +63,10 @@ public class Shop extends World
 
         addObject(weapon2,getWidth()*1/3+150, getHeight()/2);
         
-        if(shottype == 0){
+        if(x == 0){
             addObject(weapon3, getWidth()*1/3+300, getHeight()/2);
         }
-        else if(shottype == 1){
+        else if(x == 1){
             addObject(shot3, getWidth()*1/3+300, getHeight()/2);
         }
         addObject(inv1, 100, 100);
@@ -111,19 +112,23 @@ public class Shop extends World
                 hp.life++;
                 hp.removeLife();
             }
-
+            Greenfoot.playSound("CashOut.mp3");
         }
         if((Greenfoot.mouseClicked(weapon2) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=1&&inv1.isItTouching(Weapon2.class)){
             removeObject(weapon2);
             counter.setCurrentValue(1);
             saved = true;
+            Greenfoot.playSound("CashOut.mp3");
         }
         if((Greenfoot.mouseClicked(weapon3) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=2 &&inv1.isItTouching(Weapon3.class)){
             removeObject(weapon3);    
             counter.setCurrentValue(2);
-            td1.purchasedNew();
-            shottype = td1.purchasedAmount();
-            System.out.println(shottype);
+            //td1.purchasedNew();
+            //shottype = td1.purchasedAmount();
+            x++;
+            shottype = x;
+            System.out.println(x);
+            Greenfoot.playSound("CashOut.mp3");
             System.out.println("Copped");
         }  
         if((Greenfoot.mouseClicked(shot3) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=10 &&inv1.isItTouching(Shot3Still.class)){
@@ -131,8 +136,9 @@ public class Shop extends World
             counter.setCurrentValue(10);
             x++;
             shottype = x;
-            System.out.println(shottype);
+            System.out.println(x);
             System.out.println("Copped New");
+            Greenfoot.playSound("CashOut.mp3");
         }  
 
         if(Greenfoot.isKeyDown("space"))
@@ -140,10 +146,12 @@ public class Shop extends World
             if(shopRound == 0){
                 if(saved == true)
                 {
+                    shottype = x;
                     LevelTwo nextLevel = new LevelTwo(counter, hp, true, time, shottype);
                     Greenfoot.setWorld(nextLevel);
                 }
                 else{
+                    shottype = x;
                     LevelTwo nextLevel = new LevelTwo(counter,hp, time, shottype);
                     Greenfoot.setWorld(nextLevel);
                 }
@@ -156,6 +164,7 @@ public class Shop extends World
                     //Greenfoot.setWorld(nextLevel);
                 }
                 else{
+                    shottype = x;
                     LevelThree nextLevel = new LevelThree(counter,hp, time, shottype);
                     Greenfoot.setWorld(nextLevel);
                 }

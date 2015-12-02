@@ -40,7 +40,11 @@ public class BossTwoStage extends World
         addObject(boss, 500, 0);
 
     }
-
+    public void act(){
+        if(Greenfoot.isKeyDown("o")){
+            goToShop();
+        }
+    }
     private void prepare()
     {
         addObject(score, 36, 12);

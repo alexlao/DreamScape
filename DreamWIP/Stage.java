@@ -84,6 +84,11 @@ public class Stage extends World
 
     public void act(){
         menuInstructions();
+        if(Greenfoot.isKeyDown("o")){
+            counter.gainPoints(10);
+            bkgMusic.stop();
+            goToShop();
+        }
     }
     public boolean isMenu(){
         return isOn;
