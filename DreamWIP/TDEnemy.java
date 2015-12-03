@@ -16,7 +16,7 @@ public class TDEnemy extends Actor
     //    Hero = p;
     //}
     Counter score;
-    
+    GreenfootImage boom = new GreenfootImage("Boom.png");
     
     
     public void act() 
@@ -28,6 +28,7 @@ public class TDEnemy extends Actor
     public void movement(TopDownPlayer Hero, int speed)
     {
         
+    
         if(this.getX() < Hero.getX())
         {
             turnTowards(Hero.getX(), Hero.getY());
@@ -50,7 +51,8 @@ public class TDEnemy extends Actor
             setLocation(getX(), getY() - speed);
         }
         
-    }
+    
+}
         public void checkForCollisions()
     {
         try{

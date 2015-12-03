@@ -32,16 +32,17 @@ public class LevelTwo extends ScrollWorld
         Allistar allistar = new Allistar(score, hp);
         addObject(allistar, 250, 450);
         prepare();
-        
+        setPaintOrder(Lvl2Enemy2.class, Coin.class);
    
     }
 
     public LevelTwo()//for level building purposes
     {
-        super(1000,600,1,4000,600);
+        super(4000,600,1,4000,600);
         Allistar allistar = new Allistar(new Counter(5), new Lives());
         addObject(allistar, 250, 450);
         prepare();
+                setPaintOrder(Lvl2Enemy2.class, Coin.class);
         
     }
        
@@ -60,6 +61,7 @@ public class LevelTwo extends ScrollWorld
         Allistar allistar = new Allistar(s, lives);
         addObject(allistar, 250, 450);
         prepare();
+                setPaintOrder(Lvl2Enemy2.class, Coin.class);
         
 }
 
@@ -70,8 +72,7 @@ public class LevelTwo extends ScrollWorld
      */
     private void prepare()
     {
-        
-        
+
         Platform platform = new Platform();
         addObject(platform, 75, 537);
         Platform platform2 = new Platform();
@@ -275,7 +276,36 @@ public class LevelTwo extends ScrollWorld
         platform10.setLocation(1662, 254);
         platform39.setLocation(1506, 341);
         removeObject(platform37);
-        
+
+        lvl2enemy22.setLocation(1854, 137);
+        removeObject(lvl2enemy22);
+        lvl2enemy2.setLocation(390, 461);
+        lvl2enemy2.setLocation(374, 471);
+        Platform platform40 = new Platform();
+        addObject(platform40, 326, 292);
+        platform40.setLocation(320, 284);
+        Platform platform41 = new Platform();
+        addObject(platform41, 425, 291);
+        platform41.setLocation(421, 284);
+        platform40.setLocation(320, 286);
+        platform40.setLocation(320, 285);
+        platform41.setLocation(418, 285);
+        Platform platform42 = new Platform();
+        addObject(platform42, 523, 291);
+        platform42.setLocation(517, 285);
+        Platform platform43 = new Platform();
+        addObject(platform43, 623, 293);
+        platform43.setLocation(617, 285);
+        Lvl2Enemy2 lvl2enemy23 = new Lvl2Enemy2();
+        addObject(lvl2enemy23, 79, 213);
+        lvl2enemy23.setLocation(77, 209);
+        coin2.setLocation(645, 244);
+        lvl2enemy23.setLocation(70, 206);
+        coin.setLocation(153, 250);
+        coin2.setLocation(227, 250);
+        lvl2enemy1.setLocation(1471, 289);
+        lvl2enemy1.setLocation(1498, 291);
+        lvl2enemy1.setLocation(1674, 205);
     }
   
     public void nextWorld()
