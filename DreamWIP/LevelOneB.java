@@ -11,11 +11,12 @@ public class LevelOneB extends ScrollWorld
      Lives lives;
      Allistar allistar;
      Timer timer;
+     GreenfootSound music;
     /**
      * Constructor for objects of class LevelOneB.
      * 
      */
-    public LevelOneB(Counter score, Lives lives, Timer timer)
+    public LevelOneB(Counter score, Lives lives, Timer timer, GreenfootSound californication)
     {
         super(1000,600,1, 2000, 600);
         addObject(lives, 920, 25);
@@ -25,6 +26,7 @@ public class LevelOneB extends ScrollWorld
         addObject(timer, 40, 30);
         addObject(allistar, 66, 394);
         allistar.setLocation(99, 264);
+        music = californication;
         prepare();
     }
     public LevelOneB()
@@ -130,7 +132,7 @@ public class LevelOneB extends ScrollWorld
     public void nextWorld()
     {
 
-
+        music.stop();
         Greenfoot.setWorld(new Stage(
             allistar.getScore().returnValue(), allistar.getLives(), timer));
 
