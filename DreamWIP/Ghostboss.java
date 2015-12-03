@@ -95,6 +95,13 @@ public class Ghostboss extends Actor
             bHealth.damage++;     
             bHealth.damageHit();
         }
+        if(isTouching(Shot2.class) && transAmount >= 255)
+        {
+            removeTouching(Shot2.class);
+            healthCount(1);
+            bHealth.damage++;     
+            bHealth.damageHit();
+        }
     }
 
     public void endGame()
@@ -111,7 +118,7 @@ public class Ghostboss extends Actor
 
     private void hitImage()
     {
-        if(isTouching(Shot.class) &&  transAmount >= 253)
+        if((isTouching(Shot.class) ||isTouching(Shot2.class))  &&  transAmount >= 253)
         {
             imageSwitchDelay = 10;
         }

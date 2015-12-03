@@ -74,7 +74,7 @@ public class TopDownPlayer extends Actor
     else if(type == "BossTwoStage")
     {
         moveAndTurn();
-        topDownShoot();
+        shoot();
         //checkDeath();
          if (isTouching(Ghostshot.class))
         {
