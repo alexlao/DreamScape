@@ -55,6 +55,31 @@ public class Lives extends Actor
 
         }
     }
+        public void addLife()
+    {
+        life++;
+        if (life == 5)
+        {
+            current = five;
+        }else if( life == 4)
+        {
+            current = four;
+        } else if (life == 3)
+        {
+            current = three;
+        } else if (life == 2)
+        {
+            current = two;
+        } else if (life == 1){
+            current = one;
+        } else if (life == 0)
+        {
+           //GameOver w = new GameOver();
+          // Greenfoot.setWorld(w);
+           
+
+        }
+    }
     /*
     public void updateLife()
     {

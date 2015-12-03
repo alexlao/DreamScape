@@ -366,7 +366,7 @@ public void topDownShoot()
             if (lives.returnLives() < 5)
             {
              //lives.life++;
-             lives.removeLife();
+             lives.addLife();
             }
             if(lives.returnLives() == 5)
             {
