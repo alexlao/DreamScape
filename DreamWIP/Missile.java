@@ -22,6 +22,7 @@ public class Missile extends SmoothMover
         isFirstLoop = true;
         removed = false;
         sound = new GreenfootSound("missile.wav"); //http://soundbible.com/1794-Missle-Launch.html
+        sound.setVolume(0);
         sound.play();
     }
 
