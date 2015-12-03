@@ -388,7 +388,7 @@ public class TopDownPlayer extends Actor
             if (lives.returnLives() < 5)
             {
                 //lives.life++;
-                lives.removeLife();
+                lives.addLife();
             }
             if(lives.returnLives() == 5)
             {
