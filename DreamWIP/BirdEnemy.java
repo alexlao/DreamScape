@@ -1,19 +1,18 @@
 import greenfoot.*;
 
 /**
- * Write a description of class BatEnemy here.
+ * Write a description of class BirdEnemy here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BatEnemy extends TDEnemy
+public class BirdEnemy extends TDEnemy
 {
-    private TopDownPlayer Hero;
+        private TopDownPlayer Hero;
     Counter score;
     int delay;
     GreenfootImage boom = new GreenfootImage("Boom.png");
-    
-    public BatEnemy(TopDownPlayer p, Counter c)
+        public BirdEnemy(TopDownPlayer p, Counter c)
     {
         Hero = p;
         score = c;
@@ -22,30 +21,12 @@ public class BatEnemy extends TDEnemy
     {
         if(getImage() != boom)
         {
-          movement(Hero,2);
+          movement(Hero,3);
           checkForCollisions();
         }
-        timercountdown(3);
-    } 
-    
-    public void checkForCollisions()
-    {
-            try{
-        if(isTouching(Shot.class))
-        {
-            delay = 7;
-            
-            //getWorld().removeObject(this);
-            
-            
-        }
-        }
-        catch(Exception e)
-        {
-            //getWorld().removeObject(this);
-       } 
-    }
-    public void timercountdown(int add)
+        timercountdown(5);
+    }    
+        public void timercountdown(int add)
     {
                 {
             if(delay > 0)
@@ -66,6 +47,23 @@ public class BatEnemy extends TDEnemy
                score.gainPoints(add);
             }
             
+    }
+}
+      public void checkForCollisions()
+    {
+        try{
+        if(isTouching(Shot.class))
+        {
+            delay = 7;
+            
+            //getWorld().removeObject(this);
+            
+            
+        }
+    }
+        catch(Exception e)
+        {
+            //getWorld().removeObject(this);
     }
 }
 }
