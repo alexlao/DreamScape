@@ -9,16 +9,18 @@ import greenfoot.*;
 public class TutorialWorld extends ScrollWorld
 {
     Counter score = new Counter(0);
-    Lives lives = new Lives();
+    Lives lives;
+    
     private GreenfootSound bkgMusic; 
     /**
      * Constructor for objects of class TutorialWorld.
      * 
      */
-    public TutorialWorld()
+    public TutorialWorld(Lives l)
     {
         super(1000,600,1, 2000, 600);
         addObject(score, 36, 12);
+        lives = l;
         addObject(lives, 920, 25);
         bkgMusic = new GreenfootSound("sounds/Walking.mp3");
         
@@ -27,7 +29,16 @@ public class TutorialWorld extends ScrollWorld
     
     public void nextWorld()
     {
-        Greenfoot.setWorld(new TutorialPart2(bkgMusic));
+        if (lives.life < -1)
+        {
+            Greenfoot.setWorld(new TutorialPart2(bkgMusic, lives));
+        }
+        if (lives.life <= 5 && lives.life >= 0)
+        {
+            
+            Greenfoot.setWorld(new TutorialPart2(bkgMusic, new Lives()));     
+            
+        }
 
     }
     

@@ -16,7 +16,7 @@ public class Start extends StartMenuButtons
     GreenfootImage five = new GreenfootImage("start5.png");
     GreenfootImage six = new GreenfootImage("start7.png");
     GreenfootSound scrib = new GreenfootSound("scribble.wav");
-    
+    Lives lives = new Lives();
     public Start()
     {
         setImage("Start.png");
@@ -60,7 +60,8 @@ public class Start extends StartMenuButtons
         }
         if (time == 3)
         {
-             Greenfoot.setWorld(new TutorialWorld());
+             
+             Greenfoot.setWorld(new TutorialWorld(lives));
              scrib.stop();
         }
         time--;

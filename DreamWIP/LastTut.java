@@ -9,16 +9,17 @@ import greenfoot.*;
 public class LastTut extends ScrollWorld
 {
     Counter score = new Counter(0);
-    Lives lives = new Lives();
+    Lives lives;
     GreenfootSound m;
     int shottype = 0;
     /**
      * Constructor for objects of class LastTut.
      * 
      */
-    public LastTut(GreenfootSound music)
+    public LastTut(GreenfootSound music, Lives l)
     {
         super(1000,600,1, 1395, 600);
+        lives = l;
         Allistar allistar = new Allistar(score, lives, shottype);
         addObject(allistar, 123, 394);
         addObject(lives,920,25);
@@ -29,8 +30,20 @@ public class LastTut extends ScrollWorld
 
     public void nextWorld()
     {
-        Greenfoot.setWorld(new IntroText());
+        
+        
+       if(lives.life < -1)
+       {
+           Greenfoot.setWorld(new IntroText(lives));
         m.stop();
+    
+    }
+    if (lives.life <=5 && lives.life >=0)
+    {
+        Greenfoot.setWorld(new IntroText(new Lives()));
+        m.stop();
+    }
+    
     }
     
     /**

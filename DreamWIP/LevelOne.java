@@ -15,13 +15,14 @@ public class LevelOne extends ScrollWorld
      */
     Counter score;
     Timer timer;
-    Lives lives = new Lives();
+    Lives lives;
     Allistar allistar;
-    public LevelOne()
+    public LevelOne(Lives l)
     {
         super(1000, 600, 1, 2000, 600);
         bkgMusic = new GreenfootSound("sounds/Cavemusic.mp3");
         //bkgMusic.playLoop();
+        lives = l;
         score =  new Counter(0);
         timer =  new Timer();
         addObject(score, 36, 12);
