@@ -12,6 +12,10 @@ public class TopDownWorld extends World
     TopDownPlayer p;
     Lives hp = new Lives();
     Counter score = new Counter(0);
+    int basicSpawnRate = 5;
+    int batSpawnRate = 4;
+    int skelSpawnRate = 4;
+    int birdSpawnRate = 3;
     Counter perkCount = new Counter(0);
     GreenfootSound music;
     
@@ -42,25 +46,68 @@ public class TopDownWorld extends World
         if (score.returnValue() >= 0)
         {
             spawnBasic();
+            
         }
         if(score.returnValue() > 10)
         {
             spawnBat();
+            
         }
         if(score.returnValue() > 20)
         {
             spawnSkel();
+            
         }
- 
+        if(score.returnValue() > 30)
+        {
+            spawnBird();
+            
+        }
+        
+        if(score.returnValue() == 50)
+        {
+            basicSpawnRate++;
+            batSpawnRate++;
+            skelSpawnRate++;
+        }
+        if(score.returnValue() == 100)
+        {
+            birdSpawnRate++;
+            basicSpawnRate++;
+            batSpawnRate++;
+            skelSpawnRate++;
+        }
+        if(score.returnValue() == 200)
+        {
+            birdSpawnRate++;
+            basicSpawnRate++;
+            batSpawnRate++;
+            skelSpawnRate++;
+        }
+        if(score.returnValue() == 500)
+        {
+            birdSpawnRate++;
+            basicSpawnRate++;
+            batSpawnRate++;
+            skelSpawnRate++;
+        }
+         if(score.returnValue() == 1000)
+        {
+            birdSpawnRate++;
+            basicSpawnRate++;
+            batSpawnRate++;
+            skelSpawnRate++;
+        }
+        
 }
 
     public void spawnBasic()
     {
-        if(this.numberOfObjects() < 20)
+        if(this.numberOfObjects() < 25)
         {
     if(Greenfoot.getRandomNumber(2) == 0)
            {
-               if(Greenfoot.getRandomNumber(1000) < 5)
+               if(Greenfoot.getRandomNumber(1000) < basicSpawnRate)
         {
             //Counter s = score;
             BasicEnemy e = new BasicEnemy(p,score);
@@ -71,7 +118,7 @@ public class TopDownWorld extends World
     }
     else
      {
-         if(Greenfoot.getRandomNumber(1000) < 5)
+         if(Greenfoot.getRandomNumber(1000) < basicSpawnRate)
         {
             // Counter s = score;
             BasicEnemy e = new BasicEnemy(p,score);
@@ -84,11 +131,11 @@ public class TopDownWorld extends World
 }
     public void spawnBat()
     {
-        if(this.numberOfObjects() < 20)
+        if(this.numberOfObjects() < 25)
         {
     if(Greenfoot.getRandomNumber(2) == 0)
            {
-               if(Greenfoot.getRandomNumber(1000) < 3)
+               if(Greenfoot.getRandomNumber(1000) < batSpawnRate)
         {
             //Counter s = score;
             BatEnemy e = new BatEnemy(p,score);
@@ -99,7 +146,7 @@ public class TopDownWorld extends World
     }
     else
      {
-         if(Greenfoot.getRandomNumber(1000) < 3)
+         if(Greenfoot.getRandomNumber(1000) < batSpawnRate)
         {
             // Counter s = score;
             BatEnemy e = new BatEnemy(p,score);
@@ -112,11 +159,11 @@ public class TopDownWorld extends World
 }
     public void spawnSkel()
     {
-        if(this.numberOfObjects() < 20)
+        if(this.numberOfObjects() < 25)
         {
     if(Greenfoot.getRandomNumber(2) == 0)
            {
-               if(Greenfoot.getRandomNumber(1000) < 3)
+               if(Greenfoot.getRandomNumber(1000) < skelSpawnRate)
         {
             //Counter s = score;
             SkelEnemy e = new SkelEnemy(p,score);
@@ -127,10 +174,38 @@ public class TopDownWorld extends World
     }
     else
      {
-         if(Greenfoot.getRandomNumber(1000) < 3)
+         if(Greenfoot.getRandomNumber(1000) < skelSpawnRate)
         {
             // Counter s = score;
             SkelEnemy e = new SkelEnemy(p,score);
+            addObject(e, p.getX() - Greenfoot.getRandomNumber(200) - 100, p.getY() - Greenfoot.getRandomNumber(200) - 100);
+            //maxSpawn++;
+            
+        }
+    }
+}
+}
+public void spawnBird()
+{
+    if(this.numberOfObjects() < 25)
+        {
+    if(Greenfoot.getRandomNumber(2) == 0)
+           {
+               if(Greenfoot.getRandomNumber(1000) < birdSpawnRate)
+        {
+            //Counter s = score;
+            BirdEnemy e = new BirdEnemy(p,score);
+            addObject(e, p.getX() + Greenfoot.getRandomNumber(200) + 100, p.getY() + Greenfoot.getRandomNumber(200) + 100);
+            //maxSpawn++;
+            
+        }
+    }
+    else
+     {
+         if(Greenfoot.getRandomNumber(1000) < birdSpawnRate)
+        {
+            // Counter s = score;
+            BirdEnemy e = new BirdEnemy(p,score);
             addObject(e, p.getX() - Greenfoot.getRandomNumber(200) - 100, p.getY() - Greenfoot.getRandomNumber(200) - 100);
             //maxSpawn++;
             
@@ -174,4 +249,5 @@ public Counter getPerks()
 {
     return perkCount;
 }
+
 }

@@ -128,7 +128,7 @@ public class Ghostboss extends Actor
 
     public void intro()
     {
-        if(getY() < 150 && damageAmount < 1)
+        if(getY() < 150)
         {
             setLocation(getX(), getY() + 1);
         }

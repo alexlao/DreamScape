@@ -75,7 +75,20 @@ public class TopDownPlayer extends Actor
     {
         moveAndTurn();
         topDownShoot();
-        checkDeath();
+        //checkDeath();
+         if (isTouching(Ghostshot.class))
+        {
+             //lives.life--;
+             lives.removeLife();
+             removeTouching(Ghostshot.class);
+             
+        }
+        if (isTouching(Ghostshot2.class))
+        {
+             //lives.life--;
+             lives.removeLife();
+                removeTouching(Ghostshot2.class);          
+        }
     }
    }
     
@@ -220,7 +233,7 @@ public class TopDownPlayer extends Actor
         if(isTouching(BossShot.class))
         {
             removeTouching(BossShot.class);
-            lives.life--;
+            //lives.life--;
             lives.removeLife();
 
             //health(1);
@@ -229,12 +242,12 @@ public class TopDownPlayer extends Actor
         if(isTouching(BossShot2.class))
         {
             removeTouching(BossShot2.class);
-            lives.life--;
+            //lives.life--;
             lives.removeLife();
 
             //health(1);
         }
- 
+       
 }
 
 public void topDownShoot()
@@ -313,10 +326,10 @@ public void topDownShoot()
             else
             {
                 
-               GreenfootSound hurt = new GreenfootSound("Hurt.wav");
+               GreenfootSound hurt = new GreenfootSound("Hurt.mp3");
                 hurt.play();
                 setImage(injured);
-                lives.life--;
+                //lives.life--;
                 lives.removeLife();
                 
                 hitDelay = 50;
@@ -352,7 +365,7 @@ public void topDownShoot()
         {
             if (lives.returnLives() < 5)
             {
-             lives.life++;
+             //lives.life++;
              lives.removeLife();
             }
             if(lives.returnLives() == 5)
@@ -392,7 +405,7 @@ public void topDownShoot()
             getY() < (explosion.getY() + 25)))
         {
             setLocation(525, 575);
-            lives.life--;
+            //lives.life--;
             lives.removeLife();
         }
         else if(missile != null && getX() > 500 && getX() < 550 &&
@@ -400,8 +413,10 @@ public void topDownShoot()
         {
              getWorld().removeObject(missile);
              setLocation(525, 575);
-             lives.life--;
+             //lives.life--;
              lives.removeLife();
         }
+        
     }
+   
 }
