@@ -281,14 +281,14 @@ public class Allistar extends ScrollingActor
 
     public void health()
     {
-        lives.life--;
+        //lives.life--;
         lives.removeLife();
         if(lives.returnLives() == 0)
         {
             GameOver w = new GameOver(this);
             Greenfoot.setWorld(w);
         }
-        System.out.println("" + lives.returnLives());    
+        //System.out.println("" + lives.returnLives());    
     }
 
     public void respawn()
