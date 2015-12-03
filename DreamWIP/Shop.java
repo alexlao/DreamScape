@@ -148,7 +148,7 @@ public class Shop extends World
                     LevelTwo nextLevel = new LevelTwo(counter,hp, time, shottype, shieldValue);
                     Greenfoot.setWorld(nextLevel);
                 }
-            }
+            
         
         else if(shopRound == 2){
                     shottype = x;
@@ -159,3 +159,4 @@ public class Shop extends World
         }
 
     }
+}
