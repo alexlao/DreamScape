@@ -15,7 +15,17 @@ public class CreditsMenu extends World
      */
     public CreditsMenu()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+         super(1000, 600, 1); 
+         setBackground("CreditsMenuPic.png");
+         showText("Press SPACE to return to Menu",getWidth()/2, getHeight()-50);
+    }
+    public void act()
+    {
+       
+       if (Greenfoot.isKeyDown("space"))
+       {
+           Greenfoot.setWorld(new StartMenu());
+        }
+
     }
 }
