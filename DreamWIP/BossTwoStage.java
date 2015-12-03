@@ -10,7 +10,7 @@ public class BossTwoStage extends World
 {
     Timer time;
     Counter score;
-    Lives lives;
+    Lives life;
     BossHealth bossHealth;
     Ghostboss boss;
     int x;
@@ -18,7 +18,7 @@ public class BossTwoStage extends World
     int totalCount;
     GreenfootSound music;
     
-    public BossTwoStage(int totalCount, Lives l, Timer t, int y)
+    public BossTwoStage(int totalCount, Lives lives, Timer t, int y)
     {    
 
         super(1000, 600, 1);  
@@ -28,11 +28,14 @@ public class BossTwoStage extends World
         score = new Counter(totalCount);
         prepare();
         x = totalCount;
-        lives = l;
+        life = lives;
         bossHealth = new BossHealth();
-        addObject(l, 925, 25);
+        addObject(life, 925, 25);
         addObject(t, 40, 30);
         addObject(bossHealth, 930, 80);
+        TopDownPlayer topdownplayer = new TopDownPlayer(life, 0);
+           topdownplayer.setLocation(305, 555);
+        addObject(topdownplayer, 301, 353);
         
         boss = new Ghostboss(bossHealth, score);
         addObject(boss, 500, 0);
@@ -48,14 +51,14 @@ public class BossTwoStage extends World
     private void prepare()
     {
         addObject(score, 36, 12);
-        addObject(new TopDownPlayer(new Lives(), shottype), 500, 800);
-        System.out.println("Start of boss two shot number: " + shottype);
+        //addObject(new TopDownPlayer(new Lives(), shottype), 500, 800);
+        //System.out.println("Start of boss two shot number: " + shottype);
     }
 
     public void goToShop()
     {
         totalCount = score.returnValue();
-        Shop shop = new Shop(totalCount, lives, time, shottype, 2);
+        Shop shop = new Shop(totalCount, life, time, shottype, 2);
         music.stop();
         Greenfoot.setWorld(shop);
     }

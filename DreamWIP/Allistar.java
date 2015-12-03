@@ -285,7 +285,7 @@ public class Allistar extends ScrollingActor
         lives.removeLife();
         if(lives.returnLives() == 0)
         {
-            GameOver w = new GameOver(this);
+            GameOver w = new GameOver();
             Greenfoot.setWorld(w);
         }
         //System.out.println("" + lives.returnLives());    
