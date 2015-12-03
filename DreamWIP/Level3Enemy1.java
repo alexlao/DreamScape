@@ -36,7 +36,7 @@ public class Level3Enemy1 extends Enemy
        if (count >= 0 && count < 100)
       {
         move(2);
-        if(Greenfoot.getRandomNumber(1000) < 40)
+        if(Greenfoot.getRandomNumber(1000) < 10)
         {
             shoot();
         }
@@ -91,7 +91,7 @@ public class Level3Enemy1 extends Enemy
       else if (count >= 110 && count <= 210)
       {
           move(-2);
-           if(Greenfoot.getRandomNumber(1000) < 40)
+           if(Greenfoot.getRandomNumber(1000) < 10)
         {
             shoot();
         }
@@ -106,7 +106,7 @@ public class Level3Enemy1 extends Enemy
    public void shoot()
    {
        World w = getWorld();
-       w.addObject(new poop(), getX(), getY()+10);
+       w.addObject(new poop(this), getX(), getY()+10);
     }
     
 }
