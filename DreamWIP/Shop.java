@@ -109,7 +109,7 @@ public class Shop extends World
             {
                 removeObject(weapon1);
                 counter.setCurrentValue(4);
-                hp.life++;
+                //hp.life++;
                 hp.addLife();
             }
             Greenfoot.playSound("CashOut.mp3");
