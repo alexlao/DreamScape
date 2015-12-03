@@ -16,7 +16,7 @@ public class LevelThree extends ScrollWorld
      * Constructor for objects of class LevelThree.
      * 
      */
-    public LevelThree(Counter score, Lives hp, Timer t, int x)
+    public LevelThree(Counter score, Lives hp, Timer t, int x, int e)
     {    
        super(1000,600,1,4000,600);
         s = score;

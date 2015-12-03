@@ -14,12 +14,12 @@ public class LevelTwo extends ScrollWorld
     private int shottype;
     int totalCount;
     GreenfootSound music;
-   
+    int shieldValue;
     /**
      * Constructor for objects of class LevelTwo.
      * 
      */
-    public LevelTwo(Counter score, Lives hp, Timer t, int x)
+    public LevelTwo(Counter score, Lives hp, Timer t, int x, int e)
     {
         super(1000,600,1,4000,600);
         time = t;
@@ -28,7 +28,7 @@ public class LevelTwo extends ScrollWorld
         lives = hp;
         addObject(s, 36, 12);
         addObject(time, 40, 30);
-       
+        shieldValue = e;
         addObject(lives, 920, 25);
         Allistar allistar = new Allistar(score, hp);
         addObject(allistar, 250, 450);
@@ -317,6 +317,6 @@ public class LevelTwo extends ScrollWorld
         System.out.println("End of World 2, value of shottype " + shottype);
         totalCount = s.returnValue();
         music.stop();
-        Greenfoot.setWorld(new BossTwoStage(totalCount, lives, time, shottype));
+        Greenfoot.setWorld(new BossTwoStage(totalCount, lives, time, shottype, shieldValue));
     }
 }

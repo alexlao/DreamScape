@@ -17,13 +17,17 @@ public class BossTwoStage extends World
     int shottype;
     int totalCount;
     GreenfootSound music;
-    
-    public BossTwoStage(int totalCount, Lives lives, Timer t, int y)
+    int shieldValue;    
+    HealthyShield shield;
+    TopDownPlayer topdownplayer;
+    public BossTwoStage(int totalCount, Lives lives, Timer t, int y, int q)
     {    
-
+        //shieldValue = q;
         super(1000, 600, 1);  
         time = t;
        // score = s;
+        shieldValue = q;
+        shield = new HealthyShield();
         shottype = y;
         score = new Counter(totalCount);
         prepare();
@@ -33,12 +37,13 @@ public class BossTwoStage extends World
         addObject(life, 925, 25);
         addObject(t, 40, 30);
         addObject(bossHealth, 930, 80);
-        TopDownPlayer topdownplayer = new TopDownPlayer(life, 0);
+        topdownplayer = new TopDownPlayer(life, 0);
            topdownplayer.setLocation(305, 555);
         addObject(topdownplayer, 301, 353);
         
         boss = new Ghostboss(bossHealth, score);
         addObject(boss, 500, 0);
+        
         music = new GreenfootSound("SoloDolo.mp3");
         https://soundcloud.com/8bitsongs/kid-cudi-solo-dolo
         music.playLoop();
@@ -47,6 +52,14 @@ public class BossTwoStage extends World
         if(Greenfoot.isKeyDown("o")){
             goToShop();
         }
+        shield();
+    }
+    public void shield(){
+        if(shieldValue == 3){
+            addObject(shield, 301,353);
+            shield.setLocation(topdownplayer.getX(), topdownplayer.getY());
+        }
+        
     }
     private void prepare()
     {

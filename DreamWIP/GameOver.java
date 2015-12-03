@@ -24,18 +24,10 @@ public class GameOver extends World
     {
         if (Greenfoot.isKeyDown("l"))
         {
-            if(a.getSave() == 0)
-            {
+
              Greenfoot.setWorld(new LevelOne());
-            }
-            if(a.getSave() == 1)
-            {
-                
-                Greenfoot.setWorld(new LevelTwo(a.getScore(), new Lives(),new Timer(), x));
-                
             }
         }
         
     }
     
-}

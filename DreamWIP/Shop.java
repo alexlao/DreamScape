@@ -10,7 +10,7 @@ public class Shop extends World
 {
     //created some class constructors
     Weapon1 weapon1 = new Weapon1();
-    Weapon2 weapon2 = new Weapon2();
+    HealthyShield shield = new HealthyShield();
     Weapon3 weapon3 = new Weapon3();
     Shot3Still shot3 = new Shot3Still();
     TopDownPlayer td1 = new TopDownPlayer(0);
@@ -31,6 +31,7 @@ public class Shop extends World
     InvisibileBox inv1 = new InvisibileBox();
     int shopRound;
     int x;
+    int shieldValue;
     public Shop(int totalCount, Lives life, Timer t, int i, int z )
     {
         //takes in paramaters to continue the counter
@@ -41,7 +42,7 @@ public class Shop extends World
         counter = new Counter(totalCount);
         act();
         hp = life;
-        
+        shieldValue = 0;
         time = t;
         addObject(counter, 36, 12);
         if (hp.returnLives() >= 5)
@@ -61,7 +62,7 @@ public class Shop extends World
 
         addObject(weapon1, getWidth()*1/3, getHeight()/2);  
 
-        addObject(weapon2,getWidth()*1/3+150, getHeight()/2);
+        addObject(shield,getWidth()*1/3+150, getHeight()/2);
         
         if(x == 0){
             addObject(weapon3, getWidth()*1/3+300, getHeight()/2);
@@ -81,9 +82,9 @@ public class Shop extends World
             showText("+HP",getWidth()*1/3, getHeight()/2+65);
             showText("4 Points", getWidth()*1/3, getHeight()/2-50);  
         }
-        else if(inv1.isItTouching(Weapon2.class)){
-            showText("1 Point",getWidth()*1/3+150, getHeight()/2-50);
-            showText("Extra Game Attempt", getWidth()*1/3+150, getHeight()/2+65);
+        else if(inv1.isItTouching(HealthyShield.class)){
+            showText("3 Point",getWidth()*1/3+150, getHeight()/2-50);
+            showText("Shield", getWidth()*1/3+150, getHeight()/2+65);
         }
         else if(inv1.isItTouching(Weapon3.class)){
             showText("5 Points", getWidth()*1/3+300, getHeight()/2-50);
@@ -113,10 +114,10 @@ public class Shop extends World
             }
             Greenfoot.playSound("CashOut.mp3");
         }
-        if((Greenfoot.mouseClicked(weapon2) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=1&&inv1.isItTouching(Weapon2.class)){
-            removeObject(weapon2);
-            counter.setCurrentValue(1);
-            saved = true;
+        if((Greenfoot.mouseClicked(shield) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=3&&inv1.isItTouching(HealthyShield.class)){
+            removeObject(shield);
+            counter.setCurrentValue(3);
+            shieldValue = 3;
             Greenfoot.playSound("CashOut.mp3");
         }
         if((Greenfoot.mouseClicked(weapon3) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=5 &&inv1.isItTouching(Weapon3.class)){
@@ -127,8 +128,8 @@ public class Shop extends World
             x++;
             shottype = x;
             System.out.println(x);
-            //Greenfoot.playSound("CashOut.mp3");
-            System.out.println("Copped");
+            Greenfoot.playSound("CashOut.mp3");
+            //System.out.println("Copped");
         }  
         if((Greenfoot.mouseClicked(shot3) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=10 &&inv1.isItTouching(Shot3Still.class)){
             removeObject(shot3);    
@@ -143,33 +144,18 @@ public class Shop extends World
         if(Greenfoot.isKeyDown("space"))
         {
             if(shopRound == 0){
-                if(saved == true)
-                {
                     shottype = x;
-                    LevelTwo nextLevel = new LevelTwo(counter, hp, true, time, shottype);
-                    Greenfoot.setWorld(nextLevel);
-                }
-                else{
-                    shottype = x;
-                    LevelTwo nextLevel = new LevelTwo(counter,hp, time, shottype);
+                    LevelTwo nextLevel = new LevelTwo(counter,hp, time, shottype, shieldValue);
                     Greenfoot.setWorld(nextLevel);
                 }
             }
         
         else if(shopRound == 2){
-            if(saved == true)
-                {
-                    //LevelThree nextLevel = new LevelThree(counter, hp, true, time, shottype);
-                    //Greenfoot.setWorld(nextLevel);
-                }
-                else{
                     shottype = x;
-                    LevelThree nextLevel = new LevelThree(counter,hp, time, shottype);
+                    LevelThree nextLevel = new LevelThree(counter,hp, time, shottype, shieldValue);
                     Greenfoot.setWorld(nextLevel);
                 }
             
         }
 
     }
-}
-}
