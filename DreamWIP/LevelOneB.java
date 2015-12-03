@@ -119,7 +119,11 @@ public class LevelOneB extends ScrollWorld
         Enemy1 enemy12 = new Enemy1();
         addObject(enemy12, 1482, 97);
         enemy12.setLocation(1471, 90);
+        Platform platform22 = new Platform();
+        addObject(platform22, 937, 247);
+        platform22.setLocation(931, 242);
     }
+
     public void act()
     {
     }
