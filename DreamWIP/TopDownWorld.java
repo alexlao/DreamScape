@@ -12,8 +12,9 @@ public class TopDownWorld extends World
     TopDownPlayer p;
     Lives hp = new Lives();
     Counter score = new Counter(0);
-    ;
     Counter perkCount = new Counter(0);
+    GreenfootSound music;
+    
     public TopDownWorld()
     {    
         
@@ -23,6 +24,8 @@ public class TopDownWorld extends World
         //Counter score = new Counter(0);
         addObject(score, 36, 12);
         prepare();
+        music = new GreenfootSound("SomebodyToldMe.mp3");
+        music.playLoop();
     }
 
     public void prepare()
@@ -158,11 +161,15 @@ public void spawnPerk()
         }
     }
 }
-
+    public void stopMusic()
+    {
+        music.stop();
+    }
 public Counter getScore()
 {
     return score;
 }
+
 public Counter getPerks()
 {
     return perkCount;

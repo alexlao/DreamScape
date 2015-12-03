@@ -14,10 +14,8 @@ public class BossThreeStage extends World
     Counter score;
     Lives lives;
     private int shottype;
-    /**
-     * Constructor for objects of class BossThreeStage.
-     * 
-     */
+    GreenfootSound music;
+
     public BossThreeStage(Counter s, Lives l, Timer t, int x)
     {    
         super(1000, 600, 1); 
@@ -33,7 +31,9 @@ public class BossThreeStage extends World
         addObject(bossHealth, 930, 80);
         fighter = new FighterPlane(bossHealth);
         addObject(fighter, 500, 222);
-        
+        music = new GreenfootSound("DangerZone.mp3");
+        //https://www.youtube.com/watch?v=TiPdrAUaSss
+        music.playLoop();
     }
 
     /**
@@ -81,6 +81,7 @@ public class BossThreeStage extends World
     }
     public void nextWorld()
     {
+        music.stop();
         Greenfoot.setWorld(new FinalCutscene(time));
     }
     

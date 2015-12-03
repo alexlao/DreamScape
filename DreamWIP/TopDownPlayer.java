@@ -305,6 +305,7 @@ public void topDownShoot()
                 //music.stop();
                 //getWorld().removeObject(this);
                 //Gg endText = new Gg(c);
+                ((TopDownWorld)getWorld()).stopMusic();
                 int score = ((TopDownWorld)getWorld()).getScore().returnValue();
                 TopDownGameOver game = new TopDownGameOver(score);
                Greenfoot.setWorld(game);

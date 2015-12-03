@@ -16,10 +16,8 @@ public class BossTwoStage extends World
     int x;
     int shottype;
     int totalCount;
-    /**
-     * Constructor for objects of class BossTwoStage.
-     * 
-     */
+    GreenfootSound music;
+    
     public BossTwoStage(int totalCount, Lives l, Timer t, int y)
     {    
 
@@ -38,7 +36,9 @@ public class BossTwoStage extends World
         
         boss = new Ghostboss(bossHealth, score);
         addObject(boss, 500, 0);
-
+        music = new GreenfootSound("SoloDolo.mp3");
+        https://soundcloud.com/8bitsongs/kid-cudi-solo-dolo
+        music.playLoop();
     }
     public void act(){
         if(Greenfoot.isKeyDown("o")){
@@ -56,6 +56,7 @@ public class BossTwoStage extends World
     {
         totalCount = score.returnValue();
         Shop shop = new Shop(totalCount, lives, time, shottype, 2);
+        music.stop();
         Greenfoot.setWorld(shop);
     }
 }

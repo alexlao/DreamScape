@@ -13,6 +13,7 @@ public class LevelTwo extends ScrollWorld
     Lives lives;
     private int shottype;
     int totalCount;
+    GreenfootSound music;
    
     /**
      * Constructor for objects of class LevelTwo.
@@ -33,7 +34,9 @@ public class LevelTwo extends ScrollWorld
         addObject(allistar, 250, 450);
         prepare();
         setPaintOrder(Lvl2Enemy2.class, Coin.class);
-   
+        music = new GreenfootSound("SpookyLoop.mp3");
+        //http://freemusicarchive.org/music/8bit_Betty/too_bleep_to_bloop/hc152_04_spooky_loop_by_8bit_betty
+        music.playLoop();
     }
 
     public LevelTwo()//for level building purposes
@@ -43,7 +46,8 @@ public class LevelTwo extends ScrollWorld
         addObject(allistar, 250, 450);
         prepare();
                 setPaintOrder(Lvl2Enemy2.class, Coin.class);
-        
+        music = new GreenfootSound("SpookyLoop.mp3");
+        music.playLoop();
     }
        
     public LevelTwo(Counter score, Lives hp, boolean save, Timer t, int x)
@@ -312,6 +316,7 @@ public class LevelTwo extends ScrollWorld
     {
         System.out.println("End of World 2, value of shottype " + shottype);
         totalCount = s.returnValue();
+        music.stop();
         Greenfoot.setWorld(new BossTwoStage(totalCount, lives, time, shottype));
     }
 }
