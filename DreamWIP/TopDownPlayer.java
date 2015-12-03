@@ -223,6 +223,7 @@ public class TopDownPlayer extends Actor
             setImage(shot);
             //System.out.println("New Shot");
         }
+    }
         if (purchasedShot == 2){
             if(shotTimer < 10)
         {
@@ -240,6 +241,7 @@ public class TopDownPlayer extends Actor
             setImage(shot);
             //System.out.println("Third Shot");
         }
+    }
         if(isTouching(BossShot.class))
         {
             removeTouching(BossShot.class);
@@ -271,6 +273,7 @@ public class TopDownPlayer extends Actor
         }
 
     }
+    
 
     public void topDownShoot()
     {
