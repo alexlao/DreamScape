@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class TopDownWorld extends World
 {
-
+    //Background image from: http://pre03.deviantart.net/5a6c/th/pre/f/2010/235/2/4/090611_moon___texture_by_avmorgan.jpg
     TopDownPlayer p;
     Lives hp = new Lives();
     Counter score = new Counter(0);
