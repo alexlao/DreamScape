@@ -16,4 +16,11 @@ public class HealthyShield extends Actor
     {
         // Add your action code here.
     }    
+    public boolean isItTouching(java.lang.Class cls){
+        return isTouching(cls);
+    }
+    public void removeTouchingObj(){
+        removeTouching(Ghostshot.class);
+        removeTouching(Ghostshot2.class);
+    }
 }

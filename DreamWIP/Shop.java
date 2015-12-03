@@ -32,6 +32,7 @@ public class Shop extends World
     int shopRound;
     int x;
     int shieldValue;
+    SoldOut soldout = new SoldOut();
     public Shop(int totalCount, Lives life, Timer t, int i, int z )
     {
         //takes in paramaters to continue the counter
@@ -62,13 +63,15 @@ public class Shop extends World
 
         addObject(weapon1, getWidth()*1/3, getHeight()/2);  
 
-        addObject(shield,getWidth()*1/3+150, getHeight()/2);
+        
         
         if(x == 0){
             addObject(weapon3, getWidth()*1/3+300, getHeight()/2);
+            addObject(shield,getWidth()*1/3+150, getHeight()/2);
         }
         else if(x == 1){
             addObject(shot3, getWidth()*1/3+300, getHeight()/2);
+            addObject(soldout, getWidth()*1/3+150, getHeight()/2);
         }
         addObject(inv1, 100, 100);
 
@@ -83,7 +86,7 @@ public class Shop extends World
             showText("4 Points", getWidth()*1/3, getHeight()/2-50);  
         }
         else if(inv1.isItTouching(HealthyShield.class)){
-            showText("3 Point",getWidth()*1/3+150, getHeight()/2-50);
+            showText("3 Points",getWidth()*1/3+150, getHeight()/2-50);
             showText("Shield", getWidth()*1/3+150, getHeight()/2+65);
         }
         else if(inv1.isItTouching(Weapon3.class)){
@@ -94,6 +97,9 @@ public class Shop extends World
             showText("10 Points", getWidth()*1/3+300, getHeight()/2-50);
             showText("Upgraded Shot", getWidth()*1/3+300, getHeight()/2+65); 
         }
+        else if(inv1.isItTouching(SoldOut.class)){
+            showText("Sold Out!", getWidth()*1/3+150, getHeight()/2+65);
+        }
         else{
             showText(null,getWidth()*1/3, getHeight()/2+65);
             showText(null, getWidth()*1/3, getHeight()/2-50); 
@@ -101,6 +107,7 @@ public class Shop extends World
             showText(null, getWidth()*1/3+150, getHeight()/2+65);
             showText(null, getWidth()*1/3+300, getHeight()/2-50);
             showText(null, getWidth()*1/3+300, getHeight()/2+65); 
+            
         }
 
         //code that runs in the shop to see which item to purchase and if sufficient credits to purchase

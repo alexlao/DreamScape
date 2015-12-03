@@ -47,19 +47,36 @@ public class BossTwoStage extends World
         music = new GreenfootSound("SoloDolo.mp3");
         https://soundcloud.com/8bitsongs/kid-cudi-solo-dolo
         music.playLoop();
+        if(shieldValue == 3){
+            addObject(shield,301,353);
+            
+        }
     }
     public void act(){
         if(Greenfoot.isKeyDown("o")){
             goToShop();
         }
+        if(shieldValue >0){
         shield();
     }
+    }
     public void shield(){
-        if(shieldValue == 3){
-            addObject(shield, 301,353);
-            shield.setLocation(topdownplayer.getX(), topdownplayer.getY());
+        shield.setLocation(topdownplayer.getX(), topdownplayer.getY());
+            if(shield.isItTouching(Ghostshot.class) || shield.isItTouching(Ghostshot2.class)){
+                shieldValue--;
+                shield.removeTouchingObj();
+                if(shieldValue == 2){
+                    shield.setImage("bubblehealth2.png");
+                }
+                if(shieldValue==1){
+                    shield.setImage("redbubble.png");
+                }
+                if(shieldValue==0){
+                    removeObject(shield);
+                }
         }
         
+    
     }
     private void prepare()
     {

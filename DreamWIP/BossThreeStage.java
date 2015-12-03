@@ -85,5 +85,5 @@ public class BossThreeStage extends World
         music.stop();
         Greenfoot.setWorld(new FinalCutscene(time));
     }
-    
+
 }
