@@ -48,25 +48,25 @@ public class Enemy1 extends Enemy
 
     public void pattern()
     {
-        if (turnAmount >= 0 && turnAmount <= 200)
+        if (turnAmount >= 0 && turnAmount <= 150)
         {
             setLocation(getX() + 2 , getY());
             turnCount(1);
         }
         
-        if(turnAmount == 200)
+        if(turnAmount == 150)
         {
            getImage().mirrorHorizontally(); 
         }
         
-        if(turnAmount > 200)
+        if(turnAmount > 150)
         {
             setLocation(getX() - 2  , getY());
             turnCount(1);
-            if(turnAmount == 400)
+            if(turnAmount == 300)
             {
                 getImage().mirrorHorizontally();
-                turnCount(-400);
+                turnCount(-300);
             }
         }
 

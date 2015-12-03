@@ -26,12 +26,6 @@ public class LevelOneB extends ScrollWorld
         addObject(allistar, 66, 394);
         allistar.setLocation(99, 264);
         prepare();
-      
-        
-    
-        
-
-
     }
     public LevelOneB()
     {

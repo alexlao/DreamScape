@@ -22,7 +22,6 @@ public class BossThreeStage extends World
         setPaintOrder(Shot3.class,Shot2.class, Shot.class, BossHealth.class,  FighterPlane.class, TopDownPlayer.class, Missile.class, Cloud.class, 
             FloorTile.class, NoTile.class);
         shottype = x;
-        prepare();
         time = t;
         score = s;
         
@@ -34,6 +33,7 @@ public class BossThreeStage extends World
         music = new GreenfootSound("DangerZone.mp3");
         //https://www.youtube.com/watch?v=TiPdrAUaSss
         music.playLoop();
+        prepare();
     }
 
     /**
