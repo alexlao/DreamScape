@@ -28,6 +28,9 @@ public class Stage extends World
     OK ok4;
     boolean done;
     int shottype;
+    HealthyShield good1;
+    int shieldLevel;
+    TopDownPlayer topdownplayer;
     /**
      * Constructor for objects of class Stage.
      * 
@@ -44,9 +47,10 @@ public class Stage extends World
          time = timer;
         addObject(life, 925, 25);
         addObject(time, 40, 30);
-          TopDownPlayer topdownplayer = new TopDownPlayer(life, 0);
+        topdownplayer = new TopDownPlayer(life, 0);
            topdownplayer.setLocation(305, 555);
         addObject(topdownplayer, 301, 353);
+        good1 = new HealthyShield();
         prepare();
         health = new BossHealth();
         addObject(health, 930, 80);
@@ -63,7 +67,8 @@ public class Stage extends World
         pic2 = new LeftClick();
         done = false;
         shottype = 0;
-
+        shieldLevel = 0;
+        
 
     }
 
@@ -79,7 +84,6 @@ public class Stage extends World
     private void prepare()
     {
         addObject(counter, 36, 12);
-
     }
 
     public void act(){
@@ -93,6 +97,7 @@ public class Stage extends World
     public boolean isMenu(){
         return isOn;
     }
+    
     public void menuInstructions()
     {
         if(boss.getY()==149 && isOn== false &&done==false){

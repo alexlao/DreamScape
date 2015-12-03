@@ -209,7 +209,7 @@ public class TopDownPlayer extends Actor
             getWorld().addObject(new Shot2(this), getX(), getY());
             shotTimer = 25;
             setImage(shot);
-            System.out.println("New Shot");
+            //System.out.println("New Shot");
         }
     }
          if (purchasedShot == 2){
@@ -227,7 +227,7 @@ public class TopDownPlayer extends Actor
             getWorld().addObject(new Shot3(this), getX(), getY());
             shotTimer = 10;
             setImage(shot);
-            System.out.println("Third Shot");
+            //System.out.println("Third Shot");
         }
     }
         if(isTouching(BossShot.class))

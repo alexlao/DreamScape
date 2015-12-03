@@ -258,6 +258,7 @@ public class LevelThree extends ScrollWorld
         addObject(level3enemy19, 3559, 100);
         Level3Enemy1 level3enemy110 = new Level3Enemy1();
         addObject(level3enemy110, 3695, 98);
+
     }
 
 

@@ -79,14 +79,14 @@ public class Shop extends World
     public void act(){
         if(inv1.isItTouching(Weapon1.class)){
             showText("+HP",getWidth()*1/3, getHeight()/2+65);
-            showText("3 Points", getWidth()*1/3, getHeight()/2-50);  
+            showText("4 Points", getWidth()*1/3, getHeight()/2-50);  
         }
         else if(inv1.isItTouching(Weapon2.class)){
             showText("1 Point",getWidth()*1/3+150, getHeight()/2-50);
             showText("Extra Game Attempt", getWidth()*1/3+150, getHeight()/2+65);
         }
         else if(inv1.isItTouching(Weapon3.class)){
-            showText("2 Points", getWidth()*1/3+300, getHeight()/2-50);
+            showText("5 Points", getWidth()*1/3+300, getHeight()/2-50);
             showText("Upgraded Shot", getWidth()*1/3+300, getHeight()/2+65); 
         }
         else if(inv1.isItTouching(Shot3Still.class)){
@@ -103,11 +103,11 @@ public class Shop extends World
         }
 
         //code that runs in the shop to see which item to purchase and if sufficient credits to purchase
-        if((Greenfoot.mouseClicked(inv1)||Greenfoot.mouseClicked(weapon1))  && counter.returnValue()>=3&&inv1.isItTouching(Weapon1.class)){
+        if((Greenfoot.mouseClicked(inv1)||Greenfoot.mouseClicked(weapon1))  && counter.returnValue()>=4&&inv1.isItTouching(Weapon1.class)){
             if(hp.returnLives() < 5)
             {
                 removeObject(weapon1);
-                counter.setCurrentValue(3);
+                counter.setCurrentValue(4);
                 hp.life++;
                 hp.removeLife();
             }
@@ -119,15 +119,15 @@ public class Shop extends World
             saved = true;
             Greenfoot.playSound("CashOut.mp3");
         }
-        if((Greenfoot.mouseClicked(weapon3) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=2 &&inv1.isItTouching(Weapon3.class)){
+        if((Greenfoot.mouseClicked(weapon3) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=5 &&inv1.isItTouching(Weapon3.class)){
             removeObject(weapon3);    
-            counter.setCurrentValue(2);
+            counter.setCurrentValue(5);
             //td1.purchasedNew();
             //shottype = td1.purchasedAmount();
             x++;
             shottype = x;
             System.out.println(x);
-            Greenfoot.playSound("CashOut.mp3");
+            //Greenfoot.playSound("CashOut.mp3");
             System.out.println("Copped");
         }  
         if((Greenfoot.mouseClicked(shot3) || Greenfoot.mouseClicked(inv1)) && counter.returnValue()>=10 &&inv1.isItTouching(Shot3Still.class)){
@@ -136,7 +136,7 @@ public class Shop extends World
             x++;
             shottype = x;
             System.out.println(x);
-            System.out.println("Copped New");
+            //System.out.println("Copped New");
             Greenfoot.playSound("CashOut.mp3");
         }  
 
