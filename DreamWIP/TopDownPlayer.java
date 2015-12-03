@@ -20,7 +20,7 @@ public class TopDownPlayer extends Actor
     private GreenfootImage injured = new GreenfootImage("HurtTD.png");
     Lives lives;
     public int purchasedShot = 0;
-    
+
     private int perkTimer = 0;
     private int shotType = 0;
     String type;
@@ -29,74 +29,84 @@ public class TopDownPlayer extends Actor
     //  int stationaryX;
     public TopDownPlayer(int x){
         purchasedShot = x;
-        
+
     }
+
     public void act()
-        {
+    {
         type = getWorld().getClass().getName();
-            if (type == "Stage")
-            {
-        if(getY() >= 450)
+        if (type == "Stage")
         {
-            if(((Stage)getWorld()).isMenu() !=true){
+            if(getY() >= 450)
+            {
+                if(((Stage)getWorld()).isMenu() !=true){
+                    moveAndTurn();
+                    shoot();
+                }
+            }
+            else
+            {
+                setLocation(getX(),getY() + 1);
+            }
+        }
+        else if (type == "TopDownWorld")
+        {
+            moveAndTurn();
+            topDownShoot();
+            checkCollisions();
+            showPerkTime();
+            getWorld().addObject(lives, 720, 25);
+            if(perkTimer >= 1)
+            {
+                perkTimer--;
+            }
+            if(perkTimer == 0)
+            {
+                shotType = 0;
+            }
+        }
+        else if(type == "BossThreeStage")
+        {
             moveAndTurn();
             shoot();
+            checkDeath();
+            //kill();
         }
-        }
-        else
+        else if(type == "BossTwoStage")
         {
-            setLocation(getX(),getY() + 1);
-        }
-       }
-      else if (type == "TopDownWorld")
-      {
-        moveAndTurn();
-        topDownShoot();
-        checkCollisions();
-        showPerkTime();
-        getWorld().addObject(lives, 720, 25);
-        if(perkTimer >= 1)
-        {
-            perkTimer--;
-        }
-        if(perkTimer == 0)
-        {
-            shotType = 0;
+            moveAndTurn();
+            topDownShoot();
+            checkDeath();
+            if(lives.returnLives() == 0)
+            {
+                GameOver w = new GameOver();
+                Greenfoot.setWorld(w);
+                
+            }
+
+            if (isTouching(Ghostshot.class))
+            {
+                //lives.life--;
+                lives.removeLife();
+                removeTouching(Ghostshot.class);
+
+            }
+            if (isTouching(Ghostshot2.class))
+            {
+                //lives.life--;
+                lives.removeLife();
+                removeTouching(Ghostshot2.class);
+
+            }
         }
     }
-    else if(type == "BossThreeStage")
-    {
-        moveAndTurn();
-        shoot();
-        checkDeath();
-        //kill();
-    }
-    else if(type == "BossTwoStage")
-    {
-        moveAndTurn();
-        shoot();
-        //checkDeath();
-         if (isTouching(Ghostshot.class))
-        {
-             //lives.life--;
-             lives.removeLife();
-             removeTouching(Ghostshot.class);
-             
-        }
-        if (isTouching(Ghostshot2.class))
-        {
-             //lives.life--;
-             lives.removeLife();
-                removeTouching(Ghostshot2.class);          
-        }
-    }
-   }
-    
+
     public TopDownPlayer (Lives l, int x)
     {
         lives = l;
         purchasedShot = x;
     }
+
     public TopDownPlayer(Lives l, boolean td)
     {
         inTopDown = td;
@@ -167,9 +177,11 @@ public class TopDownPlayer extends Actor
             //Uncomment to enable turn by mouse
         }
     }
+
     public void purchasedNew(){
         purchasedShot++;
     }
+
     public int purchasedAmount(){
         return purchasedShot;
     }
@@ -178,58 +190,58 @@ public class TopDownPlayer extends Actor
     { 
         if(purchasedShot == 0){
             if(shotTimer < 10)
-        {
-            setImage(noShot);
-            
-        }   
-         if(shotTimer >  0)
-        {
-            shotTimer--;
-        }
-        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
-        {
-            getWorld().addObject(new Shot(this), getX(), getY());
-            shotTimer = 50;
-            setImage(shot);
+            {
+                setImage(noShot);
 
+            }   
+            if(shotTimer >  0)
+            {
+                shotTimer--;
+            }
+            else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+            {
+                getWorld().addObject(new Shot(this), getX(), getY());
+                shotTimer = 50;
+                setImage(shot);
+
+            }
         }
-    }
         if (purchasedShot == 1){
             if(shotTimer < 10)
-        {
-            setImage(noShot);
-            
-        }   
-         if(shotTimer >  0)
-        {
-            shotTimer--;
+            {
+                setImage(noShot);
+
+            }   
+            if(shotTimer >  0)
+            {
+                shotTimer--;
+            }
+            else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+            {
+                getWorld().addObject(new Shot2(this), getX(), getY());
+                shotTimer = 25;
+                setImage(shot);
+                System.out.println("New Shot");
+            }
         }
-        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
-        {
-            getWorld().addObject(new Shot2(this), getX(), getY());
-            shotTimer = 25;
-            setImage(shot);
-            System.out.println("New Shot");
-        }
-    }
-         if (purchasedShot == 2){
+        if (purchasedShot == 2){
             if(shotTimer < 10)
-        {
-            setImage(noShot);
-            
-        }   
-         if(shotTimer >  0)
-        {
-            shotTimer--;
+            {
+                setImage(noShot);
+
+            }   
+            if(shotTimer >  0)
+            {
+                shotTimer--;
+            }
+            else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+            {
+                getWorld().addObject(new Shot3(this), getX(), getY());
+                shotTimer = 10;
+                setImage(shot);
+                System.out.println("Third Shot");
+            }
         }
-        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
-        {
-            getWorld().addObject(new Shot3(this), getX(), getY());
-            shotTimer = 10;
-            setImage(shot);
-            System.out.println("Third Shot");
-        }
-    }
         if(isTouching(BossShot.class))
         {
             removeTouching(BossShot.class);
@@ -237,6 +249,18 @@ public class TopDownPlayer extends Actor
             lives.removeLife();
 
             //health(1);
+        }
+        if(lives.returnLives() == 0)
+        {
+            GameOver w = new GameOver();
+            Greenfoot.setWorld(w);
+            
+        }
+        if(lives.returnLives() == 1)
+        {
+            //             GameOver w = new GameOver();
+            //             Greenfoot.setWorld(w);
+           
         }
 
         if(isTouching(BossShot2.class))
@@ -247,66 +271,66 @@ public class TopDownPlayer extends Actor
 
             //health(1);
         }
-       
-}
 
-public void topDownShoot()
-{
-              if(shotType == 1)
-        {
-        if(shotTimer < 10)
-        {
-            setImage(noShot);
-        }
-        if(shotTimer >  0)
-        {
-            shotTimer--;
-        }
-        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
-        {
-            getWorld().addObject(new QuickShot(this), getX(), getY());
-            shotTimer = 50;
-            setImage(shot);
-        }
     }
-    
-    if (shotType == 0)
+
+    public void topDownShoot()
     {
-                if(shotTimer < 10)
+        if(shotType == 1)
         {
-            setImage(noShot);
+            if(shotTimer < 10)
+            {
+                setImage(noShot);
+            }
+            if(shotTimer >  0)
+            {
+                shotTimer--;
+            }
+            else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+            {
+                getWorld().addObject(new QuickShot(this), getX(), getY());
+                shotTimer = 50;
+                setImage(shot);
+            }
         }
-        if(shotTimer >  0)
+
+        if (shotType == 0)
         {
-            shotTimer--;
+            if(shotTimer < 10)
+            {
+                setImage(noShot);
+            }
+            if(shotTimer >  0)
+            {
+                shotTimer--;
+            }
+            else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+            {
+                getWorld().addObject(new Shot(this), getX(), getY());
+                shotTimer = 50;
+                setImage(shot);
+            }
         }
-        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
-        {
-            getWorld().addObject(new Shot(this), getX(), getY());
-            shotTimer = 50;
-            setImage(shot);
-        }
-    }
-    
+
         if (shotType == 2)
-    {
-                if(shotTimer < 10)
         {
-            setImage(noShot);
-        }
-        if(shotTimer >  0)
-        {
-            shotTimer--;
-        }
-        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
-        {
-            getWorld().addObject(new RapidShot(this), getX(), getY());
-            shotTimer = 20;
-            setImage(shot);
+            if(shotTimer < 10)
+            {
+                setImage(noShot);
+            }
+            if(shotTimer >  0)
+            {
+                shotTimer--;
+            }
+            else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+            {
+                getWorld().addObject(new RapidShot(this), getX(), getY());
+                shotTimer = 20;
+                setImage(shot);
+            }
         }
     }
-}
-    
+
     public void checkCollisions()
     {
         Actor enemy = getOneIntersectingObject(TDEnemy.class);
@@ -321,33 +345,30 @@ public void topDownShoot()
                 ((TopDownWorld)getWorld()).stopMusic();
                 int score = ((TopDownWorld)getWorld()).getScore().returnValue();
                 TopDownGameOver game = new TopDownGameOver(score);
-               Greenfoot.setWorld(game);
+                Greenfoot.setWorld(game);
             }
             else
             {
-                
-               GreenfootSound hurt = new GreenfootSound("Hurt.mp3");
+
+                GreenfootSound hurt = new GreenfootSound("Hurt.mp3");
                 hurt.play();
                 setImage(injured);
                 //lives.life--;
                 lives.removeLife();
-                
+
                 hitDelay = 50;
             }
-            
-            
+
         }
         if(hitDelay > 0)
-            {
-                hitDelay--;
-            }
+        {
+            hitDelay--;
+        }
         if(hitDelay == 1)
-            {
-                setImage(noShot);
-            }
-          
-            
-            
+        {
+            setImage(noShot);
+        }
+
         Actor quick = getOneIntersectingObject(QuickShotBox.class); 
         if(quick != null)
         {
@@ -365,8 +386,8 @@ public void topDownShoot()
         {
             if (lives.returnLives() < 5)
             {
-             //lives.life++;
-             lives.addLife();
+                //lives.life++;
+                lives.removeLife();
             }
             if(lives.returnLives() == 5)
             {
@@ -374,9 +395,9 @@ public void topDownShoot()
                 w.getScore().gainPoints(5);
             }
         }
-        
+
     }
-    
+
     public void showPerkTime()
     {
         if(perkTimer > 1)
@@ -387,9 +408,9 @@ public void topDownShoot()
         {
             getWorld().showText("Perk: None", 50, 32);
         }
-        
+
     }
-    
+
     public void checkDeath()
     {
         Actor hole = getOneIntersectingObject(NoTile.class);
@@ -399,7 +420,7 @@ public void topDownShoot()
             getX() < (hole.getX() + 25) &&
             getY() > (hole.getY() - 25) &&
             getY() < (hole.getY() + 25)) ||
-            (explosion != null && getX() > (explosion.getX() - 25) &&
+        (explosion != null && getX() > (explosion.getX() - 25) &&
             getX() < (explosion.getX() + 25) &&
             getY() > (explosion.getY() - 25) &&
             getY() < (explosion.getY() + 25)))
@@ -409,14 +430,14 @@ public void topDownShoot()
             lives.removeLife();
         }
         else if(missile != null && getX() > 500 && getX() < 550 &&
-            getY() > 550 && getY() < 600)
+        getY() > 550 && getY() < 600)
         {
-             getWorld().removeObject(missile);
-             setLocation(525, 575);
-             //lives.life--;
-             lives.removeLife();
+            getWorld().removeObject(missile);
+            setLocation(525, 575);
+            //lives.life--;
+            lives.removeLife();
         }
-        
+
     }
-   
+
 }
