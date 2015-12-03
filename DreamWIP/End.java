@@ -27,4 +27,46 @@ public class End extends World
      }
 
     }
+    
+    public void act()
+    {
+        if(time.getElapsedTime() <= 300)
+        {
+            showText("You got a 36!", getWidth()/2, getHeight()/2);
+        }
+        if((time.getElapsedTime() > 300) && (time.getElapsedTime() <= 400))
+        {
+            showText("You got a 35!", getWidth()/2, getHeight()/2);
+        }
+                if((time.getElapsedTime() > 400) && (time.getElapsedTime() <= 500))
+        {
+            showText("You got a 34!", getWidth()/2, getHeight()/2);
+        }
+                        if((time.getElapsedTime() > 500) && (time.getElapsedTime() <= 600))
+        {
+            showText("You got a 33!", getWidth()/2, getHeight()/2);
+        }
+         if((time.getElapsedTime() > 600) && (time.getElapsedTime() <= 700))
+        {
+            showText("You got a 32!", getWidth()/2, getHeight()/2);
+        }
+                                if((time.getElapsedTime() > 700) && (time.getElapsedTime() <= 800))
+        {
+            showText("You got a 32!", getWidth()/2, getHeight()/2);
+        }
+                                if((time.getElapsedTime() > 800) && (time.getElapsedTime() <= 900))
+        {
+            showText("You got a 31!", getWidth()/2, getHeight()/2);
+        }
+         if(time.getElapsedTime() > 900) 
+        {
+            showText("You got a 30!", getWidth()/2, getHeight()/2);
+        }
+         showText("Press L to go back to the main menu!", getWidth()/2, getHeight()/2 + 200);
+         if(Greenfoot.isKeyDown("l"))
+         {
+             StartMenu m = new StartMenu();
+             Greenfoot.setWorld(m);
+            }
+    }
 }

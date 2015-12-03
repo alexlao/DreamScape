@@ -15,6 +15,12 @@ public class poop extends Enemy
     }
     public void act() 
     {
+        try{
         setLocation(b.getX(), getY() + 5);
+    }
+    catch (Exception E)
+    {
+        setLocation(getX(), getY() + 5);
+    }
     }    
 }

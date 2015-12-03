@@ -49,6 +49,14 @@ public class Portal extends ScrollingActor
         {
             setImage("FinalCutscene3Portal.png");
         }
+        else if (type == "FinalCutsceneTwo")
+        {
+          setImage(portalImage.getCurrentImage());
+        }
+        else if (type == "FinalCutscene")
+        {
+            setImage(portalImage.getCurrentImage());
+        }
     
    
        
