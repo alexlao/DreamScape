@@ -71,7 +71,6 @@ public class Shop extends World
         }
         addObject(inv1, 100, 100);
 
-        showText("Press Space to Continue...", getWidth()*1/3+200, 500);
         shopNumA = 0;
         shopNumB =0;
         shopNumC = 0;
@@ -79,28 +78,28 @@ public class Shop extends World
 
     public void act(){
         if(inv1.isItTouching(Weapon1.class)){
-            showText("+HP",getWidth()*1/3, getHeight()/2+50);
+            showText("+HP",getWidth()*1/3, getHeight()/2+65);
             showText("3 Points", getWidth()*1/3, getHeight()/2-50);  
         }
         else if(inv1.isItTouching(Weapon2.class)){
             showText("1 Point",getWidth()*1/3+150, getHeight()/2-50);
-            showText("Extra Game Attempt", getWidth()*1/3+150, getHeight()/2+50);
+            showText("Extra Game Attempt", getWidth()*1/3+150, getHeight()/2+65);
         }
         else if(inv1.isItTouching(Weapon3.class)){
             showText("2 Points", getWidth()*1/3+300, getHeight()/2-50);
-            showText("Upgraded Shot", getWidth()*1/3+300, getHeight()/2+50); 
+            showText("Upgraded Shot", getWidth()*1/3+300, getHeight()/2+65); 
         }
         else if(inv1.isItTouching(Shot3Still.class)){
             showText("10 Points", getWidth()*1/3+300, getHeight()/2-50);
-            showText("Upgraded Shot", getWidth()*1/3+300, getHeight()/2+50); 
+            showText("Upgraded Shot", getWidth()*1/3+300, getHeight()/2+65); 
         }
         else{
-            showText(null,getWidth()*1/3, getHeight()/2+50);
+            showText(null,getWidth()*1/3, getHeight()/2+65);
             showText(null, getWidth()*1/3, getHeight()/2-50); 
             showText(null,getWidth()*1/3+150, getHeight()/2-50);
-            showText(null, getWidth()*1/3+150, getHeight()/2+50);
+            showText(null, getWidth()*1/3+150, getHeight()/2+65);
             showText(null, getWidth()*1/3+300, getHeight()/2-50);
-            showText(null, getWidth()*1/3+300, getHeight()/2+50); 
+            showText(null, getWidth()*1/3+300, getHeight()/2+65); 
         }
 
         //code that runs in the shop to see which item to purchase and if sufficient credits to purchase

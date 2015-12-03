@@ -32,6 +32,7 @@ public class Lives extends Actor
     }
     public void removeLife()
     {
+        life--;
         if (life == 5)
         {
             current = five;
