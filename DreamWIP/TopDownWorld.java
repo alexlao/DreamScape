@@ -13,9 +13,9 @@ public class TopDownWorld extends World
     Lives hp = new Lives();
     Counter score = new Counter(0);
     int basicSpawnRate = 5;
-    int batSpawnRate = 4;
-    int skelSpawnRate = 4;
-    int birdSpawnRate = 3;
+    int batSpawnRate = 3;
+    int skelSpawnRate = 2;
+    int birdSpawnRate = 2;
     Counter perkCount = new Counter(0);
     GreenfootSound music;
     
@@ -53,30 +53,17 @@ public class TopDownWorld extends World
             spawnBat();
             
         }
-        if(score.returnValue() > 20)
+        if(score.returnValue() > 50)
         {
             spawnSkel();
             
         }
-        if(score.returnValue() > 30)
+        if(score.returnValue() > 100)
         {
             spawnBird();
             
         }
-        
-        if(score.returnValue() == 50)
-        {
-            basicSpawnRate++;
-            batSpawnRate++;
-            skelSpawnRate++;
-        }
-        if(score.returnValue() == 100)
-        {
-            birdSpawnRate++;
-            basicSpawnRate++;
-            batSpawnRate++;
-            skelSpawnRate++;
-        }
+
         if(score.returnValue() == 200)
         {
             birdSpawnRate++;
@@ -84,6 +71,7 @@ public class TopDownWorld extends World
             batSpawnRate++;
             skelSpawnRate++;
         }
+
         if(score.returnValue() == 500)
         {
             birdSpawnRate++;
@@ -195,7 +183,7 @@ public void spawnBird()
         {
             //Counter s = score;
             BirdEnemy e = new BirdEnemy(p,score);
-            addObject(e, p.getX() + Greenfoot.getRandomNumber(200) + 100, p.getY() + Greenfoot.getRandomNumber(200) + 100);
+            addObject(e, p.getX() + Greenfoot.getRandomNumber(200) + 200, p.getY() + Greenfoot.getRandomNumber(200) + 200);
             //maxSpawn++;
             
         }
@@ -206,7 +194,7 @@ public void spawnBird()
         {
             // Counter s = score;
             BirdEnemy e = new BirdEnemy(p,score);
-            addObject(e, p.getX() - Greenfoot.getRandomNumber(200) - 100, p.getY() - Greenfoot.getRandomNumber(200) - 100);
+            addObject(e, p.getX() - Greenfoot.getRandomNumber(200) - 200, p.getY() - Greenfoot.getRandomNumber(200) - 200);
             //maxSpawn++;
             
         }
