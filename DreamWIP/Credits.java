@@ -61,6 +61,7 @@ public class Credits extends StartMenuButtons
         if (time == 3)
         {
            //scrib.stop();
+           Greenfoot.setWorld(new CreditsMenu());
         }
         time--;
     }    
