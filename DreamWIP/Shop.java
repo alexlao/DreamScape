@@ -40,7 +40,7 @@ public class Shop extends World
         shopRound = z;
         prepare();
         counter = new Counter(totalCount);
-        act();
+        
         hp = life;
         shieldValue = 0;
         time = t;

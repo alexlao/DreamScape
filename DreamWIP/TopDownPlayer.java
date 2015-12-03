@@ -75,7 +75,7 @@ public class TopDownPlayer extends Actor
         else if(type == "BossTwoStage")
         {
             moveAndTurn();
-            topDownShoot();
+            shoot();
             checkDeath();
             if(lives.returnLives() == 0)
             {

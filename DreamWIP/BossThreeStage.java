@@ -19,13 +19,14 @@ public class BossThreeStage extends World
     public BossThreeStage(Counter s, Lives l, Timer t, int x)
     {    
         super(1000, 600, 1); 
-        setPaintOrder(Shot3.class,Shot2.class, Shot.class, BossHealth.class,  FighterPlane.class, TopDownPlayer.class, Missile.class, Cloud.class, 
+        setPaintOrder(Shot3.class,Shot2.class, Shot.class, BossHealth.class, Lives.class, FighterPlane.class, TopDownPlayer.class, Missile.class, Cloud.class, 
             FloorTile.class, NoTile.class);
         shottype = x;
         time = t;
         score = s;
         
         lives = l;
+         addObject(lives, 925, 25);
         bossHealth = new BossHealth();
         addObject(bossHealth, 930, 80);
         fighter = new FighterPlane(bossHealth);
@@ -76,7 +77,7 @@ public class BossThreeStage extends World
         Cloud cloud7 = new Cloud();
         addObject(cloud7, 374, 58);
        
-        addObject(new TopDownPlayer(new Lives(), shottype), 300, 500);
+        addObject(new TopDownPlayer(lives, shottype), 300, 500);
         
     }
     public void nextWorld()
