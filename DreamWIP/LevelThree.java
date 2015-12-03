@@ -268,7 +268,7 @@ public class LevelThree extends ScrollWorld
 
     public void nextWorld()
     {
-        System.out.println("Shottype value at the completion of level3" + shottype);
+        //System.out.println("Shottype value at the completion of level3" + shottype);
         music.stop();
         Greenfoot.setWorld(new BossThreeStage(s, lives, time, shottype));
     }

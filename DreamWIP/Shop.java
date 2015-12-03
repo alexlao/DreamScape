@@ -127,7 +127,7 @@ public class Shop extends World
             //shottype = td1.purchasedAmount();
             x++;
             shottype = x;
-            System.out.println(x);
+            //System.out.println(x);
             Greenfoot.playSound("CashOut.mp3");
             //System.out.println("Copped");
         }  
@@ -136,7 +136,7 @@ public class Shop extends World
             counter.setCurrentValue(10);
             x++;
             shottype = x;
-            System.out.println(x);
+            //System.out.println(x);
             //System.out.println("Copped New");
             Greenfoot.playSound("CashOut.mp3");
         }  
