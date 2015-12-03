@@ -17,6 +17,7 @@ public class LevelOne extends ScrollWorld
     Timer timer;
     Lives lives = new Lives();
     Allistar allistar;
+    GreenfootSound music;
     public LevelOne()
     {
         super(1000, 600, 1, 2000, 600);
@@ -27,6 +28,8 @@ public class LevelOne extends ScrollWorld
         addObject(score, 36, 12);
         addObject(timer, 40, 30);
         addObject(lives, 920, 25);
+        music = new GreenfootSound("Californication.mp3");
+        music.play();
         prepare();
         timer.start();
     
@@ -178,7 +181,7 @@ public class LevelOne extends ScrollWorld
 //     }
         public void nextWorld()
     {
-        Greenfoot.setWorld(new LevelOneB(allistar.getScore(), allistar.getLives(), timer));
+        Greenfoot.setWorld(new LevelOneB(allistar.getScore(), allistar.getLives(), timer, music));
     }
 
 }
