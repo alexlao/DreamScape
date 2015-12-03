@@ -25,7 +25,7 @@ public class Enemy1 extends Enemy
             health(1);
             removeTouching(Bullet1.class);
 
-            
+    
         }
     }
 

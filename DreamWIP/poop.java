@@ -8,12 +8,13 @@ import greenfoot.*;
  */
 public class poop extends Enemy
 {
-    /**
-     * Act - do whatever the poop wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    Level3Enemy1 b;
+    public poop(Level3Enemy1 bird)
+    {
+        b = bird;
+    }
     public void act() 
     {
-        setLocation(getX(), getY() + 5);
+        setLocation(b.getX(), getY() + 5);
     }    
 }

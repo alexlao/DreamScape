@@ -98,9 +98,9 @@ public class Enemy2 extends Enemy
             turnCount(1);            
         }
 
-        if(turnAmount == 600)
+        if(turnAmount == 580)
         {
-            turnCount(-600);
+            turnAmount = 0;
 
         }
     }

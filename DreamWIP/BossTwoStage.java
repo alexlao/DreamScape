@@ -37,7 +37,7 @@ public class BossTwoStage extends World
         addObject(life, 925, 25);
         addObject(t, 40, 30);
         addObject(bossHealth, 930, 80);
-        topdownplayer = new TopDownPlayer(life, 0);
+        topdownplayer = new TopDownPlayer(life, shottype);
            topdownplayer.setLocation(305, 555);
         addObject(topdownplayer, 301, 353);
         
