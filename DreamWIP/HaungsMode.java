@@ -21,6 +21,7 @@ public class HaungsMode extends StartMenuButtons
     GreenfootImage nine = new GreenfootImage("m9.png");
     GreenfootImage ten = new GreenfootImage("m10.png");
     GreenfootImage eleven = new GreenfootImage("m11.png");
+    Lives lives = new Lives();
     public HaungsMode()
     {
         setImage("haungs mode.png");
@@ -87,6 +88,8 @@ public class HaungsMode extends StartMenuButtons
         if (time == 1)
         {
             scrib.stop();
+            lives.life = -5000;
+            Greenfoot.setWorld(new TutorialWorld(lives));
         }
         time--;
     }    

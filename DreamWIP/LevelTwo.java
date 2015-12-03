@@ -314,7 +314,7 @@ public class LevelTwo extends ScrollWorld
   
     public void nextWorld()
     {
-        System.out.println("End of World 2, value of shottype " + shottype);
+        //System.out.println("End of World 2, value of shottype " + shottype);
         totalCount = s.returnValue();
         music.stop();
         Greenfoot.setWorld(new BossTwoStage(totalCount, lives, time, shottype, shieldValue));

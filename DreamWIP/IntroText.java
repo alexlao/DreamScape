@@ -15,14 +15,16 @@ public class IntroText extends World
     IntroTrans introtrans;
     int x;
     GreenfootSound dream;
+    Lives lives;
     /**
      * Constructor for objects of class IntroText.
      * 
      */
-    public IntroText()
+    public IntroText(Lives l)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1); 
+        lives = l;
         t1 = new IntroTrans();
         no = new OhNo();
         ok = new OK2();
@@ -58,8 +60,20 @@ public class IntroText extends World
             
         }
         if(Greenfoot.mouseClicked(ok) && x == 1){
-            Greenfoot.setWorld(new LevelOne());
+            
+             if (lives.life < -1)
+        {
+             Greenfoot.setWorld(new LevelOne(lives));
             dream.stop();
         }
+        if (lives.life <= 5 && lives.life >=0)
+        {
+            
+            Greenfoot.setWorld(new LevelOne(new Lives()));
+            dream.stop();        
+        }
     }
-}
+           
+        }
+    }
+

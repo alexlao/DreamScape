@@ -12,6 +12,7 @@ public class LevelThree extends ScrollWorld
     Lives lives;
     Timer time;
     int shottype;
+    GreenfootSound music;
     /**
      * Constructor for objects of class LevelThree.
      * 
@@ -28,9 +29,12 @@ public class LevelThree extends ScrollWorld
        shottype = x;
        Allistar allistar = new Allistar(s, lives);
        addObject(allistar, 250, 100);
-
+       music = new GreenfootSound("LearnToFly.mp3");
+       //https://www.youtube.com/watch?v=6qR-E1lPlEY
+       music.playLoop();
         prepare();
     }
+    
     public LevelThree()
     {
        super(1000,600,1,4000,600);
@@ -264,7 +268,8 @@ public class LevelThree extends ScrollWorld
 
     public void nextWorld()
     {
-        System.out.println("Shottype value at the completion of level3" + shottype);
+        //System.out.println("Shottype value at the completion of level3" + shottype);
+        music.stop();
         Greenfoot.setWorld(new BossThreeStage(s, lives, time, shottype));
     }
 }

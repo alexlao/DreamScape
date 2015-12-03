@@ -25,7 +25,7 @@ public class GameOver extends World
         if (Greenfoot.isKeyDown("l"))
         {
 
-             Greenfoot.setWorld(new LevelOne());
+             Greenfoot.setWorld(new LevelOne(new Lives()));
             }
         }
         

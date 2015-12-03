@@ -15,22 +15,31 @@ public class LevelOne extends ScrollWorld
      */
     Counter score;
     Timer timer;
-    Lives lives = new Lives();
+    Lives lives;
     Allistar allistar;
-    public LevelOne()
-    {
+    GreenfootSound music;
+
+    public LevelOne(Lives l)
+
+    
+
+     {
+         
         super(1000, 600, 1, 2000, 600);
-        bkgMusic = new GreenfootSound("sounds/Cavemusic.mp3");
+        //bkgMusic = new GreenfootSound("sounds/Cavemusic.mp3");
         //bkgMusic.playLoop();
+        lives = l;
         score =  new Counter(0);
         timer =  new Timer();
         addObject(score, 36, 12);
         addObject(timer, 40, 30);
         addObject(lives, 920, 25);
+        music = new GreenfootSound("Californication.mp3");
+        music.play();
         prepare();
         timer.start();
     
-}
+     }
 
     /**
      * Prepare the world for the start of the program. That is: create the initial
@@ -165,20 +174,20 @@ public class LevelOne extends ScrollWorld
         return lives;
     }
 
-//     public void act()
-//     
-//     {
-//         
-//         if(getObjects(Coin.class).isEmpty() == true)
-//         {
-//             LevelOneB world2 = new LevelOneB(score, lives, timer);
-//             Greenfoot.setWorld(world2);
-//         }
-//         
-//     }
+  //     public void act()
+  //     
+  //     {
+  //         
+  //         if(getObjects(Coin.class).isEmpty() == true)
+  //         {
+  //             LevelOneB world2 = new LevelOneB(score, lives, timer);
+  //             Greenfoot.setWorld(world2);
+  //         }
+  //         
+  //     }
         public void nextWorld()
     {
-        Greenfoot.setWorld(new LevelOneB(allistar.getScore(), allistar.getLives(), timer));
+        Greenfoot.setWorld(new LevelOneB(allistar.getScore(), allistar.getLives(), timer, music));
     }
 
 }

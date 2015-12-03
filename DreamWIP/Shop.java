@@ -116,8 +116,8 @@ public class Shop extends World
             {
                 removeObject(weapon1);
                 counter.setCurrentValue(4);
-                hp.life++;
-                hp.removeLife();
+                //hp.life++;
+                hp.addLife();
             }
             Greenfoot.playSound("CashOut.mp3");
         }
@@ -134,7 +134,7 @@ public class Shop extends World
             //shottype = td1.purchasedAmount();
             x++;
             shottype = x;
-            System.out.println(x);
+            //System.out.println(x);
             Greenfoot.playSound("CashOut.mp3");
             //System.out.println("Copped");
         }  
@@ -143,7 +143,7 @@ public class Shop extends World
             counter.setCurrentValue(10);
             x++;
             shottype = x;
-            System.out.println(x);
+            //System.out.println(x);
             //System.out.println("Copped New");
             Greenfoot.playSound("CashOut.mp3");
         }  
@@ -155,7 +155,7 @@ public class Shop extends World
                     LevelTwo nextLevel = new LevelTwo(counter,hp, time, shottype, shieldValue);
                     Greenfoot.setWorld(nextLevel);
                 }
-            }
+            
         
         else if(shopRound == 2){
                     shottype = x;
@@ -166,3 +166,4 @@ public class Shop extends World
         }
 
     }
+}
