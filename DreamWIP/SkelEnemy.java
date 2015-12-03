@@ -11,6 +11,7 @@ public class SkelEnemy extends TDEnemy
     private TopDownPlayer Hero;
     Counter score;
     int delay;
+    GreenfootImage boom = new GreenfootImage("Boom.png");
     
     public SkelEnemy(TopDownPlayer p, Counter c)
     {
@@ -19,17 +20,21 @@ public class SkelEnemy extends TDEnemy
     }
     public void act() 
     {
-        movement(Hero,1);
-        checkForCollisions();
+        if(getImage() != boom)
+        {
+          movement(Hero,1);
+          checkForCollisions();
+          boneThrow();
+        }
         timercountdown(5);
-        boneThrow();
+        
     }   
             public void checkForCollisions()
     {
         try{
         if(isTouching(Shot.class))
         {
-            delay = 5;
+            delay = 7;
             
             //getWorld().removeObject(this);
             
@@ -49,11 +54,11 @@ public class SkelEnemy extends TDEnemy
                 delay--;
             }
 
-            if(delay == 3)
+            if(delay == 6)
             {
                // GreenfootSound splat = new GreenfootSound("killsound.mp3");
                // splat.play();
-                setImage("Boom.png");
+                setImage(boom);
                 
             }
             if(delay == 1)
