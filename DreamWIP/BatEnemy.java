@@ -11,6 +11,7 @@ public class BatEnemy extends TDEnemy
     private TopDownPlayer Hero;
     Counter score;
     int delay;
+    GreenfootImage boom = new GreenfootImage("Boom.png");
     
     public BatEnemy(TopDownPlayer p, Counter c)
     {
@@ -19,8 +20,11 @@ public class BatEnemy extends TDEnemy
     }
     public void act() 
     {
-        movement(Hero, 2);
-        checkForCollisions();
+        if(getImage() != boom)
+        {
+          movement(Hero,1);
+          checkForCollisions();
+        }
         timercountdown(3);
     } 
     
@@ -29,7 +33,7 @@ public class BatEnemy extends TDEnemy
             try{
         if(isTouching(Shot.class))
         {
-            delay = 5;
+            delay = 7;
             
             //getWorld().removeObject(this);
             
@@ -49,11 +53,11 @@ public class BatEnemy extends TDEnemy
                 delay--;
             }
 
-            if(delay == 3)
+            if(delay == 6)
             {
                 
                 //splat.play();
-                setImage("Boom.png");
+                setImage(boom);
                 
             }
             if(delay == 1)
