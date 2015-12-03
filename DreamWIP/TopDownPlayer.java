@@ -325,7 +325,7 @@ public void topDownShoot()
             else
             {
                 
-               GreenfootSound hurt = new GreenfootSound("Hurt.wav");
+               GreenfootSound hurt = new GreenfootSound("Hurt.mp3");
                 hurt.play();
                 setImage(injured);
                 //lives.life--;
