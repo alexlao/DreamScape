@@ -53,7 +53,7 @@ public class IntroText extends World
             addObject(no, 490, 444);
         }
         if(Greenfoot.mouseClicked(no)){
-            introtrans.setImage("finalstart.png");
+            introtrans.setImage("endone.png");
             removeObject(no);
             x++;
             addObject(ok, 490, 426);
