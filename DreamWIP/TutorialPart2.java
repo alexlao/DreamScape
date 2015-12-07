@@ -28,6 +28,11 @@ public class TutorialPart2 extends ScrollWorld
         m = music;
     }
     
+        public void stopMusic()
+    {
+        m.stop();
+    }
+    
     public void nextWorld()
     {
          if (lives.life < -1)

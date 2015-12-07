@@ -37,11 +37,20 @@ public class TopDownPlayer extends Actor
         type = getWorld().getClass().getName();
         if (type == "Stage")
         {
+            
             if(getY() >= 450)
             {
                 if(((Stage)getWorld()).isMenu() !=true){
                     moveAndTurn();
                     shoot();
+                    if(lives.returnLives() == 0)
+                    {
+                        ((Stage)getWorld()).stopMusic();
+                        //getWorld().stopMusic();
+                        GameOver w = new GameOver();
+                        Greenfoot.setWorld(w);
+
+                    }
                 }
             }
             else
@@ -70,6 +79,14 @@ public class TopDownPlayer extends Actor
             moveAndTurn();
             shoot();
             checkDeath();
+            if(lives.returnLives() == 0)
+            {
+                ((BossThreeStage)getWorld()).stopMusic();
+                //getWorld().stopMusic();
+                GameOver w = new GameOver();
+                Greenfoot.setWorld(w);
+
+            }
             //kill();
         }
         else if(type == "BossTwoStage")
@@ -79,9 +96,11 @@ public class TopDownPlayer extends Actor
             checkDeath();
             if(lives.returnLives() == 0)
             {
+                ((BossTwoStage)getWorld()).stopMusic();
+                //getWorld().stopMusic();
                 GameOver w = new GameOver();
                 Greenfoot.setWorld(w);
-                
+
             }
 
             if (isTouching(Ghostshot.class))
@@ -208,40 +227,40 @@ public class TopDownPlayer extends Actor
         }
         if (purchasedShot == 1){
             if(shotTimer < 10)
-        {
-            setImage(noShot);
-            
-        }   
-         if(shotTimer >  0)
-        {
-            shotTimer--;
+            {
+                setImage(noShot);
+
+            }   
+            if(shotTimer >  0)
+            {
+                shotTimer--;
+            }
+            else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+            {
+                getWorld().addObject(new Shot2(this), getX(), getY());
+                shotTimer = 25;
+                setImage(shot);
+                //System.out.println("New Shot");
+            }
         }
-        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
-        {
-            getWorld().addObject(new Shot2(this), getX(), getY());
-            shotTimer = 25;
-            setImage(shot);
-            //System.out.println("New Shot");
-        }
-    }
         if (purchasedShot == 2){
             if(shotTimer < 10)
-        {
-            setImage(noShot);
-            
-        }   
-         if(shotTimer >  0)
-        {
-            shotTimer--;
+            {
+                setImage(noShot);
+
+            }   
+            if(shotTimer >  0)
+            {
+                shotTimer--;
+            }
+            else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
+            {
+                getWorld().addObject(new Shot3(this), getX(), getY());
+                shotTimer = 10;
+                setImage(shot);
+                //System.out.println("Third Shot");
+            }
         }
-        else if((Greenfoot.mouseClicked(null) || Greenfoot.isKeyDown("space")))
-        {
-            getWorld().addObject(new Shot3(this), getX(), getY());
-            shotTimer = 10;
-            setImage(shot);
-            //System.out.println("Third Shot");
-        }
-    }
         if(isTouching(BossShot.class))
         {
             removeTouching(BossShot.class);
@@ -252,15 +271,18 @@ public class TopDownPlayer extends Actor
         }
         if(lives.returnLives() == 0)
         {
+
+            //((Stage)getWorld()).stopMusic();
+            //getWorld().stopMusic();
             GameOver w = new GameOver();
             Greenfoot.setWorld(w);
-            
+
         }
         if(lives.returnLives() == 1)
         {
             //             GameOver w = new GameOver();
             //             Greenfoot.setWorld(w);
-           
+
         }
 
         if(isTouching(BossShot2.class))
@@ -273,7 +295,6 @@ public class TopDownPlayer extends Actor
         }
 
     }
-    
 
     public void topDownShoot()
     {

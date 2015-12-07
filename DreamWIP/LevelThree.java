@@ -43,6 +43,11 @@ public class LevelThree extends ScrollWorld
        prepare();
     }
     
+        public void stopMusic()
+    {
+        music.stop();
+    }
+    
 
     /**
      * Prepare the world for the start of the program. That is: create the initial

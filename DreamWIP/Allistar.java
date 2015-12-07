@@ -279,17 +279,7 @@ public class Allistar extends ScrollingActor
 
     }
 
-    public void health()
-    {
-        //lives.life--;
-        lives.removeLife();
-        if(lives.returnLives() == 0)
-        {
-            GameOver w = new GameOver();
-            Greenfoot.setWorld(w);
-        }
-        //System.out.println("" + lives.returnLives());    
-    }
+
 
     public void respawn()
     {
@@ -331,6 +321,19 @@ public class Allistar extends ScrollingActor
             getWorld().nextWorld();
         }
         //bkgMusic.stop();
+    }
+    
+        public void health()
+    {
+        //lives.life--;
+        lives.removeLife();
+        if(lives.returnLives() == 0)
+        {
+            getWorld().stopMusic();
+            GameOver w = new GameOver();
+            Greenfoot.setWorld(w);
+        }
+        //System.out.println("" + lives.returnLives());    
     }
 
     public int getSave()

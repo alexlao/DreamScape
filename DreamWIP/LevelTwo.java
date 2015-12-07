@@ -38,6 +38,11 @@ public class LevelTwo extends ScrollWorld
         //http://freemusicarchive.org/music/8bit_Betty/too_bleep_to_bloop/hc152_04_spooky_loop_by_8bit_betty
         music.playLoop();
     }
+    
+        public void stopMusic()
+    {
+        music.stop();
+    }
 
     public LevelTwo()//for level building purposes
     {

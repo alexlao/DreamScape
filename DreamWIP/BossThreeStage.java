@@ -36,7 +36,12 @@ public class BossThreeStage extends World
         music.playLoop();
         prepare();
     }
-
+ 
+        public void stopMusic()
+    {
+        music.stop();
+    }
+    
     /**
      * Prepare the world for the start of the program. That is: create the initial
      * objects and add them to the world.

@@ -27,6 +27,11 @@ public class LastTut extends ScrollWorld
         prepare();
         m = music;
     }
+    
+        public void stopMusic()
+    {
+        m.stop();
+    }
 
     public void nextWorld()
     {

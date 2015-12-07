@@ -42,6 +42,11 @@ public class TutorialWorld extends ScrollWorld
 
     }
     
+        public void stopMusic()
+    {
+        //music.stop();
+    }
+    
     public void act(){
         bkgMusic.play();    
     }

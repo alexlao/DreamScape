@@ -132,6 +132,11 @@ public class LevelOneB extends ScrollWorld
     {
         return lives;
     }
+    
+        public void stopMusic()
+    {
+        music.stop();
+    }
 
     public void nextWorld()
     {

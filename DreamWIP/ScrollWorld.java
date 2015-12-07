@@ -309,6 +309,11 @@ public abstract class ScrollWorld extends World
     {
     }
     
+    public void stopMusic()
+    {
+        
+    }
+    
     /** MOVING BACKGROUND: */
     
     /**

@@ -71,6 +71,11 @@ public class Stage extends World
         
 
     }
+    
+        public void stopMusic()
+    {
+        bkgMusic.stop();
+    }
 
     //     public void musiolor (int amount)
     //     {

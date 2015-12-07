@@ -52,6 +52,12 @@ public class BossTwoStage extends World
             
         }
     }
+    
+        public void stopMusic()
+    {
+        music.stop();
+    }
+    
     public void act(){
         if(Greenfoot.isKeyDown("o")){
             goToShop();

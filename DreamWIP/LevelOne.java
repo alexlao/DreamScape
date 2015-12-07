@@ -21,10 +21,9 @@ public class LevelOne extends ScrollWorld
 
     public LevelOne(Lives l)
 
-    
 
-     {
-         
+    {
+
         super(1000, 600, 1, 2000, 600);
         //bkgMusic = new GreenfootSound("sounds/Cavemusic.mp3");
         //bkgMusic.playLoop();
@@ -38,9 +37,10 @@ public class LevelOne extends ScrollWorld
         music.play();
         prepare();
         timer.start();
-    
-     }
 
+    }
+
+     
     /**
      * Prepare the world for the start of the program. That is: create the initial
      * objects and add them to the world.
@@ -169,25 +169,31 @@ public class LevelOne extends ScrollWorld
     {
         return score;
     }
+
     public Lives getLives()
     {
         return lives;
     }
 
-  //     public void act()
-  //     
-  //     {
-  //         
-  //         if(getObjects(Coin.class).isEmpty() == true)
-  //         {
-  //             LevelOneB world2 = new LevelOneB(score, lives, timer);
-  //             Greenfoot.setWorld(world2);
-  //         }
-  //         
-  //     }
-        public void nextWorld()
+    //     public void act()
+    //     
+    //     {
+    //         
+    //         if(getObjects(Coin.class).isEmpty() == true)
+    //         {
+    //             LevelOneB world2 = new LevelOneB(score, lives, timer);
+    //             Greenfoot.setWorld(world2);
+    //         }
+    //         
+    //     }
+    public void nextWorld()
     {
         Greenfoot.setWorld(new LevelOneB(allistar.getScore(), allistar.getLives(), timer, music));
+    }
+
+    public void stopMusic()
+    {
+        music.stop();
     }
 
 }
