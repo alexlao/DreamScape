@@ -269,15 +269,7 @@ public class TopDownPlayer extends Actor
 
             //health(1);
         }
-        if(lives.returnLives() == 0)
-        {
 
-            //((Stage)getWorld()).stopMusic();
-            //getWorld().stopMusic();
-            GameOver w = new GameOver();
-            Greenfoot.setWorld(w);
-
-        }
         if(lives.returnLives() == 1)
         {
             //             GameOver w = new GameOver();

@@ -44,7 +44,7 @@ public class BossTwoStage extends World
         boss = new Ghostboss(bossHealth, score);
         addObject(boss, 500, 0);
         
-        music = new GreenfootSound("SoloDolo.mp3");
+        music = new GreenfootSound("Sweet.mp3");
         https://soundcloud.com/8bitsongs/kid-cudi-solo-dolo
         music.playLoop();
         if(shieldValue == 3){
